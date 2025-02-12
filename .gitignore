@@ -1,0 +1,73 @@
+# General
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IDE Specific
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+# VS Code
+.classpath
+.project
+.settings/
+.vscode/
+
+# Flutter-specific
+/bin/cache/
+/bin/internal/
+/dev/benchmarks/mega_gallery/
+/dev/bots/
+/dev/docs/
+/dev/integration_tests/**/xcuserdata
+/dev/integration_tests/**/Pods
+/packages/flutter/coverage/
+version
+analysis_benchmark.json
+
+# Generated files
+.dart_tool/
+.packages
+.pub-preload-cache/
+.pub-cache/
+.pub/
+build/
+**/doc/api/
+**/generated_plugin_registrant.dart
+
+# Android build files
+.gradle/
+**/android/**/gradle-wrapper.jar
+**/android/captures/
+**/android/local.properties
+*.jks
+
+# iOS build files
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/DerivedData/
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/
+
+# Coverage
+coverage/
+
+# Symbols
+app.*.symbols
+
+# Exceptions
+!**/ios/**/default.*
