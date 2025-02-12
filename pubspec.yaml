@@ -1,0 +1,84 @@
+name: graduation
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  #In here we will import the packages that we will use in our project.  
+
+  #Used to show a splash screen in the start of app.
+  flutter_native_splash: ^2.4.4
+  #Provides a responsivness
+  flutter_screenutil: ^5.9.3
+  #For future plan to add both english and arabic language.
+  flutter_localization: ^0.3.1
+  #Svg images.
+  flutter_svg: ^2.0.17
+  #Onboarding screen.
+  animated_introduction: ^1.0.4
+  #Lottie Animation.
+  lottie: ^3.3.1
+  #Animations.
+  animate_do: ^3.3.7
+  #Speech to text.
+  speech_to_text: ^7.0.0
+  #icons
+  iconsax: ^0.0.8
+  #Drawer menu 
+  hidden_drawer_menu: ^3.0.1
+
+
+  
+
+  flutter_localizations:
+    sdk: flutter
+  provider: ^6.1.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+
+  
+  
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
+    - assets/svg/
+    - assets/icons/
+    - assets/lottie/
+
+  fonts:
+    #Arabic font when needed.
+    - family: IBMPlexSansArabic
+      fonts:
+        - asset: assets/fonts/arabic/IBMPlexSansArabic-Regular.ttf
+        - asset: assets/fonts/arabic/IBMPlexSansArabic-Bold.ttf
+          weight: 700
+    #English font "Main font".
+    - family: Lilita One
+      fonts:
+        - asset: assets/fonts/english/LilitaOne-Regular.ttf
+
+    - family: Lateef
+      fonts:
+        - asset: assets/fonts/english/Lateef-Regular.ttf
+
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  fullscreen: true
+  background_image: assets/images/splash1.png
