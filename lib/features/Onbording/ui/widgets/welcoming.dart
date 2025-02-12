@@ -38,18 +38,7 @@ class _WelcomingState extends State<Welcoming> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        // Transform.translate(
-        //   offset: const Offset(8, 35),
-        //   child: SizedBox(
-        //     height: 350 + (_offset * 250),
-        //     child: Image.asset(
-        //       'assets/images/medical.png',
-        //       width: double.infinity,
-        //     ),
-        //   ),
-        // ),
-      ],
+      children: [Image.asset("assets/images/medicalstuff.png")],
     );
   }
 }
