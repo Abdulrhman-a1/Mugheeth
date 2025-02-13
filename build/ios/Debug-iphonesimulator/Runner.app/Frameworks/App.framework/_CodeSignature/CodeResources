@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		KfnLsB9ZQtJJKi+O9dOVHCburz8=
+		6JANoaQbVgylDM9msmPPrKGFvVE=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		/tYvMf7r0VwLKtMC97mnM4518NM=
+		EnQvabfp9ESuc4MemXo62pVhQ6g=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -148,6 +148,10 @@
 		<data>
 		bevX7JpMvhBVILQeR5Ge9Y/7S3s=
 		</data>
+		<key>flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
+		<data>
+		3QpVRqxXAOGF1+tbRoG2JYYmO4g=
+		</data>
 		<key>flutter_assets/assets/images/medical.png</key>
 		<data>
 		8CPCkX0XJWXQSJz3tcW5OOQ7cRo=
@@ -178,7 +182,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		GlC/8W3UZjZNY2qzxvvtUNAjo8g=
+		qbeyo32p/aGWn6uI5cIQYw/g3qs=
 		</data>
 		<key>flutter_assets/packages/iconsax/lib/assets/fonts/iconsax.ttf</key>
 		<data>
@@ -199,14 +203,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Qac/7j/QrHJwcFSvcpfH2456qwrIZnYZyH4l87Jr1Ps=
+			noj8UJBOwfAkJhP4bEN99UV5sGrldVm3pT1y9BhPtMk=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fTIFpdWZIEoTYH1tef94QA8djBIHDuE20Anr1b/cgyQ=
+			u5tGjpF1KMulRDcCtUPVFPOGN2Q4VIvonwT7AYzK8zo=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -433,6 +437,13 @@
 			NbQA7Qxopxti6whp1POs0VK5o4qBbybm7Lw/APCm2t8=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Hf+XETaF5gnHSkIaM6a21flq8zNZWWnBvDtRymNv4b0=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/medical.png</key>
 		<dict>
 			<key>hash2</key>
@@ -486,7 +497,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1TYAJIuBnpwVaAXVZYC2bBaHM9/EpkuzG51suYpMhRQ=
+			O8lpoJYseTGf81ZUwRt4w6YtmEyG8T/av38pCNXCuXI=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/iconsax/lib/assets/fonts/iconsax.ttf</key>

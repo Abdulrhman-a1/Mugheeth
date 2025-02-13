@@ -3,8 +3,14 @@ import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/features/chat/logic/speech_to_text.dart';
 import 'package:graduation/graduation_app.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+const supabaseUrl = 'https://ioqazodipkopyqcvmqgo.supabase.co';
+const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(url: supabaseUrl, anonKey: supabaseKey);
   runApp(
     MultiProvider(
       providers: [
