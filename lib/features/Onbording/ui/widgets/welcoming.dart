@@ -38,7 +38,7 @@ class _WelcomingState extends State<Welcoming> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [Image.asset("assets/images/medicalstuff.png")],
+      //children: [Image.asset("assets/images/medicalstuff.png")],
     );
   }
 }

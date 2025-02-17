@@ -30,7 +30,7 @@ class AppButton extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         color: AppColors.mainAppColor,
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
+          topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
