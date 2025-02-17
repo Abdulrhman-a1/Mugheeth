@@ -31,7 +31,7 @@ class NewChatButton extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.mainSoftBlue.withOpacity(0.5),
+                    color: AppColors.mainSoftBlue.withOpacity(0.4),
                     blurRadius: 22,
                     spreadRadius: 4,
                     offset: const Offset(0, 0),

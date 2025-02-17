@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Welcoming extends StatefulWidget {
   final PageController controller;
 
-  const Welcoming({super.key, required this.controller});
+  const Welcoming({
+    super.key,
+    required this.controller,
+  });
 
   @override
-  // ignore: library_private_types_in_public_api
-  _WelcomingState createState() => _WelcomingState();
+  WelcomingState createState() => WelcomingState();
 }
 
-class _WelcomingState extends State<Welcoming> {
-  // double _offset = 0.0;
+class WelcomingState extends State<Welcoming> {
+  double _offset = 0.0;
 
   @override
   void initState() {
     super.initState();
-
     widget.controller.addListener(_pageListener);
   }
 
   void _pageListener() {
     if (mounted) {
       setState(() {
-        // _offset = widget.controller.page ?? 0;
+        _offset = widget.controller.page ?? 0;
       });
     }
   }
@@ -36,9 +38,14 @@ class _WelcomingState extends State<Welcoming> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      //children: [Image.asset("assets/images/medicalstuff.png")],
+
+    return Center(
+      child: Transform.translate(
+        offset: Offset(0, -_offset * 100),
+        child: Lottie.asset(
+          'assets/lottie/iii.json',
+        ),
+      ),
     );
   }
 }

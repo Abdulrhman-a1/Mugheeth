@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:graduation/common/drawer/app_bar_items.dart';
 
-/// Default app screen that has a shadow
 class Screen extends StatelessWidget {
   final Widget child;
   final Color? backgroundColor;
+  final bool? allowDrawer;
 
-  const Screen({super.key, required this.child, this.backgroundColor});
+  const Screen({
+    super.key,
+    required this.child,
+    this.backgroundColor,
+    this.allowDrawer = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const SideBar(),
+      drawer: allowDrawer! ? const SideBar() : null,
       body: Container(
         decoration: BoxDecoration(
           color: backgroundColor ?? const Color(0xFFB8E1F1).withOpacity(0.08),

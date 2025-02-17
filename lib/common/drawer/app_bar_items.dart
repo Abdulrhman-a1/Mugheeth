@@ -2,13 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/drawer/app_siderbar.dart';
 import 'package:graduation/common/helper/extensions.dart';
-import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/widget/buttons/new_chat.dart';
-import 'package:graduation/common/widget/pop_up/faq.dart';
+import 'package:graduation/common/widget/custom_shape/faq_list.dart';
+import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
+import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
+import 'package:graduation/features/history/ui/history_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
+
+//all items of the drawer will be opend as bottom sheet
+  void openDrawerBottomSheet(
+      BuildContext context, Widget? title, Widget content) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return DrawerItemBottomSheet(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              title ?? SizedBox.shrink(),
+              SizedBox(height: 16.sp),
+              content,
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  // .whenComplete(
+  //     Future.delayed(Duration(milliseconds: 300), () {
+  //       _controller.forward();
+  //     });
+  //   )
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +64,11 @@ class SideBar extends StatelessWidget {
                   icon: Iconsax.folder,
                   onPressed: () {
                     context.pop();
+                    openDrawerBottomSheet(
+                      context,
+                      null,
+                      const HistoryScreen(),
+                    );
                   },
                 ),
                 AppSiderbar(
@@ -48,18 +83,14 @@ class SideBar extends StatelessWidget {
                   icon: Iconsax.message_question,
                   onPressed: () {
                     context.pop();
-                    showModalBottomSheet(
-                      backgroundColor: AppColors.chatScreenGrey,
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (BuildContext context) {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).viewInsets.bottom,
-                          ),
-                          child: const FaqBottomSheet(),
-                        );
-                      },
+                    openDrawerBottomSheet(
+                      context,
+                      TextAndIcon(
+                          iconPath: "assets/icons/faq.png",
+                          label: "الاسئلة الشائعة",
+                          description: "وش حاب تعرف عن مغيث؟",
+                          onPressed: () {}),
+                      const FaqList(),
                     );
                   },
                 ),

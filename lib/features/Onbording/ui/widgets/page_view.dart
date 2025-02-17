@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation/features/Onbording/ui/widgets/content.dart';
+import 'package:graduation/features/Onbording/ui/on_boarding_screen.dart';
 
 ///Page builder in onboarding screen.
 class OnboardingPageView extends StatelessWidget {

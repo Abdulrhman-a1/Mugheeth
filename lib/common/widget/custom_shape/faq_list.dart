@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation/common/widget/animation/slider_animation.dart';
 import 'package:graduation/common/widget/custom_shape/faq_conatiner.dart';
 
 class FaqList extends StatefulWidget {
@@ -9,6 +10,7 @@ class FaqList extends StatefulWidget {
 }
 
 class _FaqListState extends State<FaqList> {
+  //we can change this data!
   final List<Map<String, String>> faqItems = [
     {
       'question': 'ما هو نظام مُغيث للفرز الطبي؟',
@@ -46,6 +48,16 @@ class _FaqListState extends State<FaqList> {
           'نعم، يلتزم مُغيث بأعلى معايير الأمان والخصوصية لحماية بيانات المستخدمين وضمان سرية المعلومات الصحية.',
     },
     {
+      'question': 'كيف يعمل نظام مُغيث؟',
+      'answer':
+          'يعتمد مُغيث على الذكاء الاصطناعي ومعالجة اللغة الطبيعية لتحليل الأعراض التي يُدخلها المستخدم، ثم يقترح مستوى الأولوية الطبي المناسب ويوجه المستخدم للخطوة التالية.',
+    },
+    {
+      'question': 'كيف يعمل نظام مُغيث؟',
+      'answer':
+          'يعتمد مُغيث على الذكاء الاصطناعي ومعالجة اللغة الطبيعية لتحليل الأعراض التي يُدخلها المستخدم، ثم يقترح مستوى الأولوية الطبي المناسب ويوجه المستخدم للخطوة التالية.',
+    },
+    {
       'question': 'هل مُغيث متاح للاستخدام في جميع الدول؟',
       'answer':
           'حاليًا، يعمل مُغيث بالتعاون مع بعض المؤسسات الطبية، ونسعى لتوسيعه ليكون متاحًا على نطاق أوسع في المستقبل.',
@@ -65,24 +77,27 @@ class _FaqListState extends State<FaqList> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(
-            child: ListView.builder(
-              shrinkWrap: true,
-              physics: ScrollPhysics(),
-              itemCount: faqItems.length,
-              itemBuilder: (context, index) {
-                final item = faqItems[index];
-                return FaqConatiner(
-                  index: index,
-                  question: item['question']!,
-                  answer: item['answer']!,
-                );
-              },
+      child: AnimatedItem(
+        index: 0,
+        child: Column(
+          children: [
+            SizedBox(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
+                itemCount: faqItems.length,
+                itemBuilder: (context, index) {
+                  final item = faqItems[index];
+                  return FaqConatiner(
+                    index: index,
+                    question: item['question']!,
+                    answer: item['answer']!,
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
