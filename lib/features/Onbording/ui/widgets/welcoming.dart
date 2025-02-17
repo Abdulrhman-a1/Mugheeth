@@ -38,6 +38,7 @@ class WelcomingState extends State<Welcoming> {
 
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: Transform.translate(
         offset: Offset(0, -_offset * 100),
