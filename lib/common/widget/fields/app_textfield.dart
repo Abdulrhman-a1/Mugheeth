@@ -16,8 +16,11 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String?) validator;
   final Function()? onTap;
+  final bool? readOnly;
+  final TextInputType? keyboardType;
   const AppTextFormField({
     super.key,
+    this.keyboardType,
     this.contentPadding,
     this.focusedBorder,
     this.enabledBorder,
@@ -30,11 +33,14 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     required this.validator,
     this.onTap,
+    this.readOnly,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType ?? TextInputType.text,
+      readOnly: readOnly ?? false,
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
@@ -88,7 +94,10 @@ class AppTextFormField extends StatelessWidget {
                   ],
                   shape: BoxShape.circle,
                 ),
-                child: suffixIcon,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  child: suffixIcon,
+                ),
               )
             : null,
         suffixIconColor: AppColors.mainAppColor,

@@ -6,23 +6,28 @@ import 'package:graduation/common/routing/routes.dart';
 
 class GraduationApp extends StatelessWidget {
   final AppRouter appRouter;
+  final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
 
-  const GraduationApp({super.key, required this.appRouter});
+  const GraduationApp({
+    super.key,
+    required this.appRouter,
+    this.scaffoldMessengerKey,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      // Responsive UI
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MaterialApp(
+        scaffoldMessengerKey: scaffoldMessengerKey, // ✅ Ensure Snackbar visibility
         title: 'Mugheeth App',
         theme: ThemeData(
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'IBMPlexSansArabic',
         ),
-        locale: const Locale('ar'), // Arabic as the default language
+        locale: const Locale('ar'), // Default Arabic
         supportedLocales: const [
           Locale('ar', ''),
           Locale('en', ''),
