@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/text_style.dart';
+import 'package:graduation/common/widget/animation/message_animation.dart';
 
 ///This will be used in all on boarding section to show the title and description.
 class TitleAndDescription extends StatelessWidget {
@@ -30,10 +31,10 @@ class TitleAndDescription extends StatelessWidget {
                 style: TextStyles.onboardingTitle,
               ),
               SizedBox(height: 16.h),
-              Text(
-                description,
-                textAlign: TextAlign.center,
-                style: TextStyles.onboardingDesc,
+              AnimatedText(
+                isCenterNeeded: true,
+                text: description,
+                textstyle: TextStyles.onboardingDesc,
               ),
               SizedBox(height: 48.h),
             ],

@@ -5,7 +5,7 @@ import 'package:graduation/common/theme/colors.dart';
 class TextStyles {
   //Text in onboarding screen; Title.
   static TextStyle onboardingTitle = TextStyle(
-    fontSize: 24.sp,
+    fontSize: 22.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.mainAppColor,
     fontFamily: 'IBMPlexSansArabic',
@@ -13,8 +13,8 @@ class TextStyles {
 
   //Text in onboarding screen; Description.
   static TextStyle onboardingDesc = TextStyle(
-    fontSize: 18.sp,
-    fontWeight: FontWeight.bold,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
     color: AppColors.mainSoftBlue,
     fontFamily: 'IBMPlexSansArabic',
   );

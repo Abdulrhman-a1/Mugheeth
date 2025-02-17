@@ -7,11 +7,13 @@ import 'package:graduation/common/theme/text_style.dart';
 class ChatButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final TextStyle? textStyle;
 
   const ChatButton({
     super.key,
     required this.onPressed,
     required this.text,
+    this.textStyle,
   });
 
   @override
@@ -28,7 +30,7 @@ class ChatButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyles.loginButtonText,
+          style: textStyle ?? TextStyles.loginButtonText,
         ),
       ),
     );

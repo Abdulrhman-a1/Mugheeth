@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation/common/theme/colors.dart';
 
@@ -38,14 +39,6 @@ class _FaqConatinerState extends State<FaqConatiner> {
                 color: Colors.grey.withOpacity(0.2),
               ),
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.mainSoftBlue.withOpacity(0.5),
-                  blurRadius: 40,
-                  spreadRadius: -17,
-                  offset: const Offset(0, 0),
-                ),
-              ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,6 +47,7 @@ class _FaqConatinerState extends State<FaqConatiner> {
                   widget.question,
                   style: const TextStyle(
                     color: AppColors.mainAppColor,
+                    fontWeight: FontWeight.w800,
                     fontSize: 14.0,
                   ),
                 ),
@@ -72,11 +66,15 @@ class _FaqConatinerState extends State<FaqConatiner> {
               left: 16.0,
               right: 16.0,
             ),
-            child: Text(
-              widget.answer,
-              style: const TextStyle(
-                color: AppColors.mainSoftBlue,
-                fontSize: 12.0,
+            child: FadeInRight(
+              child: Text(
+                widget.answer,
+                textAlign: TextAlign.justify,
+                style: const TextStyle(
+                  color: AppColors.mainSoftBlue,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),
