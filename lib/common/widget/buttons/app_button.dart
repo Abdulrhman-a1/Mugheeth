@@ -8,23 +8,27 @@ import 'package:graduation/common/theme/text_style.dart';
 class AppButton extends StatelessWidget {
   final String text;
   final VoidCallback? press;
+  final bool isShadowNeeded;
   const AppButton({
     super.key,
     required this.text,
     this.press,
+    this.isShadowNeeded = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.mainAppColor.withOpacity(0.5),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        boxShadow: isShadowNeeded
+            ? [
+                BoxShadow(
+                  color: AppColors.mainAppColor.withOpacity(0.5),
+                  blurRadius: 20,
+                  offset: const Offset(0, 10),
+                ),
+              ]
+            : null,
       ),
       child: CupertinoButton(
         padding: const EdgeInsets.all(20),

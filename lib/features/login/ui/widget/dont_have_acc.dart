@@ -31,7 +31,6 @@ void showSignUpBottomSheet(BuildContext context) {
     showDragHandle: false,
     context: context,
     isScrollControlled: true,
-    useRootNavigator: true, // ✅ Ensures it does not block Snackbar
     backgroundColor: Colors.transparent,
     builder: (context) {
       return const AnimatedBottomSheet(child: SignUpScreen());

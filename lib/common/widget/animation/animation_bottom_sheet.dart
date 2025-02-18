@@ -37,22 +37,11 @@ class AnimatedBottomSheetState extends State<AnimatedBottomSheet>
     super.dispose();
   }
 
-  void _closeBottomSheet() {
-    _controller.reverse().then((value) {
-      if (mounted) {
-        Navigator.of(context).pop();
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _closeBottomSheet,
-      child: SlideTransition(
-        position: _offsetAnimation,
-        child: widget.child,
-      ),
+    return SlideTransition(
+      position: _offsetAnimation,
+      child: widget.child,
     );
   }
 }

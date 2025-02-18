@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:graduation/data/auth/domain/repo/auth_repo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:get_it/get_it.dart';

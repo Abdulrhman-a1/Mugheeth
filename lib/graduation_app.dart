@@ -20,14 +20,14 @@ class GraduationApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MaterialApp(
-        scaffoldMessengerKey: scaffoldMessengerKey, // ✅ Ensure Snackbar visibility
+        scaffoldMessengerKey: scaffoldMessengerKey,
         title: 'Mugheeth App',
         theme: ThemeData(
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'IBMPlexSansArabic',
         ),
-        locale: const Locale('ar'), // Default Arabic
+        locale: const Locale('ar'),
         supportedLocales: const [
           Locale('ar', ''),
           Locale('en', ''),

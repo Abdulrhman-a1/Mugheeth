@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation/data/auth/domain/usecases/user_sign_up.dart';
-
 import '../domain/entities/user.dart';
 
 part 'auth_event.dart';
@@ -9,12 +8,15 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final UserSignUp _userSignUp;
+
   AuthBloc({
     required UserSignUp userSignUp,
   })  : _userSignUp = userSignUp,
         super(AuthInitial()) {
     on<AuthSignUp>((event, emit) async {
-      print("AuthSignUp event triggered"); // Debugging
+      debugPrint("AuthSignUp event triggered");
+
+      emit(AuthLoading());
 
       final res = await _userSignUp(
         UserSignUpParams(
@@ -27,13 +29,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       );
 
       res.fold(
-        (l) {
-          print("Auth Failure: ${l.message}"); // Debugging
-          emit(AuthFailure(l.message));
+        (failure) {
+          debugPrint("Auth Failure: ${failure.message}");
+          emit(AuthFailure(failure.message));
         },
-        (r) {
-          print("Auth Success: User signed up!"); // Debugging
-          emit(AuthSuccess(r));
+        (user) {
+          debugPrint("Auth Success: User signed up!");
+          emit(AuthSuccess(user));
         },
       );
     });

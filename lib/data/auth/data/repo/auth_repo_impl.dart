@@ -38,7 +38,7 @@ class AuthRepoImpl implements AuthRepo {
       return Right(user);
     } on ServerException catch (e) {
       print(e.message);
-      return Left(Failures(e.toString()));
+      return Left(Failures(e.message));
     }
   }
 }

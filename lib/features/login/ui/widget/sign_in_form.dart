@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/common/helper/extensions.dart';
 import 'package:graduation/common/widget/buttons/app_button.dart';
 import 'package:graduation/common/widget/custom_shape/welcome_text.dart';
 import 'package:graduation/common/widget/fields/app_textfield.dart';
+import 'package:graduation/common/widget/loader/progress.dart';
 import 'package:graduation/features/login/ui/widget/forgot_pass.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -17,6 +19,7 @@ class SignInForm extends StatelessWidget {
       children: [
         const WelcomeText(title: "اهلًا بك", desc: "سجل دخولك للمتابعة"),
         AppTextFormField(
+          isEmailAndPassword: true,
           suffixIcon: const Icon(Iconsax.send_1),
           hintText: "البريد الالكتروني",
           validator: (value) {
@@ -28,6 +31,7 @@ class SignInForm extends StatelessWidget {
         ),
         SizedBox(height: 20.h),
         AppTextFormField(
+          isEmailAndPassword: true,
           suffixIcon: const Icon(Iconsax.password_check),
           hintText: "كلمة المرور",
           isObscureText: true,
@@ -41,7 +45,21 @@ class SignInForm extends StatelessWidget {
         const ForgotPassButton(),
         SizedBox(height: 10.h),
         AppButton(
-          press: () {},
+          press: () {
+            //I am trying to show a loader here
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) {
+                return const BouncingLogoLoader();
+              },
+            );
+
+            Future.delayed(const Duration(seconds: 2), () {
+              context.pop();
+              context.pop();
+            });
+          },
           text: 'تسجيل دخول',
         ),
       ],
