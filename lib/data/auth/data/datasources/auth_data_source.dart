@@ -13,7 +13,6 @@ abstract interface class AuthDataSource {
   Future<UserModels> loginwithEmailAndPassword({
     required String email,
     required String password,
-    required String name,
   });
 }
 
@@ -25,10 +24,19 @@ class AuthDataSourceImpl implements AuthDataSource {
   Future<UserModels> loginwithEmailAndPassword({
     required String email,
     required String password,
-    required String name,
-  }) {
-    // TODO: implement loginwithEmailAndPassword
-    throw UnimplementedError();
+  }) async {
+    try {
+      final respons = await client.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+      if (respons.user == null) {
+        throw const ServerException("user is null");
+      }
+      return UserModels.fromJson(respons.user!.toJson());
+    } catch (e) {
+      throw ServerException(e.toString());
+    }
   }
 
   @override

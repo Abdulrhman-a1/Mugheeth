@@ -43,7 +43,12 @@ void forgotPass(BuildContext context) {
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (context) {
-      return const AnimatedBottomSheet(child: ForgotPassScreen());
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: const AnimatedBottomSheet(child: ForgotPassScreen()),
+      );
     },
   );
 }

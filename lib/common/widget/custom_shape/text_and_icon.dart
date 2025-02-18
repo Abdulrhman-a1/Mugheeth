@@ -7,6 +7,7 @@ class TextAndIcon extends StatelessWidget {
   final String label;
   final String description;
   final Function onPressed;
+  final bool isShadowNeeded;
 
   const TextAndIcon({
     super.key,
@@ -14,6 +15,7 @@ class TextAndIcon extends StatelessWidget {
     required this.label,
     required this.description,
     required this.onPressed,
+    this.isShadowNeeded = true,
   });
 
   @override
@@ -28,14 +30,16 @@ class TextAndIcon extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.mainSoftBlue.withOpacity(0.5),
-                      blurRadius: 10,
-                      spreadRadius: 1,
-                      offset: const Offset(0, 0),
-                    ),
-                  ],
+                  boxShadow: isShadowNeeded
+                      ? [
+                          BoxShadow(
+                            color: AppColors.mainSoftBlue.withOpacity(0.5),
+                            blurRadius: 10,
+                            spreadRadius: 1,
+                            offset: const Offset(0, 0),
+                          ),
+                        ]
+                      : null,
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(

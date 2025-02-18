@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/common/helper/regix.dart';
 import 'package:graduation/common/widget/buttons/app_button.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/fields/app_textfield.dart';
 import 'package:graduation/data/auth/bloc/auth_bloc.dart';
+import 'package:graduation/features/sign_up/ui/widgets/pass_validator.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,13 +16,20 @@ class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
 
   @override
-  _SignUpFormState createState() => _SignUpFormState();
+  SignUpFormState createState() => SignUpFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
+  bool hasLowercase = false;
+  bool hasUppercase = false;
+  bool hasSpecialCharacters = false;
+  bool hasNumber = false;
+  bool hasMinLength = false;
 
-  // Controllers
+  final FocusNode passwordFocusNode = FocusNode();
+  bool isPasswordFocused = false;
+
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
@@ -30,8 +39,41 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  // Store field errors
+  bool isPasswordObscureText = true;
+  bool isPasswordConfirmationObscureText = true;
+
   Map<String, String> fieldErrors = {};
+
+  @override
+  void initState() {
+    super.initState();
+    passwordController.addListener(_validatePassword);
+
+    // إضافة مستمع لتغييرات التركيز
+    passwordFocusNode.addListener(() {
+      setState(() {
+        isPasswordFocused = passwordFocusNode.hasFocus;
+      });
+    });
+  }
+
+  void _validatePassword() {
+    setState(() {
+      hasLowercase = AppRegex.hasLowerCase(passwordController.text);
+      hasUppercase = AppRegex.hasUpperCase(passwordController.text);
+      hasNumber = AppRegex.hasNumber(passwordController.text);
+      hasSpecialCharacters =
+          AppRegex.hasSpecialCharacter(passwordController.text);
+      hasMinLength = AppRegex.hasMinLength(passwordController.text);
+    });
+  }
+
+  @override
+  void dispose() {
+    passwordController.removeListener(_validatePassword);
+    passwordFocusNode.dispose(); // تنظيف FocusNode عند تدمير الشاشة
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +89,18 @@ class _SignUpFormState extends State<SignUpForm> {
                   controller: firstNameController,
                   hintText: "الاسم الأول",
                   suffixIcon: const Icon(Iconsax.profile_add),
-                  validator: (value) =>
-                      fieldErrors['firstName'] ??
-                      (value == null || value.isEmpty
-                          ? 'الرجاء إدخال الاسم الأول'
-                          : null),
+                  validator: (value) {
+                    if (fieldErrors['firstName'] != null) {
+                      return fieldErrors['firstName'];
+                    }
+                    if (value == null || value.isEmpty) {
+                      return 'الرجاء إدخال الاسم الأول';
+                    }
+                    if (!AppRegex.isValidName(value)) {
+                      return 'ادخل اسمك بشكل صحيح';
+                    }
+                    return null;
+                  },
                 ),
               ),
               SizedBox(width: 10.w),
@@ -60,41 +109,41 @@ class _SignUpFormState extends State<SignUpForm> {
                   controller: lastNameController,
                   suffixIcon: const Icon(Iconsax.user),
                   hintText: "الاسم الأخير",
-                  validator: (value) =>
-                      fieldErrors['lastName'] ??
-                      (value == null || value.isEmpty
-                          ? 'الرجاء إدخال الاسم الأخير'
-                          : null),
+                  validator: (value) {
+                    if (fieldErrors['lastName'] != null) {
+                      return fieldErrors['lastName'];
+                    }
+                    if (value == null || value.isEmpty) {
+                      return 'الرجاء إدخال الاسم الأخير';
+                    }
+                    if (!AppRegex.isValidName(value)) {
+                      return 'ادخل اسمك بشكل صحيح';
+                    }
+                    return null;
+                  },
                 ),
               ),
             ],
           ),
           SizedBox(height: 20.h),
-
-          // Gender Picker Field
           GenderPickerField(
             controller: genderController,
             hintText: "الجنس",
             validator: (value) =>
                 fieldErrors['gender'] ??
-                (value == null || value.isEmpty ? 'الرجاء اختيار الجنس' : null),
+                (value.isEmpty ? 'الرجاء اختيار الجنس' : null),
           ),
           SizedBox(height: 20.h),
-
-          // Date of Birth Field
           DatePickerField(
             controller: birthDateController,
             hintText: "تاريخ الميلاد",
             validator: (value) =>
                 fieldErrors['birthDate'] ??
-                (value == null || value.isEmpty
-                    ? 'الرجاء إدخال تاريخ الميلاد'
-                    : null),
+                (value.isEmpty ? 'الرجاء إدخال تاريخ الميلاد' : null),
           ),
           SizedBox(height: 20.h),
-
-          // Email Field
           AppTextFormField(
+            isEmailAndPassword: true,
             controller: emailController,
             suffixIcon: const Icon(Iconsax.direct_inbox),
             hintText: "البريد الإلكتروني",
@@ -102,36 +151,41 @@ class _SignUpFormState extends State<SignUpForm> {
               if (value == null || value.isEmpty) {
                 return 'الرجاء إدخال البريد الإلكتروني';
               }
-              final emailRegex =
-                  RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
-              if (!emailRegex.hasMatch(value)) {
+              if (!AppRegex.isEmailValid(value)) {
                 return 'الرجاء إدخال بريد إلكتروني صالح';
               }
               return fieldErrors['email'];
             },
           ),
           SizedBox(height: 20.h),
-
-          // Password Field
           AppTextFormField(
+            isEmailAndPassword: true,
             controller: passwordController,
-            suffixIcon: const Icon(Iconsax.lock),
             hintText: "كلمة المرور",
-            isObscureText: true,
+            isObscureText: isPasswordObscureText,
+            focusNode: passwordFocusNode, // تم إضافة FocusNode هنا
             validator: (value) =>
                 fieldErrors['password'] ??
                 (value == null || value.isEmpty
                     ? 'الرجاء إدخال كلمة المرور'
                     : null),
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordObscureText = !isPasswordObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
           ),
           SizedBox(height: 20.h),
-
-          // Confirm Password Field
           AppTextFormField(
+            isEmailAndPassword: true,
             controller: confirmPasswordController,
-            suffixIcon: const Icon(Iconsax.lock_circle4),
             hintText: "تأكيد كلمة المرور",
-            isObscureText: true,
+            isObscureText: isPasswordConfirmationObscureText,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'الرجاء تأكيد كلمة المرور';
@@ -141,11 +195,32 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return fieldErrors['confirmPassword'];
             },
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordConfirmationObscureText =
+                      !isPasswordConfirmationObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordConfirmationObscureText
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+              ),
+            ),
           ),
+          SizedBox(height: 10.h),
+          if (isPasswordFocused)
+            PasswordValidations(
+              hasLowerCase: hasLowercase,
+              hasUpperCase: hasUppercase,
+              hasSpecialCharacters: hasSpecialCharacters,
+              hasNumber: hasNumber,
+              hasMinLength: hasMinLength,
+            ),
           SizedBox(height: 20.h),
-
-          // Sign Up Button
           AppButton(
+            isShadowNeeded: false,
             press: () {
               setState(() {
                 fieldErrors.clear();
@@ -167,15 +242,12 @@ class _SignUpFormState extends State<SignUpForm> {
             text: 'إنشاء حساب',
           ),
           SizedBox(height: 20.h),
-
-          // Privacy Policy
           TextAndIcon(
+            isShadowNeeded: false,
             iconPath: "assets/icons/lock.png",
             label: "سياسة الخصوصية",
             description: "بمجرد تفعيلك للحساب فأنت توافق على سياسة الخصوصية",
-            onPressed: () {
-              // فتح سياسة الخصوصية
-            },
+            onPressed: () {},
           ),
         ],
       ),

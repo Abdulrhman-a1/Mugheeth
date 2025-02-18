@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:graduation/data/auth/domain/repo/auth_repo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:get_it/get_it.dart';
 import '../data/auth/bloc/auth_bloc.dart';
 import '../data/auth/data/datasources/auth_data_source.dart';
+import '../data/auth/domain/usecases/user_sign_in.dart';
 import '../data/auth/domain/usecases/user_sign_up.dart';
 import '../data/auth/data/repo/auth_repo_impl.dart';
 import '../main.dart';
@@ -39,9 +39,16 @@ void _initAuth() {
     ),
   );
 
+  serviceLocator.registerFactory(
+    () => UserSignIn(
+      serviceLocator(),
+    ),
+  );
+
   serviceLocator.registerLazySingleton(
     () => AuthBloc(
       userSignUp: serviceLocator(),
+      userSignIn: serviceLocator(),
     ),
   );
 }

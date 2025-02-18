@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
@@ -18,8 +19,12 @@ class AppTextFormField extends StatelessWidget {
   final Function()? onTap;
   final bool? readOnly;
   final TextInputType? keyboardType;
+  final bool isEmailAndPassword;
+  final FocusNode? focusNode;
+
   const AppTextFormField({
     super.key,
+    this.focusNode,
     this.keyboardType,
     this.contentPadding,
     this.focusedBorder,
@@ -34,12 +39,19 @@ class AppTextFormField extends StatelessWidget {
     required this.validator,
     this.onTap,
     this.readOnly,
+    this.isEmailAndPassword = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
       keyboardType: keyboardType ?? TextInputType.text,
+      inputFormatters: [
+        if (isEmailAndPassword) ...[
+          FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z0-9@.]')),
+        ],
+      ],
       readOnly: readOnly ?? false,
       controller: controller,
       decoration: InputDecoration(

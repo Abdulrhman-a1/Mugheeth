@@ -11,20 +11,19 @@ class GenderPickerField extends StatefulWidget {
   final Function(String) validator;
 
   const GenderPickerField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.hintText,
     required this.validator,
-  }) : super(key: key);
+  });
 
   @override
-  _GenderPickerFieldState createState() => _GenderPickerFieldState();
+  GenderPickerFieldState createState() => GenderPickerFieldState();
 }
 
-class _GenderPickerFieldState extends State<GenderPickerField> {
+class GenderPickerFieldState extends State<GenderPickerField> {
   void _showGenderPicker() {
     if (Theme.of(context).platform == TargetPlatform.iOS) {
-      // 💻 iOS - Cupertino Action Sheet
       showCupertinoModalPopup(
         context: context,
         builder: (BuildContext context) => CupertinoActionSheet(
@@ -46,10 +45,9 @@ class _GenderPickerFieldState extends State<GenderPickerField> {
         ),
       );
     } else {
-      // 🤖 Android - Bottom Sheet
       showModalBottomSheet(
         context: context,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
         backgroundColor: Colors.white,
@@ -68,18 +66,10 @@ class _GenderPickerFieldState extends State<GenderPickerField> {
                   ),
                 ),
                 const SizedBox(height: 10),
-
-                // زر اختيار "ذكر"
                 _buildGenderOption("ذكر"),
-
                 const SizedBox(height: 10),
-
-                // زر اختيار "أنثى"
                 _buildGenderOption("أنثى"),
-
                 const SizedBox(height: 10),
-
-                // زر إغلاق النافذة
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Text(
@@ -132,50 +122,53 @@ class _GenderPickerFieldState extends State<GenderPickerField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.controller,
-      readOnly: true,
-      decoration: InputDecoration(
-        isDense: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 18.h),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppColors.mainAppColor,
-            width: 1.3,
+    return GestureDetector(
+      onTap: _showGenderPicker,
+      child: AbsorbPointer(
+        child: TextFormField(
+          controller: widget.controller,
+          readOnly: true,
+          decoration: InputDecoration(
+            isDense: true,
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 12.w, vertical: 18.h),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: AppColors.mainAppColor,
+                width: 1.3,
+              ),
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: AppColors.mainSoftBlue,
+                width: 1.3,
+              ),
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: Colors.red,
+                width: 1.3,
+              ),
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: Colors.red,
+                width: 1.3,
+              ),
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            hintText: widget.hintText,
+            hintStyle: TextStyles.hintTextLogin,
+            suffixIcon: const Icon(Iconsax.emoji_normal),
+            fillColor: Colors.white,
+            filled: true,
           ),
-          borderRadius: BorderRadius.circular(16.0),
+          validator: (value) => widget.validator(value!),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppColors.mainSoftBlue,
-            width: 1.3,
-          ),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.red,
-            width: 1.3,
-          ),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.red,
-            width: 1.3,
-          ),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        hintText: widget.hintText,
-        hintStyle: TextStyles.hintTextLogin,
-        suffixIcon: IconButton(
-          icon: const Icon(Iconsax.emoji_normal),
-          onPressed: _showGenderPicker,
-        ),
-        fillColor: Colors.white,
-        filled: true,
       ),
-      validator: (value) => widget.validator(value!),
     );
   }
 }

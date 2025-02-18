@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		6JANoaQbVgylDM9msmPPrKGFvVE=
+		8QMRLsFNm53I17qtyeY3QdTP9sg=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		EnQvabfp9ESuc4MemXo62pVhQ6g=
+		Wti3o3wXDRuoAosrGTmfptvEjkM=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		kfe2SAI4jkvlicCCVeqaMfM7A5g=
+		z10F9HyTftqdjmTvu3kzuQsewmY=
 		</data>
 		<key>flutter_assets/assets/fonts/IBMPlexSansArabic-Bold.ttf</key>
 		<data>
@@ -88,6 +88,10 @@
 		<data>
 		Bn4fqoq/TrrUPChpnL88YgpnvGs=
 		</data>
+		<key>flutter_assets/assets/icons/history.png</key>
+		<data>
+		Ja5OEvxbUc60Bl+ce8TrkzfhXLU=
+		</data>
 		<key>flutter_assets/assets/icons/language.png</key>
 		<data>
 		QlpXMncyzqrjhCwBtoOI/UE3wj0=
@@ -124,6 +128,10 @@
 		<data>
 		VkTrJzMr6gdckZ4iYvTfdnmWriA=
 		</data>
+		<key>flutter_assets/assets/icons/remove.png</key>
+		<data>
+		qeM1LvyoheSSkfLC5hqhbyhHiNU=
+		</data>
 		<key>flutter_assets/assets/icons/resend.png</key>
 		<data>
 		0mt2b1iAnxLBMPsvijmDUhfRKVg=
@@ -140,6 +148,10 @@
 		<data>
 		hcEvPHvreE4Lmq7E6Kmi6ndsmZc=
 		</data>
+		<key>flutter_assets/assets/icons/warning.png</key>
+		<data>
+		77Qqjs3w7XxUuWtut+/W4qlYHHA=
+		</data>
 		<key>flutter_assets/assets/icons/world.png</key>
 		<data>
 		N+iSc5G7UBiNJWvkis+h/hkP1es=
@@ -148,13 +160,13 @@
 		<data>
 		bevX7JpMvhBVILQeR5Ge9Y/7S3s=
 		</data>
-		<key>flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
+		<key>flutter_assets/assets/images/med.png</key>
 		<data>
 		3QpVRqxXAOGF1+tbRoG2JYYmO4g=
 		</data>
-		<key>flutter_assets/assets/images/medical.png</key>
+		<key>flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
 		<data>
-		8CPCkX0XJWXQSJz3tcW5OOQ7cRo=
+		3QpVRqxXAOGF1+tbRoG2JYYmO4g=
 		</data>
 		<key>flutter_assets/assets/images/splash.png</key>
 		<data>
@@ -168,9 +180,9 @@
 		<data>
 		4N33kIHEf0bkfKlWN3ur09l++gM=
 		</data>
-		<key>flutter_assets/assets/lottie/rocket.json</key>
+		<key>flutter_assets/assets/lottie/iii.json</key>
 		<data>
-		YIdpVS1HxGBYxo3lwbPUz/zfw+0=
+		Jdm/NHeJR7Y/FjwNDi/cxi1VZZY=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -182,7 +194,15 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		rkAdWub4qu1/9IwRMjmUBnEB6pg=
+		Npn33npUMv/NRudOHp86A5ixkNs=
+		</data>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<data>
+		HVkEhoid+n6bwOYCwZg4DdmGBHY=
+		</data>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<data>
+		v5LMft1C/Ps/+tw6D+zco3p3Urk=
 		</data>
 		<key>flutter_assets/packages/iconsax/lib/assets/fonts/iconsax.ttf</key>
 		<data>
@@ -203,14 +223,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			noj8UJBOwfAkJhP4bEN99UV5sGrldVm3pT1y9BhPtMk=
+			fheNAlUIz6i1Ovu3kd5BrIZQSoHblUF441U+9j3qk/4=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u5tGjpF1KMulRDcCtUPVFPOGN2Q4VIvonwT7AYzK8zo=
+			FI08kFx4ofQoMiq9tKZZ4p7ODjvdqaXBB+9NPPdI04Y=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -224,7 +244,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iX6kz9TxivoBIvUHKpHf314fj5asT/v7BNNKC2DQdcI=
+			GiFw8C1ijeXL1cLnprwkRTbqDMDpNhL9GvBbex7IuCk=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/fonts/IBMPlexSansArabic-Bold.ttf</key>
@@ -332,6 +352,13 @@
 			j2UjDngC1pyL+OrX8OrG1Y2LdWQ2YQrRMqNP4T9tBLk=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icons/history.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ByIV9ywifZHYLsEXnslPzLoi1jHbJyIyWBVmH/gdOjM=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/icons/language.png</key>
 		<dict>
 			<key>hash2</key>
@@ -395,6 +422,13 @@
 			oxXew3t+t+c+U9TLO3a/kxhBBODWmMnVzK+/eP6pYyI=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icons/remove.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fHnNZLigkZ7m6fi5borw1Aq1xSlUbP6OGo4omMUrL3Y=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/icons/resend.png</key>
 		<dict>
 			<key>hash2</key>
@@ -423,6 +457,13 @@
 			UoYpgS1LQxb63P9eRpDxyZBDDfgroHi7gP5F6owNHuY=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icons/warning.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HKbmijkD3B1hp/nduXUKlAmaGPWnxoSRyKJK6Ez6Mi4=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/icons/world.png</key>
 		<dict>
 			<key>hash2</key>
@@ -437,18 +478,18 @@
 			NbQA7Qxopxti6whp1POs0VK5o4qBbybm7Lw/APCm2t8=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
+		<key>flutter_assets/assets/images/med.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			Hf+XETaF5gnHSkIaM6a21flq8zNZWWnBvDtRymNv4b0=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/images/medical.png</key>
+		<key>flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6zEBH9jhMrTQaFXG2FOieeE1DE714SUcCxDXAyC0Mhk=
+			Hf+XETaF5gnHSkIaM6a21flq8zNZWWnBvDtRymNv4b0=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/splash.png</key>
@@ -472,11 +513,11 @@
 			I8hGhbGKxSmht9W4VUyWOtXdzJ2cdIsJc56XWowoLYk=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/lottie/rocket.json</key>
+		<key>flutter_assets/assets/lottie/iii.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KaXZjB/MQwoG18KaZN4uGoCwTmPbS5UbESa/4DOYnrU=
+			lqNUriJrC3hQ7zCCxE+bSyiRRR+cqHJmpmQF0VsrCLs=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -497,7 +538,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hMPgtZxgxpU5AxI3/ZouJyPi9YJXEifqEa069cU81rE=
+			I4u1cZoZjS8LI1Uaoljpr+ZXpE2zOyw5wD4xlZPFdPU=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			abr0T+pbPv0zd7q8FU7xuDv4JjuRAgKox9bnRddRNJ8=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CRyacJlKIATuArBPER1Aq+QMB7BmhWOZ9YxYcELsKZA=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/iconsax/lib/assets/fonts/iconsax.ttf</key>

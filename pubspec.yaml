@@ -32,6 +32,8 @@ dependencies:
   iconsax: ^0.0.8
   #Drawer menu 
   hidden_drawer_menu: ^3.0.1
+  #upper dialog.
+  fluttertoast: ^8.2.12
 
 
   
@@ -45,6 +47,8 @@ dependencies:
   get_it: ^8.0.3
   intl: ^0.19.0
   flutter_datetime_picker: ^1.5.1
+  build_runner: ^2.4.15
+  flutter_spinkit: ^5.2.1
 
 
 dev_dependencies:
