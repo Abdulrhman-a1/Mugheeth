@@ -1,9 +1,6 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/widget/custom_shape/welcome_text.dart';
 import 'package:graduation/common/widget/loader/progress.dart';
 import 'package:graduation/data/auth/bloc/auth_bloc.dart';
@@ -43,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     );
                   } else if (state is AuthFailure) {
-                    errorPopUp(context, state.message);
+                    showToastMessage(context, state.message);
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();
                   } else if (state is AuthSuccess) {

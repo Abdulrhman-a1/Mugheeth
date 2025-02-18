@@ -5,32 +5,75 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../theme/colors.dart';
 
-void errorPopUp(BuildContext context, String message) {
+void showToastMessage(BuildContext context, String message,
+    {bool isError = true}) {
   FToast fToast = FToast();
   fToast.init(context);
 
-  Widget toast = FadeInDown(
+  final String iconPath =
+      isError ? "assets/icons/warning.png" : "assets/icons/check.png";
+  final Color iconColor = isError ? Colors.red : Colors.green;
+  final Color backgroundColor = AppColors.lightGrey;
+
+  Widget toast = FadeInUp(
+    from: 20,
     child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.sp),
-        color: AppColors.chatScreenGrey,
-        border: Border.all(color: AppColors.mainAppGrey.withOpacity(0.2)),
+        borderRadius: BorderRadius.circular(20.sp),
+        gradient: LinearGradient(
+          colors: [
+            backgroundColor.withOpacity(0.9),
+            backgroundColor.withOpacity(0.8),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            spreadRadius: 2,
+            offset: Offset(0, 4),
+          ),
+        ],
+        border: Border.all(
+          color: AppColors.mainAppGrey.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            "assets/icons/warning.png",
-            width: 20,
-            height: 20,
+          ColorFiltered(
+            colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+            child: Image.asset(
+              iconPath,
+              width: 24.w,
+              height: 24.h,
+            ),
           ),
-          SizedBox(width: 20.w),
+          SizedBox(width: 16.w),
           Expanded(
             child: Text(
-              //i'll change this when we handle error to show the actual error.
               message,
-              style: TextStyle(color: Colors.black, fontSize: 14.sp),
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          SizedBox(width: 16.w),
+          GestureDetector(
+            onTap: () {
+              fToast.removeCustomToast();
+            },
+            child: Icon(
+              Icons.close,
+              color: Colors.black.withOpacity(0.6),
+              size: 20.w,
             ),
           ),
         ],
@@ -38,9 +81,10 @@ void errorPopUp(BuildContext context, String message) {
     ),
   );
 
+  // Show the toast
   fToast.showToast(
     child: toast,
     gravity: ToastGravity.TOP,
-    toastDuration: const Duration(seconds: 2),
+    toastDuration: const Duration(seconds: 5),
   );
 }

@@ -10,17 +10,20 @@ import 'package:graduation/features/history/ui/history_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SideBar extends StatelessWidget {
-  const SideBar({super.key});
+  final bool? isSmall;
+  const SideBar({super.key, this.isSmall});
 
 //all items of the drawer will be opend as bottom sheet
   void openDrawerBottomSheet(
-      BuildContext context, Widget? title, Widget content) {
+      BuildContext context, Widget? title, Widget content,
+      {required bool isSmall}) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
         return DrawerItemBottomSheet(
+          isSmall: isSmall,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -33,12 +36,6 @@ class SideBar extends StatelessWidget {
       },
     );
   }
-
-  // .whenComplete(
-  //     Future.delayed(Duration(milliseconds: 300), () {
-  //       _controller.forward();
-  //     });
-  //   )
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +62,7 @@ class SideBar extends StatelessWidget {
                   onPressed: () {
                     context.pop();
                     openDrawerBottomSheet(
+                      isSmall: true,
                       context,
                       null,
                       const HistoryScreen(),
@@ -84,6 +82,7 @@ class SideBar extends StatelessWidget {
                   onPressed: () {
                     context.pop();
                     openDrawerBottomSheet(
+                      isSmall: false,
                       context,
                       TextAndIcon(
                           iconPath: "assets/icons/faq.png",

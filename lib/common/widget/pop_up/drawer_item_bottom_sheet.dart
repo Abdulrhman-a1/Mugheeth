@@ -6,12 +6,14 @@ class DrawerItemBottomSheet extends StatelessWidget {
   final Widget child;
   final double minHeight;
   final double maxHeight;
+  final bool isSmall;
 
   const DrawerItemBottomSheet({
     super.key,
     required this.child,
     this.minHeight = 800.0,
     this.maxHeight = 800.0,
+    required this.isSmall,
   });
 
   @override
@@ -32,7 +34,7 @@ class DrawerItemBottomSheet extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(10),
+          top: Radius.circular(15),
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
@@ -40,8 +42,8 @@ class DrawerItemBottomSheet extends StatelessWidget {
             builder: (BuildContext context, BoxConstraints constraints) {
               return ConstrainedBox(
                 constraints: BoxConstraints(
-                  minHeight: minHeight,
-                  maxHeight: maxHeight,
+                  minHeight: isSmall ? 0.5.sh : minHeight,
+                  maxHeight: isSmall ? 0.5.sh : maxHeight,
                   minWidth: constraints.minWidth,
                   maxWidth: constraints.maxWidth,
                 ),
