@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		O2v8ls4PURSDCV5k/PP3jkdRxPE=
+		5kQOHnM8OmzIMF9PQrv+IA/u4oI=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		3TK3uKUO7DNEZfzVSnRIKUi69wc=
+		DVQh4AgcAhc49Z8JVAeUIOKinWw=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		6JANoaQbVgylDM9msmPPrKGFvVE=
+		8QMRLsFNm53I17qtyeY3QdTP9sg=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		EnQvabfp9ESuc4MemXo62pVhQ6g=
+		Wti3o3wXDRuoAosrGTmfptvEjkM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		kfe2SAI4jkvlicCCVeqaMfM7A5g=
+		z10F9HyTftqdjmTvu3kzuQsewmY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/IBMPlexSansArabic-Bold.ttf</key>
 		<data>
@@ -132,6 +132,10 @@
 		<data>
 		Bn4fqoq/TrrUPChpnL88YgpnvGs=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/history.png</key>
+		<data>
+		Ja5OEvxbUc60Bl+ce8TrkzfhXLU=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/language.png</key>
 		<data>
 		QlpXMncyzqrjhCwBtoOI/UE3wj0=
@@ -168,6 +172,10 @@
 		<data>
 		VkTrJzMr6gdckZ4iYvTfdnmWriA=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/remove.png</key>
+		<data>
+		qeM1LvyoheSSkfLC5hqhbyhHiNU=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/resend.png</key>
 		<data>
 		0mt2b1iAnxLBMPsvijmDUhfRKVg=
@@ -184,6 +192,10 @@
 		<data>
 		hcEvPHvreE4Lmq7E6Kmi6ndsmZc=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/warning.png</key>
+		<data>
+		77Qqjs3w7XxUuWtut+/W4qlYHHA=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/world.png</key>
 		<data>
 		N+iSc5G7UBiNJWvkis+h/hkP1es=
@@ -192,13 +204,9 @@
 		<data>
 		bevX7JpMvhBVILQeR5Ge9Y/7S3s=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/med.png</key>
 		<data>
 		3QpVRqxXAOGF1+tbRoG2JYYmO4g=
-		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/medical.png</key>
-		<data>
-		8CPCkX0XJWXQSJz3tcW5OOQ7cRo=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/splash.png</key>
 		<data>
@@ -212,9 +220,9 @@
 		<data>
 		4N33kIHEf0bkfKlWN3ur09l++gM=
 		</data>
-		<key>Frameworks/App.framework/flutter_assets/assets/lottie/rocket.json</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/lottie/iii.json</key>
 		<data>
-		YIdpVS1HxGBYxo3lwbPUz/zfw+0=
+		Jdm/NHeJR7Y/FjwNDi/cxi1VZZY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -226,7 +234,15 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		rkAdWub4qu1/9IwRMjmUBnEB6pg=
+		Npn33npUMv/NRudOHp86A5ixkNs=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<data>
+		HVkEhoid+n6bwOYCwZg4DdmGBHY=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<data>
+		v5LMft1C/Ps/+tw6D+zco3p3Urk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/iconsax/lib/assets/fonts/iconsax.ttf</key>
 		<data>
@@ -396,6 +412,26 @@
 		<data>
 		/LX0ZlwxwIAIhjZaDB8EiH5KpXA=
 		</data>
+		<key>Frameworks/fluttertoast.framework/Info.plist</key>
+		<data>
+		9YoFLkdqzxgCTdlFUe0WR+qxz7s=
+		</data>
+		<key>Frameworks/fluttertoast.framework/_CodeSignature/CodeResources</key>
+		<data>
+		pmVh1YFfEw5Ij5TsZBKVlU0sHIo=
+		</data>
+		<key>Frameworks/fluttertoast.framework/fluttertoast</key>
+		<data>
+		7GI+85VReTBKWmmKy+EdOaJEnfQ=
+		</data>
+		<key>Frameworks/fluttertoast.framework/fluttertoast_privacy.bundle/Info.plist</key>
+		<data>
+		TvxNSLQ3EPXHa/kIoRA6Fi66riY=
+		</data>
+		<key>Frameworks/fluttertoast.framework/fluttertoast_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		/LX0ZlwxwIAIhjZaDB8EiH5KpXA=
+		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
 		v/RUoA5EXHIgIQxq7zLCdsH3tK8=
@@ -498,7 +534,7 @@
 		</data>
 		<key>Runner.debug.dylib</key>
 		<data>
-		R4ueY1VUy9i1H7FiJzCwwG3cQLU=
+		misx64jh6IsNfLe9c8e9+zRNG8Q=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
@@ -581,7 +617,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ht/WZluVmFqQ1e+XWct/iVPyuTe/B+1AZILKGM54iSI=
+			obpRU8eGyOOUZURKQph4PxD44BqTcrDwttJuBgXtbRs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -595,21 +631,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0XWKvLnxGci3t6go+0cmiS/PLrxslbQKsS0u6mDtt7A=
+			SnT+u4MaZucuhudSPiGua3GRwLPEVWY50CR7nNIaavM=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			noj8UJBOwfAkJhP4bEN99UV5sGrldVm3pT1y9BhPtMk=
+			fheNAlUIz6i1Ovu3kd5BrIZQSoHblUF441U+9j3qk/4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u5tGjpF1KMulRDcCtUPVFPOGN2Q4VIvonwT7AYzK8zo=
+			FI08kFx4ofQoMiq9tKZZ4p7ODjvdqaXBB+9NPPdI04Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -623,7 +659,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iX6kz9TxivoBIvUHKpHf314fj5asT/v7BNNKC2DQdcI=
+			GiFw8C1ijeXL1cLnprwkRTbqDMDpNhL9GvBbex7IuCk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/IBMPlexSansArabic-Bold.ttf</key>
@@ -731,6 +767,13 @@
 			j2UjDngC1pyL+OrX8OrG1Y2LdWQ2YQrRMqNP4T9tBLk=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/history.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ByIV9ywifZHYLsEXnslPzLoi1jHbJyIyWBVmH/gdOjM=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/language.png</key>
 		<dict>
 			<key>hash2</key>
@@ -794,6 +837,13 @@
 			oxXew3t+t+c+U9TLO3a/kxhBBODWmMnVzK+/eP6pYyI=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/remove.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fHnNZLigkZ7m6fi5borw1Aq1xSlUbP6OGo4omMUrL3Y=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/resend.png</key>
 		<dict>
 			<key>hash2</key>
@@ -822,6 +872,13 @@
 			UoYpgS1LQxb63P9eRpDxyZBDDfgroHi7gP5F6owNHuY=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/icons/warning.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HKbmijkD3B1hp/nduXUKlAmaGPWnxoSRyKJK6Ez6Mi4=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/world.png</key>
 		<dict>
 			<key>hash2</key>
@@ -836,18 +893,11 @@
 			NbQA7Qxopxti6whp1POs0VK5o4qBbybm7Lw/APCm2t8=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/medical-frontliners-LsV4yNHyng.png</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/med.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			Hf+XETaF5gnHSkIaM6a21flq8zNZWWnBvDtRymNv4b0=
-			</data>
-		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/images/medical.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			6zEBH9jhMrTQaFXG2FOieeE1DE714SUcCxDXAyC0Mhk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/splash.png</key>
@@ -871,11 +921,11 @@
 			I8hGhbGKxSmht9W4VUyWOtXdzJ2cdIsJc56XWowoLYk=
 			</data>
 		</dict>
-		<key>Frameworks/App.framework/flutter_assets/assets/lottie/rocket.json</key>
+		<key>Frameworks/App.framework/flutter_assets/assets/lottie/iii.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KaXZjB/MQwoG18KaZN4uGoCwTmPbS5UbESa/4DOYnrU=
+			lqNUriJrC3hQ7zCCxE+bSyiRRR+cqHJmpmQF0VsrCLs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -896,7 +946,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hMPgtZxgxpU5AxI3/ZouJyPi9YJXEifqEa069cU81rE=
+			I4u1cZoZjS8LI1Uaoljpr+ZXpE2zOyw5wD4xlZPFdPU=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			abr0T+pbPv0zd7q8FU7xuDv4JjuRAgKox9bnRddRNJ8=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CRyacJlKIATuArBPER1Aq+QMB7BmhWOZ9YxYcELsKZA=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/iconsax/lib/assets/fonts/iconsax.ttf</key>
@@ -1193,6 +1257,41 @@
 			bS2g2NkwIn1CjB2TY7CtbjoS4sm2jFzilxWKdBL8jDE=
 			</data>
 		</dict>
+		<key>Frameworks/fluttertoast.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			stD6d0j3eoFiQqaDpNYdT2BxiZiVKrzo1Xam/UZ7EKs=
+			</data>
+		</dict>
+		<key>Frameworks/fluttertoast.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9p/7XITOuNGjURNGo3Mf42i4SMC18xrq61zI3qnc/k4=
+			</data>
+		</dict>
+		<key>Frameworks/fluttertoast.framework/fluttertoast</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gnUMk4ZmadrTgNAZ4Y/nA+Zgn5MXblh+17hDtsUBQdY=
+			</data>
+		</dict>
+		<key>Frameworks/fluttertoast.framework/fluttertoast_privacy.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cTyNok1kUkXTupO9hmAcL+mTJZLniiTMMY0AYr6Y5a4=
+			</data>
+		</dict>
+		<key>Frameworks/fluttertoast.framework/fluttertoast_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bS2g2NkwIn1CjB2TY7CtbjoS4sm2jFzilxWKdBL8jDE=
+			</data>
+		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1358,7 +1457,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rqDuxoMcEK5rxRhbUDz+e7z/+c90wTW1Rnzadidid1s=
+			OCJoTPmK+zlJWRg1qLnt3FOyVc2c0QxJt9i30FxVf3Q=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>

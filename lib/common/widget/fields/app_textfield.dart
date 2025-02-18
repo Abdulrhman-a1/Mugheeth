@@ -20,8 +20,11 @@ class AppTextFormField extends StatelessWidget {
   final bool? readOnly;
   final TextInputType? keyboardType;
   final bool isEmailAndPassword;
+  final FocusNode? focusNode;
+
   const AppTextFormField({
     super.key,
+    this.focusNode,
     this.keyboardType,
     this.contentPadding,
     this.focusedBorder,
@@ -42,6 +45,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
       keyboardType: keyboardType ?? TextInputType.text,
       inputFormatters: [
         if (isEmailAndPassword) ...[

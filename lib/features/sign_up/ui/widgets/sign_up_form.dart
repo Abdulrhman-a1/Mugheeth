@@ -27,6 +27,9 @@ class SignUpFormState extends State<SignUpForm> {
   bool hasNumber = false;
   bool hasMinLength = false;
 
+  final FocusNode passwordFocusNode = FocusNode();
+  bool isPasswordFocused = false;
+
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController genderController = TextEditingController();
@@ -45,6 +48,13 @@ class SignUpFormState extends State<SignUpForm> {
   void initState() {
     super.initState();
     passwordController.addListener(_validatePassword);
+
+    // إضافة مستمع لتغييرات التركيز
+    passwordFocusNode.addListener(() {
+      setState(() {
+        isPasswordFocused = passwordFocusNode.hasFocus;
+      });
+    });
   }
 
   void _validatePassword() {
@@ -61,6 +71,7 @@ class SignUpFormState extends State<SignUpForm> {
   @override
   void dispose() {
     passwordController.removeListener(_validatePassword);
+    passwordFocusNode.dispose(); // تنظيف FocusNode عند تدمير الشاشة
     super.dispose();
   }
 
@@ -152,6 +163,7 @@ class SignUpFormState extends State<SignUpForm> {
             controller: passwordController,
             hintText: "كلمة المرور",
             isObscureText: isPasswordObscureText,
+            focusNode: passwordFocusNode, // تم إضافة FocusNode هنا
             validator: (value) =>
                 fieldErrors['password'] ??
                 (value == null || value.isEmpty
@@ -198,13 +210,14 @@ class SignUpFormState extends State<SignUpForm> {
             ),
           ),
           SizedBox(height: 10.h),
-          PasswordValidations(
-            hasLowerCase: hasLowercase,
-            hasUpperCase: hasUppercase,
-            hasSpecialCharacters: hasSpecialCharacters,
-            hasNumber: hasNumber,
-            hasMinLength: hasMinLength,
-          ),
+          if (isPasswordFocused)
+            PasswordValidations(
+              hasLowerCase: hasLowercase,
+              hasUpperCase: hasUppercase,
+              hasSpecialCharacters: hasSpecialCharacters,
+              hasNumber: hasNumber,
+              hasMinLength: hasMinLength,
+            ),
           SizedBox(height: 20.h),
           AppButton(
             isShadowNeeded: false,
