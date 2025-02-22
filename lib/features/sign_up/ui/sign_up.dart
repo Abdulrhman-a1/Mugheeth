@@ -40,7 +40,8 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     );
                   } else if (state is AuthFailure) {
-                    showToastMessage(context, state.message);
+                    showToastMessage(
+                        context, state.message, "assets/icons/warning .png");
                     Navigator.of(context).pop();
                     Navigator.of(context).pop();
                   } else if (state is AuthSuccess) {

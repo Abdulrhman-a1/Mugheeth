@@ -5,13 +5,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../theme/colors.dart';
 
-void showToastMessage(BuildContext context, String message,
+void showToastMessage(BuildContext context, String message, String iconPath,
     {bool isError = true}) {
   FToast fToast = FToast();
   fToast.init(context);
 
-  final String iconPath =
-      isError ? "assets/icons/warning.png" : "assets/icons/check.png";
   final Color iconColor = isError ? Colors.red : Colors.green;
   final Color backgroundColor = AppColors.lightGrey;
 
@@ -85,6 +83,6 @@ void showToastMessage(BuildContext context, String message,
   fToast.showToast(
     child: toast,
     gravity: ToastGravity.TOP,
-    toastDuration: const Duration(seconds: 5),
+    toastDuration: const Duration(seconds: 3),
   );
 }

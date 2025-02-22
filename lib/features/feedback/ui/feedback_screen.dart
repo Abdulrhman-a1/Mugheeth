@@ -36,6 +36,7 @@ class FeedbackScreen extends StatelessWidget {
                   context,
                   "تم إرسال تعليقك بنجاح",
                   isError: false,
+                  "assets/icons/check.png",
                 );
               },
             ),

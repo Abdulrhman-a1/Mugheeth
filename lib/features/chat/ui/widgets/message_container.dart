@@ -16,7 +16,7 @@ class MessageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0.sp),
+      padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
       child: IntrinsicWidth(
         child: Container(
           margin: EdgeInsets.symmetric(

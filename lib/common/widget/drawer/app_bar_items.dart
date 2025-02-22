@@ -108,31 +108,48 @@ class SideBar extends StatelessWidget {
                     context.pushNamed("/profile");
                   },
                 ),
+                AppSiderbar(
+                  text: 'من نحن',
+                  icon: Iconsax.info_circle,
+                  onPressed: () {
+                    context.pop();
+                  },
+                ),
+                AppSiderbar(
+                  text: 'الدعم الفني',
+                  icon: Iconsax.call,
+                  onPressed: () {
+                    context.pop();
+                  },
+                ),
+                AppSiderbar(
+                  text: 'سياسة الخصوصية',
+                  icon: Iconsax.chart,
+                  onPressed: () {
+                    context.pop();
+                  },
+                ),
+                AppSiderbar(
+                  text: 'تسجيل خروج',
+                  icon: Iconsax.logout,
+                  onPressed: () {
+                    context.pop();
+                  },
+                ),
               ],
             ),
             Column(
               children: [
                 const NewChatButton(),
+                SizedBox(height: 16.h),
                 const Divider(color: Colors.grey, thickness: 0.2),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        context.pop();
-                      },
-                      icon: const Icon(Iconsax.login),
-                      color: Colors.black,
-                      iconSize: 20.sp,
-                    ),
-                    Text(
-                      "وائل",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.sp,
-                      ),
-                    ),
-                  ],
+                SizedBox(height: 16.h),
+                Text(
+                  "وائل 🚀 ",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16.sp,
+                  ),
                 ),
               ],
             ),

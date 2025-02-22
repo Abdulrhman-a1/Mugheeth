@@ -41,11 +41,15 @@ class SignInFormState extends State<SignInForm> {
           );
         } else if (state is AuthFailure) {
           Navigator.of(context).pop();
-          showToastMessage(context, state.message);
+          showToastMessage(context, state.message, "assets/icons/warning.png");
         } else if (state is AuthSuccess) {
           Navigator.of(context).pop();
           Navigator.of(context).pop();
-          showToastMessage(context, "تم تسجيل الدخول بنجاح", isError: false);
+          showToastMessage(
+              context,
+              "تم تسجيل الدخول بنجاح",
+              isError: false,
+              "assets/icons/check.png");
         }
       },
       builder: (context, state) {

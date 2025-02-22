@@ -65,28 +65,17 @@ class MugheethFeatures extends StatelessWidget {
             onPressed: () {},
           ),
         ),
-        // SizedBox(height: 25.h),
-        // SizedBox(
-        //   width: MediaQuery.of(context).size.width * 0.9,
-        //   height: MediaQuery.of(context).size.height * 0.06,
-        //   child: TextButton(
-        //     onPressed: () {},
-        //     style: TextButton.styleFrom(
-        //       overlayColor: Colors.transparent,
-        //       backgroundColor: Colors.transparent,
-        //       shape: RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.circular(10.sp),
-        //         side: BorderSide(color: AppColors.mainAppColor, width: 1.5.sp),
-        //       ),
-        //     ),
-        //     child: Text(
-        //       "إبدا",
-        //       style: TextStyles.onboardingDesc.copyWith(
-        //         fontWeight: FontWeight.normal,
-        //       ),
-        //     ),
-        //   ),
-        // ),
+        SizedBox(height: 25.h),
+        AnimatedItem(
+          index: 4,
+          child: TextAndIcon(
+            iconPath: 'assets/icons/easy-use.png',
+            label: 'سهولة الوصول و الإستخدام',
+            description:
+                'تصميم التطبيق بسيط وسهل الاستخدام ليتناسب مع جميع الفئات العمرية.',
+            onPressed: () {},
+          ),
+        ),
       ],
     );
   }
