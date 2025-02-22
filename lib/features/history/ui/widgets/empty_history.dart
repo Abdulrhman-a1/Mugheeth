@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 
 class EmptyHistory extends StatelessWidget {
@@ -10,28 +11,32 @@ class EmptyHistory extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.transparent,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.mainSoftBlue.withOpacity(0.25),
-                blurRadius: 120,
-                spreadRadius: 12,
-                offset: const Offset(40, 20),
-              ),
-            ],
-            shape: BoxShape.circle,
-          ),
+              color: Colors.transparent,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.mainSoftBlue.withOpacity(0.3),
+                  blurRadius: 120,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 0),
+                ),
+              ]),
           width: MediaQuery.of(context).size.width * 0.55,
-          child: Image.asset("assets/images/NoDocuments copy.png"),
+          child: Image.asset(
+            "assets/images/NoDocuments copy.png",
+            fit: BoxFit.cover,
+          ),
         ),
-        // Text(
-        //   "لا يوجد لديك تاريخ مرضي، ابدا محادثة لتكوينه",
-        //   style: TextStyle(
-        //     fontSize: 16.sp,
-        //     color: Colors.grey,
-        //   ),
-        //   textAlign: TextAlign.right,
-        // ),
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Text(
+            "لا يوجد لديك تاريخ مرضي",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16.sp, color: AppColors.mainAppGrey),
+          ),
+        ),
       ],
     );
   }

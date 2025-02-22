@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:graduation/common/widget/buttons/chat_button.dart';
+import 'package:graduation/common/widget/custom_shape/app_container.dart';
 import 'package:graduation/common/widget/pop_up/mugheeth_popup.dart';
 import 'package:graduation/features/login/ui/login.dart';
 
@@ -30,21 +31,14 @@ class ChatBar extends StatelessWidget {
           ),
           title: Hero(
             tag: "WhoMugheeth",
-            child: TextButton(
+            child: AppContainer(
+              color: AppColors.mainSoftBlue.withOpacity(0.3),
+              textColor: AppColors.mainSoftBlue,
+              label: 'مغيث',
               onPressed: () {
                 showMugheeth(context);
               },
-              style: TextButton.styleFrom(
-                overlayColor: Colors.transparent,
-                backgroundColor: AppColors.mainSoftBlue.withOpacity(0.3),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.sp),
-                ),
-              ),
-              child: Text(
-                'مُغيث',
-                style: TextStyles.chatAppBarName,
-              ),
+              raduis: 10,
             ),
           ),
           actions: [

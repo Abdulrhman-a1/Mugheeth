@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ChatSection extends StatefulWidget {
+class MedicalHistory extends StatefulWidget {
   final PageController controller;
 
-  const ChatSection({super.key, required this.controller});
+  const MedicalHistory({super.key, required this.controller});
 
   @override
-  _ChatSectionState createState() => _ChatSectionState();
+  _MedicalHistoryState createState() => _MedicalHistoryState();
 }
 
-class _ChatSectionState extends State<ChatSection> {
+class _MedicalHistoryState extends State<MedicalHistory> {
   // double _offset = 0.0;
 
   @override

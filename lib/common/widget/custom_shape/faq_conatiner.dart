@@ -1,24 +1,24 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation/common/theme/colors.dart';
+import 'package:graduation/common/theme/colors.dart'; // Ensure this import is correct
 
-class FaqConatiner extends StatefulWidget {
+class FaqContainer extends StatefulWidget {
   final int index;
   final String question;
   final String answer;
 
-  const FaqConatiner({
-    super.key,
+  const FaqContainer({
+    Key? key, // Use `Key?` instead of `super.key`
     required this.index,
     required this.question,
     required this.answer,
-  });
+  }) : super(key: key);
 
   @override
-  State<FaqConatiner> createState() => _FaqConatinerState();
+  State<FaqContainer> createState() => _FaqContainerState();
 }
 
-class _FaqConatinerState extends State<FaqConatiner> {
+class _FaqContainerState extends State<FaqContainer> {
   bool _isExpanded = false;
 
   @override
@@ -32,52 +32,65 @@ class _FaqConatinerState extends State<FaqConatiner> {
               _isExpanded = !_isExpanded;
             });
           },
-          child: Container(
-            padding: const EdgeInsets.all(10),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
+              color: AppColors.lightGrey,
               border: Border.all(
                 color: Colors.grey.withOpacity(0.2),
               ),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  blurRadius: 5,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget.question,
-                  style: const TextStyle(
-                    color: AppColors.mainAppColor,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14.0,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        widget.question,
+                        style: TextStyle(
+                          color: AppColors.mainAppColor,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      _isExpanded ? Icons.expand_less : Icons.expand_more,
+                      color:
+                          _isExpanded ? Colors.white : AppColors.mainSoftBlue,
+                    ),
+                  ],
+                ),
+                if (_isExpanded)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: FadeIn(
+                      child: Text(
+                        widget.answer,
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                          color: AppColors.mainSoftBlue,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                Icon(
-                  _isExpanded ? Icons.expand_less : Icons.expand_more,
-                  color: AppColors.mainSoftBlue,
-                ),
               ],
             ),
           ),
         ),
-        if (_isExpanded)
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 8.0,
-              left: 16.0,
-              right: 16.0,
-            ),
-            child: FadeInRight(
-              child: Text(
-                widget.answer,
-                textAlign: TextAlign.justify,
-                style: const TextStyle(
-                  color: AppColors.mainSoftBlue,
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-          ),
         const SizedBox(height: 8.0),
       ],
     );

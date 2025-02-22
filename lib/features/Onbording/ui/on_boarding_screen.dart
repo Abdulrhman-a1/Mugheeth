@@ -6,6 +6,7 @@ import 'package:graduation/common/theme/text_style.dart';
 import 'package:graduation/common/widget/animation/slider_animation.dart';
 import 'package:graduation/common/widget/layout/screen.dart';
 import 'package:graduation/features/Onbording/ui/widgets/button.dart';
+import 'package:graduation/features/Onbording/ui/widgets/medical_history.dart';
 import 'package:graduation/features/Onbording/ui/widgets/page_view.dart';
 import 'package:graduation/features/Onbording/ui/widgets/chat_section.dart';
 import 'package:graduation/features/Onbording/ui/widgets/title_and_desc.dart';
@@ -45,8 +46,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       OnboardingContent(
         title: 'احتفظ بتاريخك الطبي لمتابعة دقيقة',
         description:
-            ' يساعدك في معرفة حالتك الصحية قبل زيارة المستشفى، مما يسهل عملية التشخيص ويوجهك للرعاية المناسبة بسرعة',
-        child: ChatSection(
+            ' يساعدك مُغيث في معرفة حالتك الصحية قبل زيارة المستشفى، مما يسهل عملية التشخيص ويوجهك للرعاية المناسبة بسرعة',
+        child: MedicalHistory(
           controller: _pageController,
         ),
       ),
@@ -75,9 +76,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           children: [
             AnimatedItem(
               index: 1,
-              child: Image.asset(
-                'assets/images/logo.png',
-                height: 35.h,
+              child: Opacity(
+                opacity: 0.6,
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  height: 35.h,
+                ),
               ),
             ),
             Expanded(
@@ -106,8 +110,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(0.0.sp, 0.sp, 250.0.sp, 10.sp),
-              child: InkWell(
-                onTap: () {
+              child: TextButton(
+                style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                ),
+                onPressed: () {
                   context.pushNamed('/chat');
                 },
                 child: Text(

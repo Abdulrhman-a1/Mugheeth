@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation/common/drawer/app_siderbar.dart';
+import 'package:graduation/common/widget/drawer/app_siderbar.dart';
 import 'package:graduation/common/helper/extensions.dart';
 import 'package:graduation/common/widget/buttons/new_chat.dart';
 import 'package:graduation/common/widget/custom_shape/faq_list.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
+import 'package:graduation/features/feedback/ui/feedback_screen.dart';
 import 'package:graduation/features/history/ui/history_screen.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -23,7 +24,6 @@ class SideBar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
         return DrawerItemBottomSheet(
-          isSmall: isSmall,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -62,10 +62,10 @@ class SideBar extends StatelessWidget {
                   onPressed: () {
                     context.pop();
                     openDrawerBottomSheet(
-                      isSmall: true,
+                      isSmall: false,
                       context,
                       null,
-                      const HistoryScreen(),
+                      HistoryScreen(),
                     );
                   },
                 ),
@@ -74,6 +74,12 @@ class SideBar extends StatelessWidget {
                   icon: Iconsax.star,
                   onPressed: () {
                     context.pop();
+                    openDrawerBottomSheet(
+                      isSmall: true,
+                      context,
+                      null,
+                      const FeedbackScreen(),
+                    );
                   },
                 ),
                 AppSiderbar(
@@ -85,10 +91,11 @@ class SideBar extends StatelessWidget {
                       isSmall: false,
                       context,
                       TextAndIcon(
-                          iconPath: "assets/icons/faq.png",
-                          label: "الاسئلة الشائعة",
-                          description: "وش حاب تعرف عن مغيث؟",
-                          onPressed: () {}),
+                        iconPath: "assets/icons/faq.png",
+                        label: "الاسئلة الشائعة",
+                        description: "وش حاب تعرف عن مغيث؟",
+                        onPressed: () {},
+                      ),
                       const FaqList(),
                     );
                   },

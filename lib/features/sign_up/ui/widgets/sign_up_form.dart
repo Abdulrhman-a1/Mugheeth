@@ -8,7 +8,6 @@ import 'package:graduation/data/auth/bloc/auth_bloc.dart';
 import 'package:graduation/features/sign_up/ui/widgets/pass_validator.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../common/widget/fields/DatePickerField.dart';
 import '../../../../common/widget/fields/GenderPickerButton.dart';
 
@@ -29,6 +28,8 @@ class SignUpFormState extends State<SignUpForm> {
 
   final FocusNode passwordFocusNode = FocusNode();
   bool isPasswordFocused = false;
+  final FocusNode confirmPasswordFocusNode = FocusNode();
+  bool isConfirmPasswordFocused = false;
 
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
@@ -48,11 +49,17 @@ class SignUpFormState extends State<SignUpForm> {
   void initState() {
     super.initState();
     passwordController.addListener(_validatePassword);
+    confirmPasswordController.addListener(_validatePassword);
 
-    // إضافة مستمع لتغييرات التركيز
     passwordFocusNode.addListener(() {
       setState(() {
         isPasswordFocused = passwordFocusNode.hasFocus;
+      });
+    });
+
+    confirmPasswordFocusNode.addListener(() {
+      setState(() {
+        isConfirmPasswordFocused = confirmPasswordFocusNode.hasFocus;
       });
     });
   }
@@ -71,7 +78,9 @@ class SignUpFormState extends State<SignUpForm> {
   @override
   void dispose() {
     passwordController.removeListener(_validatePassword);
-    passwordFocusNode.dispose(); // تنظيف FocusNode عند تدمير الشاشة
+    confirmPasswordController.removeListener(_validatePassword);
+    passwordFocusNode.dispose();
+    confirmPasswordFocusNode.dispose();
     super.dispose();
   }
 
@@ -163,7 +172,7 @@ class SignUpFormState extends State<SignUpForm> {
             controller: passwordController,
             hintText: "كلمة المرور",
             isObscureText: isPasswordObscureText,
-            focusNode: passwordFocusNode, // تم إضافة FocusNode هنا
+            focusNode: passwordFocusNode,
             validator: (value) =>
                 fieldErrors['password'] ??
                 (value == null || value.isEmpty
@@ -176,7 +185,7 @@ class SignUpFormState extends State<SignUpForm> {
                 });
               },
               child: Icon(
-                isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+                isPasswordObscureText ? Iconsax.eye_slash : Iconsax.eye,
               ),
             ),
           ),
@@ -186,6 +195,7 @@ class SignUpFormState extends State<SignUpForm> {
             controller: confirmPasswordController,
             hintText: "تأكيد كلمة المرور",
             isObscureText: isPasswordConfirmationObscureText,
+            focusNode: confirmPasswordFocusNode,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'الرجاء تأكيد كلمة المرور';
@@ -204,13 +214,13 @@ class SignUpFormState extends State<SignUpForm> {
               },
               child: Icon(
                 isPasswordConfirmationObscureText
-                    ? Icons.visibility_off
-                    : Icons.visibility,
+                    ? Iconsax.eye_slash
+                    : Iconsax.eye,
               ),
             ),
           ),
           SizedBox(height: 10.h),
-          if (isPasswordFocused)
+          if (isPasswordFocused || isConfirmPasswordFocused)
             PasswordValidations(
               hasLowerCase: hasLowercase,
               hasUpperCase: hasUppercase,
