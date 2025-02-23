@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/common/routing/routes.dart';
+import 'package:graduation/data/auth/bloc/auth_bloc.dart';
 
-class GraduationApp extends StatelessWidget {
+class GraduationApp extends StatefulWidget {
   final AppRouter appRouter;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
 
@@ -15,12 +17,22 @@ class GraduationApp extends StatelessWidget {
   });
 
   @override
+  State<GraduationApp> createState() => _GraduationAppState();
+}
+
+class _GraduationAppState extends State<GraduationApp> {
+  void intiState() {
+    super.initState();
+    context.read<AuthBloc>().add(AuthIsUserLoggedIn());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MaterialApp(
-        scaffoldMessengerKey: scaffoldMessengerKey,
+        scaffoldMessengerKey: widget.scaffoldMessengerKey,
         title: 'Mugheeth App',
         theme: ThemeData(
           primaryColor: Colors.white,
@@ -37,7 +49,7 @@ class GraduationApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        onGenerateRoute: appRouter.generateRoute,
+        onGenerateRoute: widget.appRouter.generateRoute,
         initialRoute: Routes.onBoarding,
         debugShowCheckedModeBanner: false,
       ),

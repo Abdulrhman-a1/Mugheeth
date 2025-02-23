@@ -18,4 +18,20 @@ class UserModels extends User {
       gender: map['gender'] ?? '',
     );
   }
+
+  UserModels copyWith({
+    String? id,
+    String? email,
+    String? name,
+    String? Bdate,
+    String? gender,
+  }) {
+    return UserModels(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      Bdate: Bdate ?? this.Bdate,
+      gender: gender ?? this.gender,
+    );
+  }
 }

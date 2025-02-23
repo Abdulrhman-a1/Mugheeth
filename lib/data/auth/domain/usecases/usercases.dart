@@ -5,4 +5,4 @@ abstract interface class Usercases<SuccessType, Params> {
   Future<Either<Failures, SuccessType>> call(Params params);
 }
 
- 
+ class NoParams {}
