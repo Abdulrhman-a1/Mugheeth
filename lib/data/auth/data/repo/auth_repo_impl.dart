@@ -42,6 +42,20 @@ class AuthRepoImpl implements AuthRepo {
     );
   }
 
+  @override
+  Future<Either<Failures, User>> getCurrentUserData() async {
+    try {
+      final user = await remoteDataSource.getCurrentUserData();
+      if (user == null) {
+        return Left(Failures("user is null"));
+      }
+      return Right(user);
+    } on ServerException catch (e) {
+      print(e.message);
+      return Left(Failures(e.message));
+    }
+  }   
+
   Future<Either<Failures, User>> _getUser(
     Future<User> Function() fn,
   ) async {
