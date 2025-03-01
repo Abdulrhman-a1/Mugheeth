@@ -113,6 +113,7 @@ class SideBar extends StatelessWidget {
                   icon: Iconsax.info_circle,
                   onPressed: () {
                     context.pop();
+                    context.pushNamed("/about");
                   },
                 ),
                 AppSiderbar(

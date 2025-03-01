@@ -38,14 +38,15 @@ class WelcomingState extends State<Welcoming> {
 
   @override
   Widget build(BuildContext context) {
-
-    return Center(
-      child: Transform.translate(
-        offset: Offset(0, -_offset * 100),
-        child: Lottie.asset(
-          'assets/lottie/iii.json',
+    return Column(
+      children: [
+        Transform.translate(
+          offset: Offset(0, -_offset * 200),
+          child: Lottie.asset(
+            'assets/lottie/iii.json',
+          ),
         ),
-      ),
+      ],
     );
   }
 }
