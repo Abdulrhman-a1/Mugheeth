@@ -1,18 +1,25 @@
-part of 'auth_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-abstract class AuthState {}
-
-class AuthInitial extends AuthState {}
-
-class AuthLoading extends AuthState {}
-
-class AuthSuccess extends AuthState {
-  final User uid;
-  AuthSuccess(this.uid);
+abstract class AuthState extends Equatable {
+  @override
+  List<Object?> get props => [];
 }
 
+// الحالة الافتراضية
+class AuthInitial extends AuthState {}
+
+// عند بدء العملية (Loading)
+class AuthLoading extends AuthState {}
+
+// عند نجاح العملية
+class AuthSuccess extends AuthState {}
+
+// عند فشل العملية مع رسالة الخطأ
 class AuthFailure extends AuthState {
   final String message;
-  AuthFailure(this.message);
+
+  AuthFailure({required this.message});
+
+  @override
+  List<Object?> get props => [message];
 }

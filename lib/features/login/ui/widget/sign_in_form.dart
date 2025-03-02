@@ -5,8 +5,11 @@ import 'package:graduation/common/widget/buttons/app_button.dart';
 import 'package:graduation/common/widget/custom_shape/welcome_text.dart';
 import 'package:graduation/common/widget/fields/app_textfield.dart';
 import 'package:graduation/common/widget/loader/progress.dart';
+import 'package:graduation/data/auth/bloc/auth_event.dart';
+import 'package:graduation/data/auth/bloc/auth_state.dart';
 import 'package:graduation/features/login/ui/widget/forgot_pass.dart';
 import 'package:iconsax/iconsax.dart';
+import '../../../../common/routing/routes.dart';
 import '../../../../common/widget/pop_up/error_popup.dart';
 import '../../../../data/auth/bloc/auth_bloc.dart';
 
@@ -43,8 +46,8 @@ class SignInFormState extends State<SignInForm> {
           Navigator.of(context).pop();
           showToastMessage(context, state.message, "assets/icons/warning.png");
         } else if (state is AuthSuccess) {
-          Navigator.of(context).pop();
-          Navigator.of(context).pop();
+          Navigator.of(context).pushNamedAndRemoveUntil(
+              '/chat', (Route<dynamic> route) => false);
           showToastMessage(
               context,
               "تم تسجيل الدخول بنجاح",
@@ -92,8 +95,8 @@ class SignInFormState extends State<SignInForm> {
                   if (_formKey.currentState!.validate()) {
                     context.read<AuthBloc>().add(
                           AuthSignIn(
-                            email: emailController.text,
-                            password: passwordController.text,
+                            email: emailController.text.toLowerCase(),
+                            password: passwordController.text.trim(),
                           ),
                         );
                   }

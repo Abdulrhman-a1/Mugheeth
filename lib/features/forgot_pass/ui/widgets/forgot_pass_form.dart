@@ -5,7 +5,12 @@ import 'package:iconsax/iconsax.dart';
 
 /// Form where the user will be able to reset their password.
 class ForgotPassForm extends StatelessWidget {
-  const ForgotPassForm({super.key});
+  final TextEditingController controller;
+
+  ForgotPassForm({
+    super.key,
+    required this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +18,7 @@ class ForgotPassForm extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         AppTextFormField(
+          controller: controller,
           suffixIcon: const Icon(Iconsax.direct_inbox),
           hintText: "البريد الالكتروني",
           validator: (value) {

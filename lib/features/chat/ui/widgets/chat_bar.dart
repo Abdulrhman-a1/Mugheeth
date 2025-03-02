@@ -6,10 +6,21 @@ import 'package:graduation/common/widget/buttons/chat_button.dart';
 import 'package:graduation/common/widget/custom_shape/app_container.dart';
 import 'package:graduation/common/widget/pop_up/mugheeth_popup.dart';
 import 'package:graduation/features/login/ui/login.dart';
+import '../../../../data/auth/service/auth_service.dart';
+
+String username = "";
 
 /// Chat bar; show app name and burger menu.
-class ChatBar extends StatelessWidget {
-  const ChatBar({super.key});
+class ChatBar extends StatefulWidget {
+  ChatBar({
+    super.key,
+  });
+  @override
+  State<ChatBar> createState() => _ChatBarState();
+}
+
+class _ChatBarState extends State<ChatBar> {
+  final AuthService authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +53,36 @@ class ChatBar extends StatelessWidget {
             ),
           ),
           actions: [
-            ChatButton(
-              //this might be a login or new chat button.
-              text: 'تسجيل الدخول',
-              onPressed: () {
-                showLoginDialog(context);
+            ValueListenableBuilder<String?>(
+              valueListenable: authService.userNameNotifier,
+              builder: (context, userName, _) {
+                if (userName != null && userName.isNotEmpty) {
+                  username = userName;
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Center(
+                      child: Text(
+                        'مرحبًا، $userName',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.mainAppColor,
+                        ),
+                      ),
+                    ),
+                  );
+                } else {
+                  return ChatButton(
+                    text: 'تسجيل الدخول',
+                    onPressed: () {
+                      showLoginDialog(
+                          context,
+                          () => setState(() {
+                                print('login');
+                              }));
+                    },
+                  );
+                }
               },
             ),
           ],
@@ -61,14 +97,14 @@ class ChatBar extends StatelessWidget {
             height: 1,
           ),
         ),
-        //Simple text to show the time of device.
+        // Simple text to show the time of device.
         Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
           child: Text(
             ' ${TimeOfDay.now().format(context)}',
             style: TextStyles.timeText,
           ),
-        )
+        ),
       ],
     );
   }

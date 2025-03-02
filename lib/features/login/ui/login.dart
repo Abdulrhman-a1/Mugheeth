@@ -3,18 +3,23 @@ import 'package:graduation/common/widget/buttons/close_button.dart';
 import 'package:graduation/features/login/ui/widget/pop_up.dart';
 
 class LoginSignupDialog extends StatelessWidget {
-  const LoginSignupDialog({super.key, this.closeModal});
+  const LoginSignupDialog({super.key, this.onDialogClosed});
 
-  final Function? closeModal;
+  final VoidCallback? onDialogClosed;
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: SingleChildScrollView(
         child: Stack(
           children: [
-            RehisterPopUp(),
-            Positioned(right: 20, child: ExitButton()),
+            const RehisterPopUp(),
+            Positioned(
+              right: 20,
+              child: ExitButton(
+                onDialogClosed: onDialogClosed, // Pass the callback directly
+              ),
+            ),
           ],
         ),
       ),
@@ -22,8 +27,8 @@ class LoginSignupDialog extends StatelessWidget {
   }
 }
 
-//Responsible to show the pop up only
-void showLoginDialog(BuildContext context) {
+// Show the login dialog and call setState on close
+void showLoginDialog(BuildContext context, VoidCallback onDialogClosed) {
   showGeneralDialog(
     context: context,
     barrierDismissible: false,
@@ -43,10 +48,13 @@ void showLoginDialog(BuildContext context) {
               parent: animation,
               curve: Curves.easeOut,
             )),
-            child: const LoginSignupDialog(),
+            child: LoginSignupDialog(onDialogClosed: onDialogClosed),
           ),
         ),
       );
     },
-  );
+  ).then((_) {
+    // Always call the callback when the dialog is closed
+    onDialogClosed();
+  });
 }

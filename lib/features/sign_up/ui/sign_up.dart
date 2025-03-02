@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/common/routing/routes.dart';
 import 'package:graduation/common/widget/custom_shape/welcome_text.dart';
 import 'package:graduation/common/widget/loader/progress.dart';
 import 'package:graduation/data/auth/bloc/auth_bloc.dart';
+import 'package:graduation/data/auth/bloc/auth_state.dart';
 import 'package:graduation/features/sign_up/ui/widgets/sign_up_form.dart';
-
 import '../../../common/widget/pop_up/error_popup.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -40,13 +42,16 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     );
                   } else if (state is AuthFailure) {
+                    // إغلاق اللودر إذا كان مفتوحًا
+                    if (Navigator.canPop(context)) {
+                      Navigator.of(context).pop();
+                    }
                     showToastMessage(
-                        context, state.message, "assets/icons/warning .png");
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pop();
+                        context, state.message, "assets/icons/warning.png");
                   } else if (state is AuthSuccess) {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pop();
+                    // إغلاق جميع النوافذ المنبثقة والانتقال إلى الشاشة الرئيسية
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/chat', (Route<dynamic> route) => false);
                   }
                 },
                 builder: (context, state) {
