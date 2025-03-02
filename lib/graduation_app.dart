@@ -4,7 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/common/routing/routes.dart';
-import 'package:graduation/data/auth/bloc/auth_bloc.dart';
 
 class GraduationApp extends StatefulWidget {
   final AppRouter appRouter;
@@ -23,7 +22,7 @@ class GraduationApp extends StatefulWidget {
 class _GraduationAppState extends State<GraduationApp> {
   void intiState() {
     super.initState();
-    context.read<AuthBloc>().add(AuthIsUserLoggedIn());
+    // context.read<AuthBloc>().add(AuthIsUserLoggedIn());
   }
 
   @override

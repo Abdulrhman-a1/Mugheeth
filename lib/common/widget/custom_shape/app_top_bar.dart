@@ -19,7 +19,8 @@ class AppTopBar extends StatelessWidget {
             highlightColor: Colors.transparent,
             icon: const Icon(Icons.arrow_back, color: AppColors.mainAppColor),
             onPressed: () {
-              context.pop();
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/chat', (Route<dynamic> route) => false);
             },
           );
         },

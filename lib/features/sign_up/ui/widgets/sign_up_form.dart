@@ -5,6 +5,7 @@ import 'package:graduation/common/widget/buttons/app_button.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/fields/app_textfield.dart';
 import 'package:graduation/data/auth/bloc/auth_bloc.dart';
+import 'package:graduation/data/auth/bloc/auth_event.dart';
 import 'package:graduation/features/sign_up/ui/widgets/pass_validator.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

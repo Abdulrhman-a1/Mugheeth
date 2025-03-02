@@ -73,12 +73,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      context.pushNamed('/chat');
+      // Navigate to chat screen and prevent back navigation
+      Navigator.of(context).pushReplacementNamed('/chat');
     }
   }
 
   void _skip() {
-    context.pushNamed('/chat');
+    // Navigate to chat screen and prevent back navigation
+    Navigator.of(context).pushReplacementNamed('/chat');
   }
 
   void _onPageChanged(int index) {
@@ -123,7 +125,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       slides: [page],
                       indicatorType: IndicatorType.circle,
                       onDone: () {
-                        context.pushNamed('/chat');
+                        context.pushReplacementNamed('/chat');
                       },
                       onSkip: _skip,
                     );

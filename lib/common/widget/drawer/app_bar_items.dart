@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/common/routing/routes.dart';
 import 'package:graduation/common/widget/drawer/app_siderbar.dart';
 import 'package:graduation/common/helper/extensions.dart';
 import 'package:graduation/common/widget/buttons/new_chat.dart';
 import 'package:graduation/common/widget/custom_shape/faq_list.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
+import 'package:graduation/data/auth/bloc/auth_bloc.dart';
+import 'package:graduation/data/auth/bloc/auth_event.dart' show AuthSignOut;
+import 'package:graduation/features/chat/ui/widgets/chat_bar.dart';
 import 'package:graduation/features/feedback/ui/feedback_screen.dart';
 import 'package:graduation/features/history/ui/history_screen.dart';
 import 'package:iconsax/iconsax.dart';
@@ -119,7 +124,8 @@ class SideBar extends StatelessWidget {
                   text: 'تسجيل خروج',
                   icon: Iconsax.logout,
                   onPressed: () {
-                    context.pop();
+                    context.read<AuthBloc>().add(AuthSignOut());
+                    context.pushReplacementNamed(Routes.onBoarding);
                   },
                 ),
               ],
@@ -131,7 +137,7 @@ class SideBar extends StatelessWidget {
                 const Divider(color: Colors.grey, thickness: 0.2),
                 SizedBox(height: 16.h),
                 Text(
-                  "وائل 🚀 ",
+                  "$username 🚀 ",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.sp,
