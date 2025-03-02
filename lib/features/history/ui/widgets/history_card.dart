@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation/features/history/ui/widgets/card_container.dart';
 
+///List of cards, each card represent a medical history event. I'll will replace this when I get the real data.
 class MedicalHistoryCards extends StatefulWidget {
   final List<Map<String, String>> medicalHistoryData;
 

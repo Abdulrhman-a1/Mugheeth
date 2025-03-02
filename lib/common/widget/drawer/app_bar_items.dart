@@ -109,21 +109,6 @@ class SideBar extends StatelessWidget {
                   },
                 ),
                 AppSiderbar(
-                  text: 'من نحن',
-                  icon: Iconsax.info_circle,
-                  onPressed: () {
-                    context.pop();
-                    context.pushNamed("/about");
-                  },
-                ),
-                AppSiderbar(
-                  text: 'الدعم الفني',
-                  icon: Iconsax.call,
-                  onPressed: () {
-                    context.pop();
-                  },
-                ),
-                AppSiderbar(
                   text: 'سياسة الخصوصية',
                   icon: Iconsax.chart,
                   onPressed: () {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation/common/helper/text.dart';
-import 'package:graduation/features/history/ui/widgets/history_conten.dart';
+import 'package:graduation/features/history/ui/widgets/history_content.dart';
 
 class CardContainer extends StatelessWidget {
   final Map<String, String> event;

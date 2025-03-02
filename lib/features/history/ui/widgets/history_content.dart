@@ -3,6 +3,7 @@ import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/features/history/ui/widgets/button_in_card.dart';
 import 'package:iconsax/iconsax.dart';
 
+///in this we structue the history content, and get the color based on triage levle.
 class HistoryContent extends StatelessWidget {
   final Map<String, String> event;
   final bool isExpanded;

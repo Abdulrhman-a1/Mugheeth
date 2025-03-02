@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation/common/routing/routes.dart';
 import 'package:graduation/features/Onbording/ui/on_boarding_screen.dart';
-import 'package:graduation/features/about/ui/about_us_screen.dart';
 import 'package:graduation/features/chat/ui/chat_screen.dart';
 import 'package:graduation/features/setting/ui/profile_screen.dart';
 
@@ -22,11 +21,6 @@ class AppRouter {
       case Routes.profile:
         return MaterialPageRoute(
           builder: (_) => const ProfileScreen(),
-        );
-
-      case Routes.about:
-        return MaterialPageRoute(
-          builder: (_) => const AboutUsScreen(),
         );
 
       default:
