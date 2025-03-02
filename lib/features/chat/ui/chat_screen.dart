@@ -5,7 +5,6 @@ import 'package:graduation/features/chat/ui/widgets/chat_bar.dart';
 import 'package:graduation/features/chat/ui/widgets/input_field.dart';
 import 'package:graduation/features/chat/ui/widgets/messages.dart';
 
-///chat screen widget; showing chat bar, chat messages and chat input field.
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -22,13 +21,14 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Screen(
       backgroundColor: AppColors.chatScreenGrey,
       child: Column(
         children: [
-          const ChatBar(),
+          ChatBar(),
           ChatMessages(messages: _messages),
           ChatInputField(onSend: _sendMessage),
         ],

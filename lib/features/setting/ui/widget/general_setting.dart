@@ -4,6 +4,8 @@ import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/features/setting/ui/widget/user_info.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../common/theme/colors.dart';
+
 class GeneralSetting extends StatelessWidget {
   const GeneralSetting({super.key});
 
@@ -43,4 +45,31 @@ class GeneralSetting extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget infoContent(String label, String value, IconData icon) {
+  return Padding(
+    padding: EdgeInsets.all(16.0.sp),
+    child: Row(
+      children: [
+        Icon(icon, color: AppColors.mainSoftBlue),
+        SizedBox(width: 16.w),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                label,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.mainAppColor,
+                    fontSize: 14.sp),
+              ),
+              Text(value),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
 }

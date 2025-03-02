@@ -1,43 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation/common/theme/colors.dart';
-import 'package:graduation/features/history/ui/widgets/card_content.dart';
-import 'package:graduation/features/history/ui/widgets/date_container.dart';
+import 'package:graduation/features/history/ui/widgets/card_container.dart';
 
-class HistoryCard extends StatelessWidget {
-  const HistoryCard({super.key});
+///List of cards, each card represent a medical history event. I'll will replace this when I get the real data.
+class MedicalHistoryCards extends StatefulWidget {
+  final List<Map<String, String>> medicalHistoryData;
+
+  const MedicalHistoryCards({super.key, required this.medicalHistoryData});
+
+  @override
+  State<MedicalHistoryCards> createState() => _MedicalHistoryCardsState();
+}
+
+class _MedicalHistoryCardsState extends State<MedicalHistoryCards> {
+  final ScrollController _scrollController = ScrollController();
+  final List<bool> _expandedStates = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _expandedStates.addAll(
+        List.generate(widget.medicalHistoryData.length, (index) => false));
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onMilestoneTap(int index) {
+    setState(() {
+      _expandedStates[index] = !_expandedStates[index];
+    });
+
+    if (_expandedStates[index]) {
+      final itemPosition =
+          (index * 160.0) - (_scrollController.position.viewportDimension / 3);
+      _scrollController.animateTo(
+        itemPosition.clamp(0.0, _scrollController.position.maxScrollExtent),
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOutCubic,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20.sp),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.mainSoftBlue.withOpacity(0.3),
-            blurRadius: 15,
-            spreadRadius: 5,
-            offset: const Offset(0, 5),
-          ),
-        ],
-        border: Border.all(
-          color: AppColors.mainAppColor,
-          width: 1.5.sp,
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(24.sp),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const DateContainer(),
-            SizedBox(height: 16.sp),
-            const CardContent(),
-          ],
-        ),
-      ),
+    return ListView.builder(
+      controller: _scrollController,
+      physics: const BouncingScrollPhysics(),
+      itemCount: widget.medicalHistoryData.length,
+      itemBuilder: (context, index) {
+        final event = widget.medicalHistoryData[index];
+        return CardContainer(
+          event: event,
+          index: index,
+          isExpanded: _expandedStates[index],
+          onTap: () => _onMilestoneTap(index),
+        );
+      },
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation/common/helper/text.dart';
 import 'package:graduation/common/widget/animation/slider_animation.dart';
 import 'package:graduation/common/widget/custom_shape/faq_conatiner.dart';
 
@@ -6,98 +7,32 @@ class FaqList extends StatefulWidget {
   const FaqList({super.key});
 
   @override
-  State<FaqList> createState() => _FaqListState();
+  State<FaqList> createState() => FaqListState();
 }
 
-class _FaqListState extends State<FaqList> {
-  //we can change this data!
-  final List<Map<String, String>> faqItems = [
-    {
-      'question': 'ما هو نظام مُغيث للفرز الطبي؟',
-      'answer':
-          'مُغيث هو نظام ذكاء اصطناعي يساعد في تصنيف الحالات الطبية وفقًا لدرجة خطورتها، مما يساهم في توجيه المرضى إلى الرعاية الطبية المناسبة بسرعة وكفاءة.',
-    },
-    {
-      'question': 'كيف يعمل نظام مُغيث؟',
-      'answer':
-          'يعتمد مُغيث على الذكاء الاصطناعي ومعالجة اللغة الطبيعية لتحليل الأعراض التي يُدخلها المستخدم، ثم يقترح مستوى الأولوية الطبي المناسب ويوجه المستخدم للخطوة التالية.',
-    },
-    {
-      'question': 'هل يمكن لمُغيث تشخيص الأمراض؟',
-      'answer':
-          'لا، مُغيث ليس بديلاً عن التشخيص الطبي. هو أداة مساعدة تقوم بتقييم الحالة بناءً على الأعراض المدخلة وتوجيه المستخدم إلى الخيار الطبي المناسب.',
-    },
-    {
-      'question': 'ما الفائدة من استخدام مُغيث؟',
-      'answer':
-          'يُمكن مُغيث من تحسين سرعة الاستجابة للحالات الطارئة، تقليل الضغط على أقسام الطوارئ، وتوجيه المرضى إلى مستوى الرعاية المناسب بناءً على احتياجاتهم الطبية.',
-    },
-    {
-      'question': 'هل مُغيث يعمل مع المستشفيات والعيادات؟',
-      'answer':
-          'نعم، يمكن دمج مُغيث مع أنظمة المستشفيات والعيادات لتوفير تقييم أولي للحالات الواردة وتحسين عمليات الفرز الطبي.',
-    },
-    {
-      'question': 'كيف يمكنني استخدام مُغيث؟',
-      'answer':
-          'يمكنك إدخال الأعراض التي تعاني منها عبر التطبيق أو النظام المرتبط، وسيقوم مُغيث بتحليلها وتوجيهك إلى الخطوة الطبية المناسبة بناءً على حالتك.',
-    },
-    {
-      'question': 'هل يستخدم مُغيث البيانات الطبية بشكل آمن؟',
-      'answer':
-          'نعم، يلتزم مُغيث بأعلى معايير الأمان والخصوصية لحماية بيانات المستخدمين وضمان سرية المعلومات الصحية.',
-    },
-    {
-      'question': 'كيف يعمل نظام مُغيث؟',
-      'answer':
-          'يعتمد مُغيث على الذكاء الاصطناعي ومعالجة اللغة الطبيعية لتحليل الأعراض التي يُدخلها المستخدم، ثم يقترح مستوى الأولوية الطبي المناسب ويوجه المستخدم للخطوة التالية.',
-    },
-    {
-      'question': 'كيف يعمل نظام مُغيث؟',
-      'answer':
-          'يعتمد مُغيث على الذكاء الاصطناعي ومعالجة اللغة الطبيعية لتحليل الأعراض التي يُدخلها المستخدم، ثم يقترح مستوى الأولوية الطبي المناسب ويوجه المستخدم للخطوة التالية.',
-    },
-    {
-      'question': 'هل مُغيث متاح للاستخدام في جميع الدول؟',
-      'answer':
-          'حاليًا، يعمل مُغيث بالتعاون مع بعض المؤسسات الطبية، ونسعى لتوسيعه ليكون متاحًا على نطاق أوسع في المستقبل.',
-    },
-    {
-      'question': 'هل يدعم مُغيث اللغات المختلفة؟',
-      'answer':
-          'نعم، يدعم مُغيث اللغة العربية والإنجليزية، ويتم تطويره لدعم المزيد من اللغات لتوفير خدمة أكثر شمولية.',
-    },
-    {
-      'question': 'كيف يمكنني المساهمة في تطوير مُغيث؟',
-      'answer':
-          'إذا كنت طبيبًا أو مطورًا مهتمًا بالذكاء الاصطناعي في المجال الصحي، يمكنك التواصل معنا للمساهمة في تحسين مُغيث وتطويره.',
-    },
-  ];
-
+class FaqListState extends State<FaqList> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: AnimatedItem(
-        index: 0,
-        child: Column(
-          children: [
-            SizedBox(
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: const ScrollPhysics(),
-                itemCount: faqItems.length,
-                itemBuilder: (context, index) {
-                  final item = faqItems[index];
-                  return FaqConatiner(
-                    index: index,
-                    question: item['question']!,
-                    answer: item['answer']!,
-                  );
-                },
-              ),
+    return AnimatedItem(
+      index: 0,
+      child: Column(
+        children: [
+          Container(
+            constraints: BoxConstraints(maxHeight: 700, minHeight: 700),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: faqItems.length,
+              itemBuilder: (context, index) {
+                final item = faqItems[index];
+                return FaqContainer(
+                  index: index,
+                  question: item['question']!,
+                  answer: item['answer']!,
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

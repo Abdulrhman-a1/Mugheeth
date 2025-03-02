@@ -54,8 +54,9 @@ class MugheethPopup extends StatelessWidget {
                 child: Column(
                   children: [
                     const Align(
-                        alignment: Alignment.topLeft,
-                        child: FloatingPointWidget()),
+                      alignment: Alignment.topLeft,
+                      child: FloatingPointWidget(),
+                    ),
                     Hero(
                       tag: 'WhoMugheeth',
                       child: Align(

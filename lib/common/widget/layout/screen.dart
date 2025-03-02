@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation/common/drawer/app_bar_items.dart';
+import 'package:graduation/common/widget/drawer/app_bar_items.dart';
 
 class Screen extends StatelessWidget {
   final Widget child;

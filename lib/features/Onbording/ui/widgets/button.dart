@@ -29,7 +29,7 @@ class OnboardingIndicator extends StatelessWidget {
               child: CircularProgressIndicator(
                 value: (currentPage + 1) / totalPage,
                 strokeWidth: 2.5.w,
-                backgroundColor: AppColors.mainAppColor.withOpacity(0.3),
+                backgroundColor: Colors.transparent,
                 valueColor:
                     const AlwaysStoppedAnimation<Color>(AppColors.mainAppColor),
               ),
@@ -69,7 +69,7 @@ class OnboardingIndicator extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4.w),
               color: AppColors.mainAppColor
-                  .withOpacity(index == currentPage ? 1 : 0.5)),
+                  .withOpacity(index == currentPage ? 1 : 0.2)),
         );
       }),
     );

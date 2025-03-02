@@ -25,7 +25,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20.sp),
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 40),
       padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 10.w),
       decoration: BoxDecoration(
         color: Colors.white,

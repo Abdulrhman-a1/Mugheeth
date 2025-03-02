@@ -8,6 +8,7 @@ class TextAndIcon extends StatelessWidget {
   final String description;
   final Function onPressed;
   final bool isShadowNeeded;
+  final double fontSize;
 
   const TextAndIcon({
     super.key,
@@ -16,6 +17,7 @@ class TextAndIcon extends StatelessWidget {
     required this.description,
     required this.onPressed,
     this.isShadowNeeded = true,
+    this.fontSize = 16,
   });
 
   @override
@@ -33,7 +35,7 @@ class TextAndIcon extends StatelessWidget {
                   boxShadow: isShadowNeeded
                       ? [
                           BoxShadow(
-                            color: AppColors.mainSoftBlue.withOpacity(0.5),
+                            color: AppColors.mainSoftBlue.withOpacity(0.3),
                             blurRadius: 10,
                             spreadRadius: 1,
                             offset: const Offset(0, 0),
@@ -44,8 +46,8 @@ class TextAndIcon extends StatelessWidget {
                 ),
                 child: Image.asset(
                   iconPath,
-                  width: 25.w,
-                  height: 25.h,
+                  width: 20.w,
+                  height: 20.h,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,7 +55,7 @@ class TextAndIcon extends StatelessWidget {
               Text(
                 label,
                 style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: fontSize,
                   color: AppColors.mainAppColor,
                   fontWeight: FontWeight.bold,
                 ),

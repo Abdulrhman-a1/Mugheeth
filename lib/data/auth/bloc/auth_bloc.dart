@@ -1,73 +1,82 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation/data/auth/domain/usecases/user_sign_up.dart';
-import '../domain/entities/user.dart';
-import '../domain/usecases/user_sign_in.dart';
-
-part 'auth_event.dart';
-part 'auth_state.dart';
+import 'package:graduation/data/auth/bloc/auth_event.dart';
+import 'package:graduation/data/auth/bloc/auth_state.dart';
+import 'package:graduation/data/auth/service/auth_service.dart'
+    show AuthService;
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final UserSignUp _userSignUp;
-  final UserSignIn _userSignIn;
+  final AuthService authService;
 
-  AuthBloc({
-    required UserSignUp userSignUp,
-    required UserSignIn userSignIn,
-  })  : _userSignUp = userSignUp,
-        _userSignIn = userSignIn,
-        super(AuthInitial()) {
-    on<AuthSignUp>(_onAuthSignUp);
-    on<AuthSignIn>(_onAuthSignIn);
-  }
-  void _onAuthSignUp(AuthSignUp event, Emitter<AuthState> emit) async {
-    debugPrint("AuthSignUp event triggered");
+  AuthBloc({required this.authService}) : super(AuthInitial()) {
+    // Handling sign-in event
+    on<AuthSignIn>((event, emit) async {
+      emit(AuthLoading());
+      try {
+        final response = await authService.signInWithEmailPassword(
+          event.email,
+          event.password,
+        );
+        if (response?.session != null) {
+          print('Sign-in successful for user: ${response?.user?.email}');
+          emit(AuthSuccess());
+        } else {
+          print('Sign-in failed: No session returned.');
+          emit(AuthFailure(message: 'Failed to sign in. Please try again.'));
+        }
+      } catch (e, stackTrace) {
+        print('Sign-in error: $e\n$stackTrace');
+        emit(AuthFailure(message: 'An error occurred during sign-in.'));
+      }
+    });
 
-    emit(AuthLoading());
+    // Handling sign-up event
+    on<AuthSignUp>((event, emit) async {
+      emit(AuthLoading());
+      try {
+        final response = await authService.signUpWithEmailPassword(
+          event.email,
+          event.password,
+          event.gender,
+          event.Bdata,
+          event.name,
+        );
+        if (response?.user != null) {
+          print('Sign-up successful for user: ${response?.user?.email}');
+          authService.getCurrentUserEmail(); // Just for logging purposes
+          emit(AuthSuccess());
+        } else {
+          print('Sign-up failed: No user created.');
+          emit(AuthFailure(message: 'Failed to sign up. Please try again.'));
+        }
+      } catch (e, stackTrace) {
+        print('Sign-up error: $e\n$stackTrace');
+        emit(AuthFailure(message: 'An error occurred during sign-up.'));
+      }
+    });
 
-    final res = await _userSignUp(
-      UserSignUpParams(
-        email: event.email,
-        password: event.password,
-        name: event.name,
-        Bdata: event.Bdata,
-        gender: event.gender,
-      ),
-    );
+    // Handling sign-out event
+    on<AuthSignOut>((event, emit) async {
+      emit(AuthLoading());
+      try {
+        await authService.signOut();
+        print('User signed out successfully.');
+        emit(AuthInitial());
+      } catch (e, stackTrace) {
+        print('Sign-out error: $e\n$stackTrace');
+        emit(AuthFailure(message: 'An error occurred during sign-out.'));
+      }
+    });
 
-    res.fold(
-      (failure) {
-        debugPrint("Auth Failure: ${failure.message}");
-        emit(AuthFailure(failure.message));
-      },
-      (user) {
-        debugPrint("Auth Success: User signed up!");
-        emit(AuthSuccess(user));
-      },
-    );
-  }
-
-  void _onAuthSignIn(AuthSignIn event, Emitter<AuthState> emit) async {
-    debugPrint("AuthSignIn event triggered");
-
-    emit(AuthLoading());
-
-    final res = await _userSignIn(
-      UserSignInParams(
-        email: event.email,
-        password: event.password,
-      ),
-    );
-
-    res.fold(
-      (failure) {
-        debugPrint("Auth Failure: ${failure.message}");
-        emit(AuthFailure(failure.message));
-      },
-      (user) {
-        debugPrint("Auth Success: User signed in!");
-        emit(AuthSuccess(user));
-      },
-    );
+    // Handling get current user event
+    on<GetCurrentUser>((event, emit) async {
+      emit(AuthLoading());
+      try {
+        final user = authService.getCurrentUserEmail();
+        print('Current user: $user');
+        emit(AuthSuccess());
+      } catch (e, stackTrace) {
+        print('Get current user error: $e\n$stackTrace');
+      }
+    });
   }
 }
