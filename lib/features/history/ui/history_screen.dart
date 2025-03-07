@@ -14,7 +14,7 @@ class HistoryScreen extends StatefulWidget {
 
 class HistoryScreenState extends State<HistoryScreen>
     with SingleTickerProviderStateMixin {
-  bool isEmpty = false; // This will be removed when you have users with data.
+  bool isEmpty = true; // This will be removed when you have users with data.
 
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;

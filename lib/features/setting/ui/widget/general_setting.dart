@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
-import 'package:graduation/features/setting/ui/widget/user_info.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/theme/colors.dart';

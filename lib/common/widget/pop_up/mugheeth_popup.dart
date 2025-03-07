@@ -67,7 +67,7 @@ class MugheethPopup extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 20.0.h),
                     const MugheethFeatures()
                   ],
                 ),

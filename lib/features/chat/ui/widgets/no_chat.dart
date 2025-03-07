@@ -5,8 +5,11 @@ import 'package:graduation/common/widget/custom_shape/chat_suggestion.dart';
 
 /// Empty chat design
 class NoChat extends StatefulWidget {
+  final Function(String) onSuggestionSelected;
+
   const NoChat({
     super.key,
+    required this.onSuggestionSelected,
   });
 
   @override
@@ -41,7 +44,10 @@ class NoChatState extends State<NoChat> {
             ),
           ),
         ),
-        const ChatSuggestions(),
+        ChatSuggestions(
+          onSuggestionSelected:
+              widget.onSuggestionSelected, // Pass the callback
+        ),
       ],
     );
   }

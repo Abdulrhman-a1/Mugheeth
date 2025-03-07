@@ -13,6 +13,8 @@ import 'package:graduation/data/auth/bloc/auth_event.dart' show AuthSignOut;
 import 'package:graduation/features/chat/ui/widgets/chat_bar.dart';
 import 'package:graduation/features/feedback/ui/feedback_screen.dart';
 import 'package:graduation/features/history/ui/history_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:iconsax/iconsax.dart';
 
 class SideBar extends StatelessWidget {
@@ -116,7 +118,14 @@ class SideBar extends StatelessWidget {
                 AppSiderbar(
                   text: 'سياسة الخصوصية',
                   icon: Iconsax.chart,
-                  onPressed: () {
+                  onPressed: () async {
+                    const url = 'https://waelalessa21.github.io/GP_website/';
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+
                     context.pop();
                   },
                 ),

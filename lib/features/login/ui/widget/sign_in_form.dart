@@ -9,7 +9,6 @@ import 'package:graduation/data/auth/bloc/auth_event.dart';
 import 'package:graduation/data/auth/bloc/auth_state.dart';
 import 'package:graduation/features/login/ui/widget/forgot_pass.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../common/routing/routes.dart';
 import '../../../../common/widget/pop_up/error_popup.dart';
 import '../../../../data/auth/bloc/auth_bloc.dart';
 

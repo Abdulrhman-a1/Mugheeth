@@ -21,7 +21,6 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Screen(
@@ -29,7 +28,12 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Column(
         children: [
           ChatBar(),
-          ChatMessages(messages: _messages),
+          ChatMessages(
+            messages: _messages,
+            onSuggestionSelected: (String) {
+              _sendMessage(String);
+            },
+          ),
           ChatInputField(onSend: _sendMessage),
         ],
       ),
