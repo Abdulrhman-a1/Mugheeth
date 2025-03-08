@@ -94,6 +94,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return Screen(
       allowDrawer: false,
       backgroundColor: Colors.white,
+      onClearMessages: () {},
       child: SafeArea(
         child: Column(
           children: [

@@ -11,6 +11,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/widget/fields/DatePickerField.dart';
 import '../../../../common/widget/fields/GenderPickerButton.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -258,7 +259,14 @@ class SignUpFormState extends State<SignUpForm> {
             iconPath: "assets/icons/lock.png",
             label: "سياسة الخصوصية",
             description: "بمجرد تفعيلك للحساب فأنت توافق على سياسة الخصوصية",
-            onPressed: () {},
+            onPressed: () async {
+              const url = 'https://waelalessa21.github.io/GP_website/';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
         ],
       ),

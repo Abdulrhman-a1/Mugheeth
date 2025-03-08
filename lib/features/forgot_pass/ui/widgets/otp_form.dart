@@ -22,18 +22,21 @@ class OTPform extends StatelessWidget {
           children: [
             AnimatedItem(
               index: index,
+              fromLeft: true,
               child: Container(
-                width: 40.w,
-                height: 40.h,
+                width: 50.w,
+                height: 50.h,
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.mainAppGrey),
+                  color: AppColors.mainAppColor.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 alignment: Alignment.center,
                 child: TextField(
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
                   maxLength: 1,
                   decoration: const InputDecoration(
                     border: InputBorder.none,

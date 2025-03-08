@@ -88,6 +88,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                 text: isButtonClicked ? 'إرسال' : 'إرسال رمز التحقق',
                 press: _sendResetPasswordEmail,
               ),
+            SizedBox(height: 20.sp),
           ],
         ),
       ),
