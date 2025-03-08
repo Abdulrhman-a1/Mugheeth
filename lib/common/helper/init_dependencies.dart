@@ -1,8 +1,8 @@
 import 'package:graduation/data/auth/service/auth_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:get_it/get_it.dart';
-import '../data/auth/bloc/auth_bloc.dart';
-import '../main.dart';
+import '../../data/auth/bloc/auth_bloc.dart';
+import '../../main.dart';
 
 final serviceLocator = GetIt.instance;
 

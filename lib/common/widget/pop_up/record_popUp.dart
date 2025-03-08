@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation/features/chat/ui/recording.dart';
+import 'package:graduation/features/recording/ui/recording_screen.dart';
 
 //This will open the recording screen where user can start talk and we will do speech to text!
 void showRecordingScreen(BuildContext context) {

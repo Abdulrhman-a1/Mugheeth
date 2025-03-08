@@ -8,15 +8,19 @@ import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
 import 'package:graduation/common/widget/pop_up/guest_popup.dart';
 import 'package:graduation/common/widget/pop_up/mugheeth_popup.dart';
 import 'package:graduation/features/login/ui/login.dart';
+import 'package:iconsax/iconsax.dart';
 import '../../../../data/auth/service/auth_service.dart';
 
 String username = "";
 
-/// Chat bar; show app name and burger menu.
 class ChatBar extends StatefulWidget {
+  final VoidCallback onClearMessages;
+
   ChatBar({
     super.key,
+    required this.onClearMessages,
   });
+
   @override
   State<ChatBar> createState() => _ChatBarState();
 }
@@ -31,17 +35,15 @@ class _ChatBarState extends State<ChatBar> {
         AppBar(
           leading: Builder(
             builder: (context) {
-              //burger menu icon. we will open a menu to the user inside the chat.
               return IconButton(
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                icon: const Icon(Icons.menu, color: AppColors.mainAppColor),
+                icon: const Icon(Iconsax.menu_1, color: AppColors.mainAppColor),
                 onPressed: () {
                   if (authService.userNameNotifier.value != null &&
                       authService.userNameNotifier.value!.isNotEmpty) {
                     Scaffold.of(context).openDrawer();
                   } else {
-                    print('User not logged in.');
                     openDrawerBottomSheet(
                       isSmall: true,
                       context,
@@ -88,15 +90,14 @@ class _ChatBarState extends State<ChatBar> {
                     ),
                   );
                 } else {
-                  return ChatButton(
-                    text: 'تسجيل الدخول',
-                    onPressed: () {
-                      showLoginDialog(
-                          context,
-                          () => setState(() {
-                                print('login');
-                              }));
-                    },
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: ChatButton(
+                      text: 'تسجيل الدخول',
+                      onPressed: () {
+                        showLoginDialog(context, () => setState(() {}));
+                      },
+                    ),
                   );
                 }
               },
@@ -113,7 +114,6 @@ class _ChatBarState extends State<ChatBar> {
             height: 1,
           ),
         ),
-        // Simple text to show the time of device.
         Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
           child: Text(

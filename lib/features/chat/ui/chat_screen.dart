@@ -13,7 +13,7 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final List<String> _messages = [];
+  List<String> _messages = [];
 
   void _sendMessage(String message) {
     setState(() {
@@ -21,13 +21,22 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
+  void _clearMessages() {
+    setState(() {
+      _messages = [];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Screen(
       backgroundColor: AppColors.chatScreenGrey,
+      onClearMessages: () {
+        _clearMessages();
+      },
       child: Column(
         children: [
-          ChatBar(),
+          ChatBar(onClearMessages: _clearMessages),
           ChatMessages(
             messages: _messages,
             onSuggestionSelected: (String) {

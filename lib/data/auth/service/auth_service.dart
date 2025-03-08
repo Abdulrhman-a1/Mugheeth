@@ -51,7 +51,7 @@ class AuthService {
   // get user id
   String? getCurrentUserId() {
     final session = Supabase.instance.client.auth.currentSession;
-    return session?.user?.id;
+    return session?.user.id;
   }
 
   // Submit feedback
@@ -132,7 +132,7 @@ class AuthService {
             .eq('id', userId)
             .single();
 
-        if (response != null && response['name'] != null) {
+        if (response['name'] != null) {
           final userName = response['name'] as String;
           print('Current user Name: $userName');
           userNameNotifier.value = userName;
@@ -221,9 +221,9 @@ class AuthService {
         final response =
             await _supabase.from('users').select().eq('id', user.id).single();
 
-        if (response != null && response['id'] != null) {
+        if (response['id'] != null) {
           print('User data fetched successfully: ${response}');
-          return response as Map<String, dynamic>;
+          return response;
         } else {
           print('Failed to fetch user data: No data found.');
         }

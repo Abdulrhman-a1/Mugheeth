@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-///Up slider animation for the widgets. we can use it whenver we need; just wrap ur ui.
+///Up slider animation for the widgets. we can use it whenever we need; just wrap ur ui.
 class AnimatedItem extends StatefulWidget {
   final int index;
   final Widget child;
+  final bool? fromLeft;
 
   const AnimatedItem({
     super.key,
     required this.index,
     required this.child,
+    this.fromLeft,
   });
 
   @override
@@ -30,8 +32,15 @@ class _AnimatedItemState extends State<AnimatedItem>
       duration: const Duration(milliseconds: 1500),
     );
 
+    Offset beginOffset;
+    if (widget.fromLeft == true) {
+      beginOffset = const Offset(-1.5, 0);
+    } else {
+      beginOffset = const Offset(0, 1.5);
+    }
+
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 1.5),
+      begin: beginOffset,
       end: Offset.zero,
     ).animate(
       CurvedAnimation(

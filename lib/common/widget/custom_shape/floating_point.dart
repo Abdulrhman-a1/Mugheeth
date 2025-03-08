@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
-import 'package:graduation/common/widget/pop_up/support.dart';
+import 'package:graduation/features/support/ui/support_screen.dart';
 
 class FloatingPointWidget extends StatefulWidget {
   final String? title;
@@ -103,14 +103,19 @@ void openDrawerBottomSheet(BuildContext context, Widget? title, Widget content,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (BuildContext context) {
-      return DrawerItemBottomSheet(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            title ?? SizedBox.shrink(),
-            SizedBox(height: 16.sp),
-            content,
-          ],
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: DrawerItemBottomSheet(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              title ?? const SizedBox.shrink(),
+              SizedBox(height: 16.sp),
+              content,
+            ],
+          ),
         ),
       );
     },

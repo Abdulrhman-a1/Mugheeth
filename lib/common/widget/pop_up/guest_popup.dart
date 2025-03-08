@@ -20,23 +20,21 @@ class GuestPopup extends StatelessWidget {
               description: "الرجاء تسجيل الدخول للوصول على الخدمة",
               onPressed: () {},
             ),
-            // Image.asset(
-            //   "assets/icons/logins.png",
-            //   width: 200.0.sp,
-            // ),
             SizedBox(height: 20.0.sp),
             Lottie.asset(
-              "assets/lottie/r.json",
+              "assets/lottie/denied.json",
               width: 200.0.sp,
               height: 200.0.sp,
             ),
             SizedBox(height: 20.0.sp),
-
-            AppButton(
-                text: "اذهب لتسجيل الدخول",
-                press: () {
-                  Navigator.of(context).pop();
-                }),
+            SizedBox(
+              width: 200.0.sp,
+              child: AppButton(
+                  text: "تسجيل الدخول",
+                  press: () {
+                    Navigator.of(context).pop();
+                  }),
+            ),
           ],
         ),
       ),
