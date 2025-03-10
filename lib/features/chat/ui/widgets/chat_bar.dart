@@ -4,17 +4,23 @@ import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:graduation/common/widget/buttons/chat_button.dart';
 import 'package:graduation/common/widget/custom_shape/app_container.dart';
+import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
+import 'package:graduation/common/widget/pop_up/guest_popup.dart';
 import 'package:graduation/common/widget/pop_up/mugheeth_popup.dart';
 import 'package:graduation/features/login/ui/login.dart';
+import 'package:iconsax/iconsax.dart';
 import '../../../../data/auth/service/auth_service.dart';
 
 String username = "";
 
-/// Chat bar; show app name and burger menu.
 class ChatBar extends StatefulWidget {
+  final VoidCallback onClearMessages;
+
   ChatBar({
     super.key,
+    required this.onClearMessages,
   });
+
   @override
   State<ChatBar> createState() => _ChatBarState();
 }
@@ -29,13 +35,22 @@ class _ChatBarState extends State<ChatBar> {
         AppBar(
           leading: Builder(
             builder: (context) {
-              //burger menu icon. we will open a menu to the user inside the chat.
               return IconButton(
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                icon: const Icon(Icons.menu, color: AppColors.mainAppColor),
+                icon: const Icon(Iconsax.menu_1, color: AppColors.mainAppColor),
                 onPressed: () {
-                  Scaffold.of(context).openDrawer();
+                  if (authService.userNameNotifier.value != null &&
+                      authService.userNameNotifier.value!.isNotEmpty) {
+                    Scaffold.of(context).openDrawer();
+                  } else {
+                    openDrawerBottomSheet(
+                      isSmall: true,
+                      context,
+                      null,
+                      const GuestPopup(),
+                    );
+                  }
                 },
               );
             },
@@ -61,26 +76,28 @@ class _ChatBarState extends State<ChatBar> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Center(
-                      child: Text(
-                        'مرحبًا، $userName',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.mainAppColor,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: Text(
+                          '$userName',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.mainAppColor,
+                          ),
                         ),
                       ),
                     ),
                   );
                 } else {
-                  return ChatButton(
-                    text: 'تسجيل الدخول',
-                    onPressed: () {
-                      showLoginDialog(
-                          context,
-                          () => setState(() {
-                                print('login');
-                              }));
-                    },
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: ChatButton(
+                      text: 'تسجيل الدخول',
+                      onPressed: () {
+                        showLoginDialog(context, () => setState(() {}));
+                      },
+                    ),
                   );
                 }
               },
@@ -97,7 +114,6 @@ class _ChatBarState extends State<ChatBar> {
             height: 1,
           ),
         ),
-        // Simple text to show the time of device.
         Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
           child: Text(
@@ -108,4 +124,25 @@ class _ChatBarState extends State<ChatBar> {
       ],
     );
   }
+}
+
+void openDrawerBottomSheet(BuildContext context, Widget? title, Widget content,
+    {required bool isSmall}) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext context) {
+      return DrawerItemBottomSheet(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            title ?? SizedBox.shrink(),
+            SizedBox(height: 16.sp),
+            content,
+          ],
+        ),
+      );
+    },
+  );
 }

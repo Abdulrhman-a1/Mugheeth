@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
+import 'package:graduation/common/widget/fields/DatePickerField.dart';
+import 'package:graduation/common/widget/fields/GenderPickerButton.dart';
+import 'package:graduation/common/widget/fields/app_textfield.dart';
 import 'package:graduation/data/auth/service/auth_service.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -93,7 +96,7 @@ class _UserInfoState extends State<UserInfo> {
               ),
               // edit image
               TextAndIcon(
-                iconPath: "assets/icons/user.png",
+                iconPath: "assets/icons/editing.png",
                 label: "",
                 description: "",
                 onPressed: () {
@@ -245,55 +248,34 @@ class _UserInfoState extends State<UserInfo> {
             Expanded(
               child: editingField == fieldKey
                   ? (isGender
-                      ? DropdownButtonFormField<String>(
-                          value: controller.text.isNotEmpty
-                              ? controller.text
-                              : null,
-                          items: ['ذكر', 'أنثى']
-                              .map((String value) => DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  ))
-                              .toList(),
-                          onChanged: (newValue) {
-                            controller.text = newValue ?? '';
+                      ? GenderPickerField(
+                          controller: controller,
+                          hintText: label,
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'الرجاء اختيار الجنس';
+                            }
+                            return null;
                           },
-                          decoration: InputDecoration(
-                            labelText: label,
-                            border: const OutlineInputBorder(),
-                          ),
                         )
                       : (isDate
-                          ? TextField(
+                          ? DatePickerField(
                               controller: controller,
-                              focusNode: focusNode,
-                              readOnly: true,
-                              onTap: () async {
-                                DateTime? selectedDate = await showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime(1900),
-                                  lastDate: DateTime.now(),
-                                );
-                                if (selectedDate != null) {
-                                  controller.text =
-                                      "${selectedDate.year}-${selectedDate.month.toString().padLeft(2, '0')}-${selectedDate.day.toString().padLeft(2, '0')}";
+                              hintText: 'تاريخ الميلاد',
+                              validator: (value) {
+                                if (value.isEmpty) {
+                                  return 'الرجاء اختيار تاريخ الميلاد';
                                 }
+                                return null;
                               },
-                              decoration: InputDecoration(
-                                labelText: label,
-                                border: const OutlineInputBorder(),
-                              ),
                             )
-                          : TextField(
+                          : AppTextFormField(
                               controller: controller,
                               focusNode: focusNode,
-                              obscureText: obscureText,
-                              autofocus: true,
-                              decoration: InputDecoration(
-                                labelText: label,
-                                border: const OutlineInputBorder(),
-                              ),
+                              hintText: '',
+                              validator: (String) {
+                                return null;
+                              },
                             )))
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -314,9 +296,6 @@ class _UserInfoState extends State<UserInfo> {
                                   : controller.text,
                           style: TextStyle(
                             color: isEditing ? Colors.blue : Colors.black,
-                            decoration: isEditing
-                                ? TextDecoration.underline
-                                : TextDecoration.none,
                           ),
                         ),
                       ],

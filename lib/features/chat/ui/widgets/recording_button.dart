@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/text_style.dart';
-import 'package:graduation/features/chat/logic/speech_to_text.dart';
+import 'package:graduation/features/recording/logic/speech_to_text.dart';
 
 ///Button inside recording screen.
 class RecordButton extends StatelessWidget {

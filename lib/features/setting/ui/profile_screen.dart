@@ -15,6 +15,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Screen(
       backgroundColor: AppColors.chatScreenGrey,
+      onClearMessages: () {},
       child: SingleChildScrollView(
         child: Column(
           children: [

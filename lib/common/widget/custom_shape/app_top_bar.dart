@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation/common/helper/extensions.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/widget/animation/slider_animation.dart';
 

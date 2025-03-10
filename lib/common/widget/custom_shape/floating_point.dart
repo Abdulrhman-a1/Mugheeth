@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
+import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
+import 'package:graduation/features/support/ui/support_screen.dart';
 
 class FloatingPointWidget extends StatefulWidget {
   final String? title;
@@ -44,7 +46,14 @@ class FloatingPointWidgetState extends State<FloatingPointWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        openDrawerBottomSheet(
+          isSmall: false,
+          context,
+          null,
+          Support(),
+        );
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 50),
         curve: Curves.easeInOut,
@@ -72,12 +81,12 @@ class FloatingPointWidgetState extends State<FloatingPointWidget> {
                 ),
               ),
             CircleAvatar(
-              radius: 12,
+              radius: 8,
               backgroundColor: AppColors.mainSoftBlue.withOpacity(0.55),
               child: Image.asset(
                 widget.imgPath ?? "assets/icons/question.png",
-                width: 12.w,
-                height: 12.h,
+                width: 8.w,
+                height: 8.h,
               ),
             ),
           ],
@@ -85,4 +94,30 @@ class FloatingPointWidgetState extends State<FloatingPointWidget> {
       ),
     );
   }
+}
+
+void openDrawerBottomSheet(BuildContext context, Widget? title, Widget content,
+    {required bool isSmall}) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: DrawerItemBottomSheet(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              title ?? const SizedBox.shrink(),
+              SizedBox(height: 16.sp),
+              content,
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }

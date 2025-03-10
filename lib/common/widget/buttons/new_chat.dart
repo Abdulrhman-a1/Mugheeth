@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/common/helper/extensions.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NewChatButton extends StatelessWidget {
+  final VoidCallback onNewChat;
+
   const NewChatButton({
     super.key,
+    required this.onNewChat,
   });
 
   @override
@@ -23,7 +27,10 @@ class NewChatButton extends StatelessWidget {
             side: BorderSide(color: AppColors.mainAppColor, width: 1.5.sp),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          onNewChat();
+          context.pop();
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

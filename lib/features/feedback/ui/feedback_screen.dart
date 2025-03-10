@@ -18,27 +18,6 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   final AuthService authService = AuthService();
   final TextEditingController feedbackController = TextEditingController();
 
-  Future<void> _submitFeedback() async {
-    final feedbackText = feedbackController.text.trim();
-    if (feedbackText.isNotEmpty) {
-      await authService.submitFeedback(feedbackText);
-      context.pop();
-      showToastMessage(
-        context,
-        "تم إرسال تعليقك بنجاح",
-        isError: false,
-        "assets/icons/check.png",
-      );
-    } else {
-      showToastMessage(
-        context,
-        "الرجاء كتابة تعليق قبل الإرسال",
-        isError: true,
-        "assets/icons/warning.png",
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -67,5 +46,26 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _submitFeedback() async {
+    final feedbackText = feedbackController.text.trim();
+    if (feedbackText.isNotEmpty) {
+      await authService.submitFeedback(feedbackText);
+      context.pop();
+      showToastMessage(
+        context,
+        "تم إرسال تعليقك بنجاح",
+        isError: false,
+        "assets/icons/check.png",
+      );
+    } else {
+      showToastMessage(
+        context,
+        "الرجاء كتابة تعليق قبل الإرسال",
+        isError: true,
+        "assets/icons/warning.png",
+      );
+    }
   }
 }

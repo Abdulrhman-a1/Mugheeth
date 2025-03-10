@@ -6,17 +6,25 @@ class Screen extends StatelessWidget {
   final Color? backgroundColor;
   final bool? allowDrawer;
 
+  final VoidCallback onClearMessages;
+
   const Screen({
     super.key,
     required this.child,
     this.backgroundColor,
     this.allowDrawer = true,
+    required this.onClearMessages,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: allowDrawer! ? const SideBar() : null,
+      resizeToAvoidBottomInset: true,
+      drawer: allowDrawer!
+          ? SideBar(
+              onClearMessages: onClearMessages,
+            )
+          : null,
       body: Container(
         decoration: BoxDecoration(
           color: backgroundColor ?? const Color(0xFFB8E1F1).withOpacity(0.08),

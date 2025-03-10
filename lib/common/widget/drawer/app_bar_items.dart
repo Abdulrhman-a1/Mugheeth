@@ -13,13 +13,21 @@ import 'package:graduation/data/auth/bloc/auth_event.dart' show AuthSignOut;
 import 'package:graduation/features/chat/ui/widgets/chat_bar.dart';
 import 'package:graduation/features/feedback/ui/feedback_screen.dart';
 import 'package:graduation/features/history/ui/history_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SideBar extends StatelessWidget {
   final bool? isSmall;
-  const SideBar({super.key, this.isSmall});
+  final Function? onNewChat;
+  final VoidCallback onClearMessages;
 
-//all items of the drawer will be opend as bottom sheet
+  const SideBar({
+    super.key,
+    this.isSmall,
+    this.onNewChat,
+    required this.onClearMessages,
+  });
+
   void openDrawerBottomSheet(
       BuildContext context, Widget? title, Widget content,
       {required bool isSmall}) {
@@ -28,14 +36,19 @@ class SideBar extends StatelessWidget {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
-        return DrawerItemBottomSheet(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              title ?? SizedBox.shrink(),
-              SizedBox(height: 16.sp),
-              content,
-            ],
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: DrawerItemBottomSheet(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                title ?? const SizedBox.shrink(),
+                SizedBox(height: 16.sp),
+                content,
+              ],
+            ),
           ),
         );
       },
@@ -116,7 +129,13 @@ class SideBar extends StatelessWidget {
                 AppSiderbar(
                   text: 'سياسة الخصوصية',
                   icon: Iconsax.chart,
-                  onPressed: () {
+                  onPressed: () async {
+                    const url = 'https://waelalessa21.github.io/GP_website/';
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
                     context.pop();
                   },
                 ),
@@ -132,7 +151,11 @@ class SideBar extends StatelessWidget {
             ),
             Column(
               children: [
-                const NewChatButton(),
+                NewChatButton(
+                  onNewChat: () {
+                    onClearMessages();
+                  },
+                ),
                 SizedBox(height: 16.h),
                 const Divider(color: Colors.grey, thickness: 0.2),
                 SizedBox(height: 16.h),

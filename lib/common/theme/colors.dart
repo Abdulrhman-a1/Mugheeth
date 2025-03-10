@@ -8,4 +8,5 @@ class AppColors {
   static const Color mainAppGrey = Color(0xFF686969);
   static const Color chatScreenGrey = Color(0xFFFAFAFA);
   static const Color lightGrey = Color(0xFFFAFBFD);
+  static const Color otpBox = Color(0xFFFEFEFE);
 }

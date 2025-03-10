@@ -9,74 +9,76 @@ class MugheethFeatures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AnimatedItem(
-          index: 0,
-          child: TextAndIcon(
-            iconPath: 'assets/icons/prioritiz.png',
-            label: 'تصنيف الأولوية الطبية',
-            description:
-                'بناءً على الأعراض المدخلة، يقوم التطبيق بتصنيف الحالة وفقًا لمقياس الفرز الكندي (CTAS)، مما يساعد المستخدم في معرفة ما إذا كان يحتاج إلى رعاية طبية فورية أو يمكنه الانتظار',
-            onPressed: () {},
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          AnimatedItem(
+            index: 0,
+            child: TextAndIcon(
+              iconPath: 'assets/icons/prioritiz.png',
+              label: 'تصنيف الأولوية الطبية',
+              description:
+                  'بناءً على الأعراض المدخلة، يقوم التطبيق بتصنيف الحالة وفقًا لمقياس الفرز الكندي (CTAS)، مما يساعد المستخدم في معرفة ما إذا كان يحتاج إلى رعاية طبية فورية أو يمكنه الانتظار',
+              onPressed: () {},
+            ),
           ),
-        ),
-        SizedBox(height: 25.h),
-        AnimatedItem(
-          index: 1,
-          child: TextAndIcon(
-            iconPath: 'assets/icons/chat.png',
-            label: 'تقييم فوري',
-            description:
-                'يمكن للمستخدم إدخال الأعراض التي يعاني منها ليقوم التطبيق بتحليلها باستخدام الذكاء الاصطناعي وتقديم تقييم لمستوى خطورتها.',
-            onPressed: () {},
+          SizedBox(height: 25.h),
+          AnimatedItem(
+            index: 1,
+            child: TextAndIcon(
+              iconPath: 'assets/icons/chat.png',
+              label: 'تقييم فوري',
+              description:
+                  'يمكن للمستخدم إدخال الأعراض التي يعاني منها ليقوم التطبيق بتحليلها باستخدام الذكاء الاصطناعي وتقديم تقييم لمستوى خطورتها.',
+              onPressed: () {},
+            ),
           ),
-        ),
-        SizedBox(height: 25.h),
-        AnimatedItem(
-          index: 2,
-          child: TextAndIcon(
-            iconPath: 'assets/icons/piin.png',
-            label: 'خريطة المستشفيات',
-            description:
-                'يمكن للمستخدم العثور على أقرب المستشفيات والمراكز الطبية بناءً على موقعه الجغرافي، مع عرض أوقات الانتظار المتوقعة لكل مستشفى.',
-            onPressed: () {},
+          SizedBox(height: 25.h),
+          AnimatedItem(
+            index: 2,
+            child: TextAndIcon(
+              iconPath: 'assets/icons/piin.png',
+              label: 'خريطة المستشفيات',
+              description:
+                  'يمكن للمستخدم العثور على أقرب المستشفيات والمراكز الطبية بناءً على موقعه الجغرافي، مع عرض أوقات الانتظار المتوقعة لكل مستشفى.',
+              onPressed: () {},
+            ),
           ),
-        ),
-        SizedBox(height: 25.h),
-        AnimatedItem(
-          index: 3,
-          child: TextAndIcon(
-            iconPath: 'assets/icons/medical-records.png',
-            label: 'سجل طبي إلكتروني',
-            description:
-                'يتيح التطبيق للمستخدمين حفظ تاريخهم الصحي، الأعراض السابقة، والتقييمات الطبية، مما يسهل تتبع الحالة الصحية مع مرور الوقت.',
-            onPressed: () {},
+          SizedBox(height: 25.h),
+          AnimatedItem(
+            index: 3,
+            child: TextAndIcon(
+              iconPath: 'assets/icons/medical-records.png',
+              label: 'سجل طبي إلكتروني',
+              description:
+                  'يتيح التطبيق للمستخدمين حفظ تاريخهم الصحي، الأعراض السابقة، والتقييمات الطبية، مما يسهل تتبع الحالة الصحية مع مرور الوقت.',
+              onPressed: () {},
+            ),
           ),
-        ),
-        SizedBox(height: 25.h),
-        AnimatedItem(
-          index: 4,
-          child: TextAndIcon(
-            iconPath: 'assets/icons/language.png',
-            label: 'دعم متعدد اللغات',
-            description:
-                'التطبيق متاح بعدة لغات لضمان سهولة الاستخدام لمختلف الفئات والمستخدمين.',
-            onPressed: () {},
+          SizedBox(height: 25.h),
+          AnimatedItem(
+            index: 4,
+            child: TextAndIcon(
+              iconPath: 'assets/icons/language.png',
+              label: 'دعم متعدد اللغات',
+              description:
+                  'التطبيق متاح بعدة لغات لضمان سهولة الاستخدام لمختلف الفئات والمستخدمين.',
+              onPressed: () {},
+            ),
           ),
-        ),
-        SizedBox(height: 25.h),
-        AnimatedItem(
-          index: 4,
-          child: TextAndIcon(
-            iconPath: 'assets/icons/easy-use.png',
-            label: 'سهولة الوصول و الإستخدام',
-            description:
-                'تصميم التطبيق بسيط وسهل الاستخدام ليتناسب مع جميع الفئات العمرية.',
-            onPressed: () {},
+          SizedBox(height: 25.h),
+          AnimatedItem(
+            index: 4,
+            child: TextAndIcon(
+              iconPath: 'assets/icons/easy-use.png',
+              label: 'سهولة الوصول و الإستخدام',
+              description:
+                  'تصميم التطبيق بسيط وسهل الاستخدام ليتناسب مع جميع الفئات العمرية.',
+              onPressed: () {},
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -4,8 +4,11 @@ import 'package:graduation/common/widget/custom_shape/suggestion_container.dart'
 
 /// List or row of suggestion shown above the text field in empty chat.
 class ChatSuggestions extends StatefulWidget {
+  final Function(String) onSuggestionSelected;
+
   const ChatSuggestions({
     super.key,
+    required this.onSuggestionSelected,
   });
 
   @override
@@ -25,7 +28,10 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               title: 'الم في الصدر',
               description: 'اشعر بالم في اعلى الصدر مستمر لعدة ايام',
               img: 'assets/icons/chest-pain.png',
-              onTap: () {},
+              onTap: () {
+                widget.onSuggestionSelected(
+                    'اشعر بالم في اعلى الصدر مستمر لعدة ايام');
+              },
             ),
           ),
           const SizedBox(width: 10),
@@ -35,7 +41,9 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               title: 'حرارة',
               description: 'حرارتي مرتفعة منذ الصباح',
               img: 'assets/icons/sneeze.png',
-              onTap: () {},
+              onTap: () {
+                widget.onSuggestionSelected('حرارتي مرتفعة منذ الصباح');
+              },
             ),
           ),
           const SizedBox(width: 10),
@@ -45,7 +53,10 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               title: 'صداع',
               description: 'الم في جانب الراس مستمر لفترات طويلة',
               img: 'assets/icons/headache.png',
-              onTap: () {},
+              onTap: () {
+                widget.onSuggestionSelected(
+                    'الم في جانب الراس مستمر لفترات طويلة');
+              },
             ),
           ),
           const SizedBox(width: 10),
@@ -55,7 +66,9 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               title: 'احمرار العين',
               description: 'تغير لون العين الى الاحمرار',
               img: 'assets/icons/eye.png',
-              onTap: () {},
+              onTap: () {
+                widget.onSuggestionSelected('تغير لون العين الى الاحمرار');
+              },
             ),
           ),
           const SizedBox(width: 10),
@@ -65,7 +78,9 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               title: 'كحة مستمرة',
               description: 'اشعر بالكحة منذ الصباح',
               img: 'assets/icons/cough.png',
-              onTap: () {},
+              onTap: () {
+                widget.onSuggestionSelected('اشعر بالكحة منذ الصباح');
+              },
             ),
           ),
         ],
