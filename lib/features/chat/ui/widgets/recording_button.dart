@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:graduation/features/recording/logic/speech_to_text.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 ///Button inside recording screen.
 class RecordButton extends StatelessWidget {
@@ -14,6 +15,8 @@ class RecordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return GestureDetector(
       onTap: speechController.toggleListening,
       child: Center(
@@ -37,7 +40,7 @@ class RecordButton extends StatelessWidget {
             Hero(
               tag: "microphoneHero",
               child: Text(
-                'مغيث يسمع...',
+                loc.recording_button_text,
                 style: TextStyles.recording,
               ),
             ),

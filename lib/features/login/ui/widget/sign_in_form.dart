@@ -8,6 +8,7 @@ import 'package:graduation/common/widget/loader/progress.dart';
 import 'package:graduation/data/auth/bloc/auth_event.dart';
 import 'package:graduation/data/auth/bloc/auth_state.dart';
 import 'package:graduation/features/login/ui/widget/forgot_pass.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../common/widget/pop_up/error_popup.dart';
 import '../../../../data/auth/bloc/auth_bloc.dart';
@@ -33,6 +34,8 @@ class SignInFormState extends State<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthLoading) {
@@ -49,7 +52,7 @@ class SignInFormState extends State<SignInForm> {
               '/chat', (Route<dynamic> route) => false);
           showToastMessage(
               context,
-              "تم تسجيل الدخول بنجاح",
+              loc.login_sucess,
               isError: false,
               "assets/icons/check.png");
         }
@@ -60,15 +63,18 @@ class SignInFormState extends State<SignInForm> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const WelcomeText(title: "اهلًا بك", desc: "سجل دخولك للمتابعة"),
+              WelcomeText(
+                title: loc.welcome_login_title,
+                desc: loc.welcome_login_description,
+              ),
               AppTextFormField(
                 controller: emailController,
                 isEmailAndPassword: true,
                 suffixIcon: const Icon(Iconsax.send_1),
-                hintText: "البريد الإلكتروني",
+                hintText: loc.email,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'الرجاء إدخال البريد الإلكتروني';
+                    return loc.email_empty;
                   }
                   return null;
                 },
@@ -78,11 +84,11 @@ class SignInFormState extends State<SignInForm> {
                 controller: passwordController,
                 isEmailAndPassword: true,
                 suffixIcon: const Icon(Iconsax.password_check),
-                hintText: "كلمة المرور",
+                hintText: loc.password,
                 isObscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'الرجاء إدخال كلمة المرور';
+                    return loc.pass_empty;
                   }
                   return null;
                 },
@@ -100,7 +106,7 @@ class SignInFormState extends State<SignInForm> {
                         );
                   }
                 },
-                text: 'تسجيل دخول',
+                text: loc.login_button,
               ),
             ],
           ),

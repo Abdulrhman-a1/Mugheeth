@@ -9,6 +9,7 @@ import 'package:graduation/common/widget/pop_up/guest_popup.dart';
 import 'package:graduation/common/widget/pop_up/mugheeth_popup.dart';
 import 'package:graduation/features/login/ui/login.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../data/auth/service/auth_service.dart';
 
 String username = "";
@@ -30,6 +31,8 @@ class _ChatBarState extends State<ChatBar> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         AppBar(
@@ -60,7 +63,7 @@ class _ChatBarState extends State<ChatBar> {
             child: AppContainer(
               color: AppColors.mainSoftBlue.withOpacity(0.3),
               textColor: AppColors.mainSoftBlue,
-              label: 'مغيث',
+              label: loc.mugheeth,
               onPressed: () {
                 showMugheeth(context);
               },
@@ -84,6 +87,7 @@ class _ChatBarState extends State<ChatBar> {
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: AppColors.mainAppColor,
+                            fontFamily: "IBMPlexSansArabic",
                           ),
                         ),
                       ),
@@ -93,7 +97,7 @@ class _ChatBarState extends State<ChatBar> {
                   return Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: ChatButton(
-                      text: 'تسجيل الدخول',
+                      text: loc.login,
                       onPressed: () {
                         showLoginDialog(context, () => setState(() {}));
                       },

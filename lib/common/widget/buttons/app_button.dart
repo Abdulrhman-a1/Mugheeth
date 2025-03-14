@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 ///A button that is used in the app. LOGIN, SIGNUP, and others.
 class AppButton extends StatelessWidget {
@@ -18,6 +19,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Container(
       decoration: BoxDecoration(
         boxShadow: isShadowNeeded
@@ -47,6 +49,8 @@ class AppButton extends StatelessWidget {
               text,
               style: TextStyles.loginButtonText.copyWith(
                 fontSize: 18.sp,
+                fontFamily:
+                    loc.localeName == 'ar' ? 'IBMPlexSansArabic' : 'Share',
               ),
             ),
             const SizedBox(width: 4),

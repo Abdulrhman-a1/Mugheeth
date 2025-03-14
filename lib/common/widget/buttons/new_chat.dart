@@ -4,6 +4,7 @@ import 'package:graduation/common/helper/extensions.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewChatButton extends StatelessWidget {
   final VoidCallback onNewChat;
@@ -15,6 +16,8 @@ class NewChatButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.7,
       height: MediaQuery.of(context).size.height * 0.06,
@@ -54,7 +57,7 @@ class NewChatButton extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              "محادثة جديدة",
+              loc.newchat,
               style: TextStyles.onboardingDesc.copyWith(
                 fontWeight: FontWeight.normal,
                 fontSize: 15.sp,

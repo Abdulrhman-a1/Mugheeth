@@ -15,6 +15,7 @@ import 'package:graduation/features/feedback/ui/feedback_screen.dart';
 import 'package:graduation/features/history/ui/history_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SideBar extends StatelessWidget {
   final bool? isSmall;
@@ -57,6 +58,8 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Drawer(
       backgroundColor: Colors.white,
       child: Padding(
@@ -68,14 +71,14 @@ class SideBar extends StatelessWidget {
             Column(
               children: [
                 AppSiderbar(
-                  text: 'المحادثة',
+                  text: loc.chat,
                   icon: Iconsax.message,
                   onPressed: () {
                     context.pop();
                   },
                 ),
                 AppSiderbar(
-                  text: 'السجل الطبي',
+                  text: loc.history,
                   icon: Iconsax.folder,
                   onPressed: () {
                     context.pop();
@@ -88,7 +91,7 @@ class SideBar extends StatelessWidget {
                   },
                 ),
                 AppSiderbar(
-                  text: 'التقييم',
+                  text: loc.feedback,
                   icon: Iconsax.star,
                   onPressed: () {
                     context.pop();
@@ -101,7 +104,7 @@ class SideBar extends StatelessWidget {
                   },
                 ),
                 AppSiderbar(
-                  text: "الاسئلة الشائعة",
+                  text: loc.faq,
                   icon: Iconsax.message_question,
                   onPressed: () {
                     context.pop();
@@ -110,8 +113,8 @@ class SideBar extends StatelessWidget {
                       context,
                       TextAndIcon(
                         iconPath: "assets/icons/faq.png",
-                        label: "الاسئلة الشائعة",
-                        description: "وش حاب تعرف عن مغيث؟",
+                        label: loc.faq_title,
+                        description: loc.faq_description,
                         onPressed: () {},
                       ),
                       const FaqList(),
@@ -119,7 +122,7 @@ class SideBar extends StatelessWidget {
                   },
                 ),
                 AppSiderbar(
-                  text: 'الاعدادات',
+                  text: loc.settings,
                   icon: Iconsax.setting_2,
                   onPressed: () {
                     context.pop();
@@ -127,7 +130,7 @@ class SideBar extends StatelessWidget {
                   },
                 ),
                 AppSiderbar(
-                  text: 'سياسة الخصوصية',
+                  text: loc.policy,
                   icon: Iconsax.chart,
                   onPressed: () async {
                     const url = 'https://waelalessa21.github.io/GP_website/';
@@ -140,7 +143,7 @@ class SideBar extends StatelessWidget {
                   },
                 ),
                 AppSiderbar(
-                  text: 'تسجيل خروج',
+                  text: loc.logout,
                   icon: Iconsax.logout,
                   onPressed: () {
                     context.read<AuthBloc>().add(AuthSignOut());
@@ -164,6 +167,7 @@ class SideBar extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.sp,
+                    fontFamily: "IBMPlexSansArabic",
                   ),
                 ),
               ],

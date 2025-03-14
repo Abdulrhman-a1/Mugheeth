@@ -4,6 +4,7 @@ import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/features/history/ui/widgets/empty_history.dart';
 import 'package:graduation/features/history/ui/widgets/history_card.dart';
 import 'package:graduation/common/helper/text.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HistoryScreen extends StatefulWidget {
   HistoryScreen({super.key});
@@ -44,12 +45,14 @@ class HistoryScreenState extends State<HistoryScreen>
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         TextAndIcon(
           iconPath: "assets/icons/history.png",
-          label: "سجلاتك الطبية",
-          description: "الان بإمكانك الحصول على سجلك الطبي من مُغيث",
+          label: loc.medical_history_bottomsheet_title,
+          description: loc.medical_history_bottomsheet_description,
           onPressed: () {},
         ),
         SizedBox(height: 20.h),

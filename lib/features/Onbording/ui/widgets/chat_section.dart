@@ -40,18 +40,18 @@ class _ChatSectionState extends State<ChatSection> {
           Stack(
             children: [
               Positioned(
-                top: -390 + (_offset * 250),
+                top: -360 + (_offset * 250),
                 right: -240 + (_offset * 250),
                 child: Transform.translate(
                   offset: Offset(50, 100),
                   child: Image.asset(
                     'assets/images/left.png',
-                    height: 125,
+                    height: 110,
                   ),
                 ),
               ),
               Transform.translate(
-                offset: Offset(5, 35),
+                offset: Offset(5, 30),
                 child: SizedBox(
                   height: 400 + (_offset * 250),
                   child: Image.asset(

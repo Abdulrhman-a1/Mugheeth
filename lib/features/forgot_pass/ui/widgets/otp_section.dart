@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/features/forgot_pass/ui/widgets/otp_form.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OtpSection extends StatefulWidget {
   const OtpSection({super.key});
@@ -16,6 +17,7 @@ class OtpSectionState extends State<OtpSection> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Column(
       children: [
         OTPform(digitCount: _digitCount),
@@ -24,8 +26,8 @@ class OtpSectionState extends State<OtpSection> {
           delay: const Duration(milliseconds: 500),
           child: TextAndIcon(
             iconPath: "assets/icons/resend.png",
-            label: "رمز التحقق",
-            description: "ارسل رمز التحقق مرة ثانية",
+            label: loc.opt_code,
+            description: loc.otp_resend,
             onPressed: () {},
           ),
         ),

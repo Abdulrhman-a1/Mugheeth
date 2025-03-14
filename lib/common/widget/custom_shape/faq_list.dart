@@ -21,9 +21,9 @@ class FaqListState extends State<FaqList> {
             constraints: BoxConstraints(maxHeight: 700, minHeight: 700),
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: faqItems.length,
+              itemCount: getLocalizedFaqItems(context).length,
               itemBuilder: (context, index) {
-                final item = faqItems[index];
+                final item = getLocalizedFaqItems(context)[index];
                 return FaqContainer(
                   index: index,
                   question: item['question']!,

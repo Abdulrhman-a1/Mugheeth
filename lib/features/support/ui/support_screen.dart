@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/features/support/ui/widget/complain.dart';
@@ -9,13 +10,15 @@ class Support extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return SingleChildScrollView(
       child: Column(
         children: [
           TextAndIcon(
             iconPath: "assets/icons/request.png",
-            label: "تواصل معنا",
-            description: "للإبلاغ عن مشكلة أو طلب مساعدة",
+            label: loc.contact_us,
+            description: loc.contact_us_description,
             onPressed: () {},
           ),
           Lottie.asset(

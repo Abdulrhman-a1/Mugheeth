@@ -23,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
             const UserInfo(),
             const GeneralSetting(),
             const DeleteButton(),
-            SizedBox(height: 20.h),
+            SizedBox(height: 40.h),
           ],
         ),
       ),

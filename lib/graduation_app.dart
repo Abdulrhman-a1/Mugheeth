@@ -3,8 +3,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/common/routing/routes.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:graduation/common/helper/lang_provider.dart';
 
-class GraduationApp extends StatefulWidget {
+class GraduationApp extends StatelessWidget {
   final AppRouter appRouter;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
 
@@ -15,39 +18,35 @@ class GraduationApp extends StatefulWidget {
   });
 
   @override
-  State<GraduationApp> createState() => _GraduationAppState();
-}
-
-class _GraduationAppState extends State<GraduationApp> {
-  void intiState() {
-    super.initState();
-    // context.read<AuthBloc>().add(AuthIsUserLoggedIn());
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final localeProvider = Provider.of<LocaleProvider>(context);
+
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MaterialApp(
-        scaffoldMessengerKey: widget.scaffoldMessengerKey,
+        key: ValueKey(localeProvider.locale.languageCode),
+        scaffoldMessengerKey: scaffoldMessengerKey,
         title: 'Mugheeth App',
         theme: ThemeData(
           primaryColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
-          fontFamily: 'IBMPlexSansArabic',
+          fontFamily: localeProvider.locale.languageCode == 'ar'
+              ? 'IBMPlexSansArabic'
+              : 'Share',
         ),
-        locale: const Locale('ar'),
+        locale: localeProvider.locale,
         supportedLocales: const [
           Locale('ar', ''),
           Locale('en', ''),
         ],
         localizationsDelegates: const [
+          AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        onGenerateRoute: widget.appRouter.generateRoute,
+        onGenerateRoute: appRouter.generateRoute,
         initialRoute: Routes.onBoarding,
         debugShowCheckedModeBanner: false,
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation/common/helper/lang_provider.dart';
 import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/data/auth/bloc/auth_bloc.dart';
 import 'package:graduation/common/helper/init_dependencies.dart';
@@ -23,6 +24,8 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => SpeechController()),
         BlocProvider(create: (context) => serviceLocator<AuthBloc>()),
+        //whenever we will add new word to json run this; flutter gen-l10n
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
       child: GraduationApp(
         appRouter: AppRouter(),

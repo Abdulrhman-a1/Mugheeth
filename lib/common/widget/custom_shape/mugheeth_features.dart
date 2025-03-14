@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/widget/animation/slider_animation.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// The content of mugheeth features popup with staggered animation.
 class MugheethFeatures extends StatelessWidget {
@@ -9,6 +10,8 @@ class MugheethFeatures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -16,9 +19,8 @@ class MugheethFeatures extends StatelessWidget {
             index: 0,
             child: TextAndIcon(
               iconPath: 'assets/icons/prioritiz.png',
-              label: 'تصنيف الأولوية الطبية',
-              description:
-                  'بناءً على الأعراض المدخلة، يقوم التطبيق بتصنيف الحالة وفقًا لمقياس الفرز الكندي (CTAS)، مما يساعد المستخدم في معرفة ما إذا كان يحتاج إلى رعاية طبية فورية أو يمكنه الانتظار',
+              label: loc.medical_priority_title,
+              description: loc.medical_priority_description,
               onPressed: () {},
             ),
           ),
@@ -27,9 +29,8 @@ class MugheethFeatures extends StatelessWidget {
             index: 1,
             child: TextAndIcon(
               iconPath: 'assets/icons/chat.png',
-              label: 'تقييم فوري',
-              description:
-                  'يمكن للمستخدم إدخال الأعراض التي يعاني منها ليقوم التطبيق بتحليلها باستخدام الذكاء الاصطناعي وتقديم تقييم لمستوى خطورتها.',
+              label: loc.instant_assessment_title,
+              description: loc.instant_assessment_description,
               onPressed: () {},
             ),
           ),
@@ -38,9 +39,8 @@ class MugheethFeatures extends StatelessWidget {
             index: 2,
             child: TextAndIcon(
               iconPath: 'assets/icons/piin.png',
-              label: 'خريطة المستشفيات',
-              description:
-                  'يمكن للمستخدم العثور على أقرب المستشفيات والمراكز الطبية بناءً على موقعه الجغرافي، مع عرض أوقات الانتظار المتوقعة لكل مستشفى.',
+              label: loc.hospital_map_title,
+              description: loc.hospital_map_description,
               onPressed: () {},
             ),
           ),
@@ -49,9 +49,8 @@ class MugheethFeatures extends StatelessWidget {
             index: 3,
             child: TextAndIcon(
               iconPath: 'assets/icons/medical-records.png',
-              label: 'سجل طبي إلكتروني',
-              description:
-                  'يتيح التطبيق للمستخدمين حفظ تاريخهم الصحي، الأعراض السابقة، والتقييمات الطبية، مما يسهل تتبع الحالة الصحية مع مرور الوقت.',
+              label: loc.electronic_medical_record_title,
+              description: loc.electronic_medical_record_description,
               onPressed: () {},
             ),
           ),
@@ -60,20 +59,18 @@ class MugheethFeatures extends StatelessWidget {
             index: 4,
             child: TextAndIcon(
               iconPath: 'assets/icons/language.png',
-              label: 'دعم متعدد اللغات',
-              description:
-                  'التطبيق متاح بعدة لغات لضمان سهولة الاستخدام لمختلف الفئات والمستخدمين.',
+              label: loc.multilingual_support_title,
+              description: loc.multilingual_support_description,
               onPressed: () {},
             ),
           ),
           SizedBox(height: 25.h),
           AnimatedItem(
-            index: 4,
+            index: 5,
             child: TextAndIcon(
               iconPath: 'assets/icons/easy-use.png',
-              label: 'سهولة الوصول و الإستخدام',
-              description:
-                  'تصميم التطبيق بسيط وسهل الاستخدام ليتناسب مع جميع الفئات العمرية.',
+              label: loc.ease_of_use_title,
+              description: loc.ease_of_use_description,
               onPressed: () {},
             ),
           ),
