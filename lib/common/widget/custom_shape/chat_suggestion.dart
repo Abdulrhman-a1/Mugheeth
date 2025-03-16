@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graduation/common/widget/animation/slider_animation.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:graduation/common/widget/custom_shape/suggestion_container.dart';
 
-/// List or row of suggestion shown above the text field in empty chat.
+/// List or row of suggestions shown above the text field in an empty chat.
 class ChatSuggestions extends StatefulWidget {
   final Function(String) onSuggestionSelected;
 
@@ -18,6 +19,8 @@ class ChatSuggestions extends StatefulWidget {
 class _ChatSuggestionsState extends State<ChatSuggestions> {
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -25,12 +28,11 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
           AnimatedItem(
             index: 0,
             child: SuggestionContainer(
-              title: 'الم في الصدر',
-              description: 'اشعر بالم في اعلى الصدر مستمر لعدة ايام',
+              title: loc.chest_pain_title,
+              description: loc.chest_pain_description,
               img: 'assets/icons/chest-pain.png',
               onTap: () {
-                widget.onSuggestionSelected(
-                    'اشعر بالم في اعلى الصدر مستمر لعدة ايام');
+                widget.onSuggestionSelected(loc.chest_pain_description);
               },
             ),
           ),
@@ -38,11 +40,11 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
           AnimatedItem(
             index: 1,
             child: SuggestionContainer(
-              title: 'حرارة',
-              description: 'حرارتي مرتفعة منذ الصباح',
+              title: loc.fever_title,
+              description: loc.fever_description,
               img: 'assets/icons/sneeze.png',
               onTap: () {
-                widget.onSuggestionSelected('حرارتي مرتفعة منذ الصباح');
+                widget.onSuggestionSelected(loc.fever_description);
               },
             ),
           ),
@@ -50,12 +52,11 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
           AnimatedItem(
             index: 2,
             child: SuggestionContainer(
-              title: 'صداع',
-              description: 'الم في جانب الراس مستمر لفترات طويلة',
+              title: loc.headache_title,
+              description: loc.headache_description,
               img: 'assets/icons/headache.png',
               onTap: () {
-                widget.onSuggestionSelected(
-                    'الم في جانب الراس مستمر لفترات طويلة');
+                widget.onSuggestionSelected(loc.headache_description);
               },
             ),
           ),
@@ -63,23 +64,23 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
           AnimatedItem(
             index: 3,
             child: SuggestionContainer(
-              title: 'احمرار العين',
-              description: 'تغير لون العين الى الاحمرار',
+              title: loc.eye_redness_title,
+              description: loc.eye_redness_description,
               img: 'assets/icons/eye.png',
               onTap: () {
-                widget.onSuggestionSelected('تغير لون العين الى الاحمرار');
+                widget.onSuggestionSelected(loc.eye_redness_description);
               },
             ),
           ),
           const SizedBox(width: 10),
           AnimatedItem(
-            index: 3,
+            index: 4,
             child: SuggestionContainer(
-              title: 'كحة مستمرة',
-              description: 'اشعر بالكحة منذ الصباح',
+              title: loc.persistent_cough_title,
+              description: loc.persistent_cough_description,
               img: 'assets/icons/cough.png',
               onTap: () {
-                widget.onSuggestionSelected('اشعر بالكحة منذ الصباح');
+                widget.onSuggestionSelected(loc.persistent_cough_description);
               },
             ),
           ),

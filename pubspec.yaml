@@ -61,6 +61,8 @@ dev_dependencies:
   
   
 flutter:
+  generate: true
+  
   uses-material-design: true
 
   assets:
@@ -81,11 +83,10 @@ flutter:
     - family: Lilita One
       fonts:
         - asset: assets/fonts/english/LilitaOne-Regular.ttf
-
-    - family: Lateef
+    - family: Share
       fonts:
-        - asset: assets/fonts/english/Lateef-Regular.ttf
-
+        - asset: assets/fonts/english/Share-Regular.ttf   
+        
 
 flutter_native_splash:
   android: true

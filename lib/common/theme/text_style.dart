@@ -8,7 +8,6 @@ class TextStyles {
     fontSize: 22.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.mainAppColor,
-    fontFamily: 'IBMPlexSansArabic',
   );
 
   //Text in onboarding screen; Description.
@@ -16,7 +15,6 @@ class TextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
     color: AppColors.mainSoftBlue,
-    fontFamily: 'IBMPlexSansArabic',
   );
 
   //Text in chat screen; appBar.
@@ -24,7 +22,6 @@ class TextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.mainSoftBlue,
-    fontFamily: 'IBMPlexSansArabic',
   );
 
   //login button text style.
@@ -32,7 +29,6 @@ class TextStyles {
     fontSize: 11.sp,
     fontWeight: FontWeight.normal,
     color: Colors.white,
-    fontFamily: 'IBMPlexSansArabic',
   );
 
   //Text in recording screen; recording text.
@@ -40,7 +36,6 @@ class TextStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
     color: AppColors.mainAppColor,
-    fontFamily: 'IBMPlexSansArabic',
     decoration: TextDecoration.none,
   );
 
@@ -49,7 +44,6 @@ class TextStyles {
     fontSize: 22.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.mainSoftBlue,
-    fontFamily: 'IBMPlexSansArabic',
     decoration: TextDecoration.none,
   );
 
@@ -58,7 +52,6 @@ class TextStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
     color: AppColors.mainSoftBlue,
-    fontFamily: 'IBMPlexSansArabic',
     decoration: TextDecoration.none,
   );
 
@@ -67,7 +60,6 @@ class TextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.normal,
     color: AppColors.mainSoftBlue,
-    fontFamily: 'IBMPlexSansArabic',
     decoration: TextDecoration.none,
   );
 }

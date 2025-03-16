@@ -7,6 +7,7 @@ import 'package:graduation/common/widget/fields/GenderPickerButton.dart';
 import 'package:graduation/common/widget/fields/app_textfield.dart';
 import 'package:graduation/data/auth/service/auth_service.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../common/theme/text_style.dart';
 
@@ -76,6 +77,8 @@ class _UserInfoState extends State<UserInfo> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.0.sp, vertical: 24.sp),
       child: Column(
@@ -84,9 +87,9 @@ class _UserInfoState extends State<UserInfo> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextAndIcon(
-                iconPath: "assets/icons/user.png",
-                label: "ادارة حسابك",
-                description: "تقدر تعدل على معلوماتك الشخصية من هنا",
+                iconPath: "assets/icons/setting-lines.png",
+                label: loc.settings_title,
+                description: loc.settings_description,
                 onPressed: () {
                   setState(() {
                     isEditing = !isEditing;
@@ -125,7 +128,7 @@ class _UserInfoState extends State<UserInfo> {
             child: Column(
               children: [
                 editableInfoContent(
-                  "الاسم",
+                  loc.name,
                   nameController,
                   Iconsax.note_add,
                   'name',
@@ -133,7 +136,7 @@ class _UserInfoState extends State<UserInfo> {
                 ),
                 Divider(color: AppColors.mainAppGrey.withOpacity(0.2)),
                 editableInfoContent(
-                  "البريد الالكتروني",
+                  loc.email,
                   emailController,
                   Iconsax.direct_inbox,
                   'email',
@@ -141,7 +144,7 @@ class _UserInfoState extends State<UserInfo> {
                 ),
                 Divider(color: AppColors.mainAppGrey.withOpacity(0.2)),
                 editableInfoContent(
-                  "تاريخ الميلاد",
+                  loc.birth_date,
                   birthDateController,
                   Iconsax.calendar,
                   'bdate',
@@ -150,7 +153,7 @@ class _UserInfoState extends State<UserInfo> {
                 ),
                 Divider(color: AppColors.mainAppGrey.withOpacity(0.2)),
                 editableInfoContent(
-                  "الجنس",
+                  loc.gender,
                   genderController,
                   Iconsax.user,
                   'gender',
@@ -158,7 +161,7 @@ class _UserInfoState extends State<UserInfo> {
                 ),
                 Divider(color: AppColors.mainAppGrey.withOpacity(0.2)),
                 editableInfoContent(
-                  "كلمة المرور",
+                  loc.password,
                   passwordController,
                   Iconsax.code,
                   'password',
@@ -205,9 +208,12 @@ class _UserInfoState extends State<UserInfo> {
                       children: [
                         SizedBox(width: 5.w),
                         Text(
-                          'حفظ التعديلات',
+                          loc.save,
                           style: TextStyles.onboardingDesc.copyWith(
                             color: Colors.blue,
+                            fontFamily: loc.localeName == 'ar'
+                                ? 'IBMPlexSansArabic'
+                                : 'share',
                           ),
                         ),
                       ],
@@ -288,14 +294,19 @@ class _UserInfoState extends State<UserInfo> {
                             fontSize: 14.sp,
                           ),
                         ),
-                        Text(
-                          isPassword && controller.text.isEmpty
-                              ? "********"
-                              : controller.text.isEmpty
-                                  ? 'اضغط للتعديل'
-                                  : controller.text,
-                          style: TextStyle(
-                            color: isEditing ? Colors.blue : Colors.black,
+                        AnimatedOpacity(
+                          duration: const Duration(milliseconds: 300),
+                          opacity: controller.text.isEmpty ? 0.0 : 1.0,
+                          child: Text(
+                            isPassword && controller.text.isEmpty
+                                ? "********"
+                                : controller.text.isEmpty
+                                    ? ''
+                                    : controller.text,
+                            style: TextStyle(
+                              color: isEditing ? Colors.blue : Colors.black,
+                              fontFamily: "IBMPlexSansArabic",
+                            ),
                           ),
                         ),
                       ],

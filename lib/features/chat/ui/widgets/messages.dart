@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation/features/chat/ui/widgets/message_container.dart';
 import 'package:graduation/features/chat/ui/widgets/no_chat.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// Convo; if empty will call different widget.
 class ChatMessages extends StatelessWidget {
@@ -15,6 +16,8 @@ class ChatMessages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Expanded(
       child: messages.isEmpty
           ? NoChat(
@@ -24,7 +27,9 @@ class ChatMessages extends StatelessWidget {
               itemCount: messages.length,
               itemBuilder: (context, index) {
                 return Align(
-                  alignment: Alignment.topRight,
+                  alignment: loc.localeName == "ar"
+                      ? Alignment.topRight
+                      : Alignment.topLeft,
                   child: MessageContainer(
                     messages: messages,
                     index: index,

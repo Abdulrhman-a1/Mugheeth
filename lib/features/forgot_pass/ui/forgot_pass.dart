@@ -6,6 +6,7 @@ import 'package:graduation/data/auth/service/auth_service.dart';
 import 'package:graduation/features/forgot_pass/ui/widgets/forgot_pass_form.dart';
 import 'package:graduation/features/forgot_pass/ui/widgets/otp_section.dart';
 import 'package:graduation/common/widget/pop_up/error_popup.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgotPassScreen extends StatefulWidget {
   const ForgotPassScreen({super.key});
@@ -21,10 +22,12 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
   bool isLoading = false;
 
   Future<void> _sendResetPasswordEmail() async {
+    final loc = AppLocalizations.of(context)!;
+
     if (emailController.text.isEmpty) {
       showToastMessage(
         context,
-        'الرجاء إدخال البريد الإلكتروني',
+        loc.email_empty,
         "assets/icons/warning.png",
       );
       return;
@@ -59,6 +62,8 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -76,7 +81,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
               imgPath: isButtonClicked
                   ? "assets/icons/forgotpass.png"
                   : "assets/icons/conversation.png",
-              desc: isButtonClicked ? "جاك الرمز؟" : "وش بريدك؟",
+              desc: isButtonClicked ? loc.opt_recived : loc.opt_title,
             ),
             isButtonClicked
                 ? const OtpSection()
@@ -85,7 +90,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
               const CircularProgressIndicator()
             else
               AppButton(
-                text: isButtonClicked ? 'إرسال' : 'إرسال رمز التحقق',
+                text: isButtonClicked ? loc.feedback_submit : loc.opt_button,
                 press: _sendResetPasswordEmail,
               ),
             SizedBox(height: 20.sp),

@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/widget/fields/DatePickerField.dart';
 import '../../../../common/widget/fields/GenderPickerButton.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -88,6 +89,8 @@ class SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Form(
       key: _formKey,
       child: Column(
@@ -98,17 +101,17 @@ class SignUpFormState extends State<SignUpForm> {
               Expanded(
                 child: AppTextFormField(
                   controller: firstNameController,
-                  hintText: "الاسم الأول",
+                  hintText: loc.first_name,
                   suffixIcon: const Icon(Iconsax.profile_add),
                   validator: (value) {
                     if (fieldErrors['firstName'] != null) {
                       return fieldErrors['firstName'];
                     }
                     if (value == null || value.isEmpty) {
-                      return 'الرجاء إدخال الاسم الأول';
+                      return loc.firstname_empty;
                     }
                     if (!AppRegex.isValidName(value)) {
-                      return 'ادخل اسمك بشكل صحيح';
+                      return loc.invalid_name;
                     }
                     return null;
                   },
@@ -119,16 +122,16 @@ class SignUpFormState extends State<SignUpForm> {
                 child: AppTextFormField(
                   controller: lastNameController,
                   suffixIcon: const Icon(Iconsax.user),
-                  hintText: "الاسم الأخير",
+                  hintText: loc.last_name,
                   validator: (value) {
                     if (fieldErrors['lastName'] != null) {
                       return fieldErrors['lastName'];
                     }
                     if (value == null || value.isEmpty) {
-                      return 'الرجاء إدخال الاسم الأخير';
+                      return loc.lastname_empty;
                     }
                     if (!AppRegex.isValidName(value)) {
-                      return 'ادخل اسمك بشكل صحيح';
+                      return loc.invalid_last_name;
                     }
                     return null;
                   },
@@ -139,31 +142,31 @@ class SignUpFormState extends State<SignUpForm> {
           SizedBox(height: 20.h),
           GenderPickerField(
             controller: genderController,
-            hintText: "الجنس",
+            hintText: loc.gender,
             validator: (value) =>
                 fieldErrors['gender'] ??
-                (value.isEmpty ? 'الرجاء اختيار الجنس' : null),
+                (value.isEmpty ? loc.gender_empty : null),
           ),
           SizedBox(height: 20.h),
           DatePickerField(
             controller: birthDateController,
-            hintText: "تاريخ الميلاد",
+            hintText: loc.birth_date,
             validator: (value) =>
                 fieldErrors['birthDate'] ??
-                (value.isEmpty ? 'الرجاء إدخال تاريخ الميلاد' : null),
+                (value.isEmpty ? loc.bdate_empty : null),
           ),
           SizedBox(height: 20.h),
           AppTextFormField(
             isEmailAndPassword: true,
             controller: emailController,
             suffixIcon: const Icon(Iconsax.direct_inbox),
-            hintText: "البريد الإلكتروني",
+            hintText: loc.email,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'الرجاء إدخال البريد الإلكتروني';
+                return loc.email_empty;
               }
               if (!AppRegex.isEmailValid(value)) {
-                return 'الرجاء إدخال بريد إلكتروني صالح';
+                return loc.email_empty;
               }
               return fieldErrors['email'];
             },
@@ -172,14 +175,12 @@ class SignUpFormState extends State<SignUpForm> {
           AppTextFormField(
             isEmailAndPassword: true,
             controller: passwordController,
-            hintText: "كلمة المرور",
+            hintText: loc.password,
             isObscureText: isPasswordObscureText,
             focusNode: passwordFocusNode,
             validator: (value) =>
                 fieldErrors['password'] ??
-                (value == null || value.isEmpty
-                    ? 'الرجاء إدخال كلمة المرور'
-                    : null),
+                (value == null || value.isEmpty ? loc.pass_empty : null),
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -195,15 +196,15 @@ class SignUpFormState extends State<SignUpForm> {
           AppTextFormField(
             isEmailAndPassword: true,
             controller: confirmPasswordController,
-            hintText: "تأكيد كلمة المرور",
+            hintText: loc.password_confirom,
             isObscureText: isPasswordConfirmationObscureText,
             focusNode: confirmPasswordFocusNode,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'الرجاء تأكيد كلمة المرور';
+                return loc.pass_empty;
               }
               if (value != passwordController.text) {
-                return 'كلمتا المرور غير متطابقتين';
+                return loc.unmatch_pass;
               }
               return fieldErrors['confirmPassword'];
             },
@@ -251,14 +252,14 @@ class SignUpFormState extends State<SignUpForm> {
                     );
               }
             },
-            text: 'إنشاء حساب',
+            text: loc.register_button,
           ),
           SizedBox(height: 20.h),
           TextAndIcon(
             isShadowNeeded: false,
             iconPath: "assets/icons/lock.png",
-            label: "سياسة الخصوصية",
-            description: "بمجرد تفعيلك للحساب فأنت توافق على سياسة الخصوصية",
+            label: loc.policy,
+            description: loc.policy_desc,
             onPressed: () async {
               const url = 'https://waelalessa21.github.io/GP_website/';
               if (await canLaunch(url)) {

@@ -5,6 +5,7 @@ import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:graduation/common/widget/custom_shape/floating_point.dart';
 import 'package:graduation/common/widget/custom_shape/mugheeth_features.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 //This will open the recording screen where user can start talk and we will do speech to text!
 void showMugheeth(BuildContext context) {
@@ -29,6 +30,8 @@ class MugheethPopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: GestureDetector(
         onTap: () {
@@ -53,16 +56,20 @@ class MugheethPopup extends StatelessWidget {
                     EdgeInsets.symmetric(horizontal: 32.0.h, vertical: 64.0.h),
                 child: Column(
                   children: [
-                    const Align(
-                      alignment: Alignment.topLeft,
-                      child: FloatingPointWidget(),
+                    Align(
+                      alignment: loc.localeName == 'ar'
+                          ? Alignment.topLeft
+                          : Alignment.topRight,
+                      child: const FloatingPointWidget(),
                     ),
                     Hero(
                       tag: 'WhoMugheeth',
                       child: Align(
-                        alignment: Alignment.topRight,
+                        alignment: loc.localeName == 'ar'
+                            ? Alignment.topRight
+                            : Alignment.topLeft,
                         child: Text(
-                          'خدمات مُغيث',
+                          loc.mugheethfeatures,
                           style: TextStyles.mugheethServices,
                         ),
                       ),

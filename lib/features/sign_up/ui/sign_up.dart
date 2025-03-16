@@ -7,12 +7,15 @@ import 'package:graduation/data/auth/bloc/auth_bloc.dart';
 import 'package:graduation/data/auth/bloc/auth_state.dart';
 import 'package:graduation/features/sign_up/ui/widgets/sign_up_form.dart';
 import '../../../common/widget/pop_up/error_popup.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.85,
@@ -26,7 +29,10 @@ class SignUpScreen extends StatelessWidget {
       padding: EdgeInsets.all(25.0.sp),
       child: Column(
         children: [
-          const WelcomeText(title: "نورت مُغيث!", desc: "قم بإنشاء حساب جديد"),
+          WelcomeText(
+            title: loc.welcome_login_title,
+            desc: loc.welcome_login_description,
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: BlocConsumer<AuthBloc, AuthState>(
