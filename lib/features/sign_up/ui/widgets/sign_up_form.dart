@@ -157,7 +157,7 @@ class SignUpFormState extends State<SignUpForm> {
           ),
           SizedBox(height: 20.h),
           AppTextFormField(
-            isEmailAndPassword: true,
+            isEmailAndPassword: false,
             controller: emailController,
             suffixIcon: const Icon(Iconsax.direct_inbox),
             hintText: loc.email,

@@ -40,3 +40,19 @@ class AuthSignUp extends AuthEvent {
 class AuthSignOut extends AuthEvent {}
 
 class GetCurrentUser extends AuthEvent {}
+
+class AuthResetPassword extends AuthEvent {
+  final String email;
+
+  AuthResetPassword({required this.email});
+
+  @override
+  List<Object?> get props => [email];
+}
+
+class AuthConfirmResetPassword extends AuthEvent {
+  final String oobCode;
+  final String newPassword;
+
+  AuthConfirmResetPassword({required this.oobCode, required this.newPassword});
+}

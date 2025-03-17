@@ -10,31 +10,23 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		Ii63CbW/D4KzWlal7H6nNRYkzGw=
+		uHULxSy1NzA/MN/QUSWff7mayA0=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		QAE4YKMP/GCpbATWUy4QAu56/1U=
+		cR/RleUPAmQvmdawHtT7hDiW6Mw=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
-		WM43SepJdc7qx6O4FufxZDuz/Ik=
+		Q5kqPPvuuu3w2TpnvhC2Uy8m/4c=
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		cyY13YCYJODiNgzd1qlp89Tpvt0=
+		aUXCc/757DxEYv1AzGRZK3B98+0=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
 		re4p7E8rPLLsN+wzaPN/+AVpXTY=
-		</data>
-		<key>flutter_assets/assets/fonts/IBMPlexSansArabic-Bold.ttf</key>
-		<data>
-		ywTI196ocEm53hNSRUe7pjNtr8w=
-		</data>
-		<key>flutter_assets/assets/fonts/IBMPlexSansArabic-Regular.ttf</key>
-		<data>
-		H7uXcg+hSFOk4ssnZjjXkrDF8lE=
 		</data>
 		<key>flutter_assets/assets/fonts/arabic/IBMPlexSansArabic-Bold.ttf</key>
 		<data>
@@ -44,13 +36,13 @@
 		<data>
 		H7uXcg+hSFOk4ssnZjjXkrDF8lE=
 		</data>
-		<key>flutter_assets/assets/fonts/english/Lateef-Regular.ttf</key>
-		<data>
-		Yt8yRdDv/sisVfpK7U+J7SixdDg=
-		</data>
 		<key>flutter_assets/assets/fonts/english/LilitaOne-Regular.ttf</key>
 		<data>
 		Ok9Q7TVDoNMpHvFxru5UCAclWb0=
+		</data>
+		<key>flutter_assets/assets/fonts/english/Share-Regular.ttf</key>
+		<data>
+		CaRtBv1D7pU0bl/LGKXbhKxIVNA=
 		</data>
 		<key>flutter_assets/assets/icons/.DS_Store</key>
 		<data>
@@ -188,6 +180,10 @@
 		<data>
 		Mwo8k3/jZn4OO9FwBo297g+zej0=
 		</data>
+		<key>flutter_assets/assets/icons/setting-lines.png</key>
+		<data>
+		PkUQC+Q/SRz3km7W5NjtW6R4laI=
+		</data>
 		<key>flutter_assets/assets/icons/sneeze.png</key>
 		<data>
 		df55U4tQ9A3xeURnI1udyACRlaY=
@@ -310,7 +306,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		8pZk3bZukgfXmpt+0Jc6/AYtvrI=
+		VhqPiAN62oOKZwWhSiWCRN2exzs=
 		</data>
 		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
 		<data>
@@ -339,28 +335,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			f7we7zgyLOP9kDuyrT2lnWc4D133LUXFq9A8+uy5dhw=
+			ZxbK2TlKovZYs9QHfwe/ERvsxLRxDhbDW9jbU0EvWOk=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P6WzXlsC0aOk4lpkqfmw5VWzR2BIfYSyhekp6Nae6ew=
+			wDgDDzyq8AEqTLLnMKl9GKIHigrFyKFPJfGVTmIpnNo=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P51i5DXV9y5O2NnAsizD0OAyGKIWX0G8KBXII0t+Wzk=
+			4NGR1ya1RZJHgs6ddg3o0Vq3oBcUPIdzRR83BFZwXr4=
 			</data>
 		</dict>
 		<key>flutter_assets/NOTICES.Z</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bBjFzE0WMOZ++x3vuBFnp+nHdA6LPYSTUqd4yxvktQY=
+			vJAMOP0pdwcwtXWipKpadxbQQc375R4aq2uE03UwhbQ=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
@@ -368,20 +364,6 @@
 			<key>hash2</key>
 			<data>
 			lUijHkoEgTXB2U+Rkyi/tirix7s8q5ZVfHlB2ql3dss=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/fonts/IBMPlexSansArabic-Bold.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			hjoDjGr+lOxia8W/uUzjfyYZbB8dUCifT3yI4zmwqkE=
-			</data>
-		</dict>
-		<key>flutter_assets/assets/fonts/IBMPlexSansArabic-Regular.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ERikArXqvaNHxBbkk5G9wVaDar/ArKk66fH73fqyryg=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/fonts/arabic/IBMPlexSansArabic-Bold.ttf</key>
@@ -398,18 +380,18 @@
 			ERikArXqvaNHxBbkk5G9wVaDar/ArKk66fH73fqyryg=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/fonts/english/Lateef-Regular.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4xvkcxcRdddMUXC4YvuW4OZLSNKzO7cKHO5+Tw470Go=
-			</data>
-		</dict>
 		<key>flutter_assets/assets/fonts/english/LilitaOne-Regular.ttf</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			RETCNjGIT0Eap/L+41BhsXVqmSeUDGLSpVcqz0cLP/o=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/fonts/english/Share-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5Z+nM1779vq0lVrhTUAF734B/mAVeS47mhyKcfkhSBs=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/icons/analytic.png</key>
@@ -643,6 +625,13 @@
 			y3+Fo41DVh5JcO/dzXDHJ7Ft/e/wgDzGEHILuzZf4Oo=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icons/setting-lines.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			B7BtRJJi+CBLYaUroxCXZkjHeTy/XZvUeBLEEnwyyAc=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/icons/sneeze.png</key>
 		<dict>
 			<key>hash2</key>
@@ -857,7 +846,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			W0fbxRUvqn22dPgy+oX6fxtq5riT+0K1Zoqq5X33rcU=
+			CyEs55RMij4uEi9oxVg9ugHutPVqRRyK+QDa5t0jVWo=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>

@@ -68,8 +68,9 @@ class SignInFormState extends State<SignInForm> {
                 desc: loc.welcome_login_description,
               ),
               AppTextFormField(
+                keyboardType: TextInputType.emailAddress,
                 controller: emailController,
-                isEmailAndPassword: true,
+                isEmailAndPassword: false,
                 suffixIcon: const Icon(Iconsax.send_1),
                 hintText: loc.email,
                 validator: (value) {

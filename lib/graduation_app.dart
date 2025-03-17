@@ -10,11 +10,13 @@ import 'package:graduation/common/helper/lang_provider.dart';
 class GraduationApp extends StatelessWidget {
   final AppRouter appRouter;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
+  final GlobalKey<NavigatorState> navigatorKey; // أضف هذا
 
   const GraduationApp({
     super.key,
     required this.appRouter,
     this.scaffoldMessengerKey,
+    required this.navigatorKey,
   });
 
   @override
@@ -25,6 +27,7 @@ class GraduationApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MaterialApp(
+        navigatorKey: navigatorKey, // استخدم المفتاح هنا
         key: ValueKey(localeProvider.locale.languageCode),
         scaffoldMessengerKey: scaffoldMessengerKey,
         title: 'Mugheeth App',
