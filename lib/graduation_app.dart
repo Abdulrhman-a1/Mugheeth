@@ -5,7 +5,7 @@ import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/common/routing/routes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:graduation/common/helper/lang_provider.dart';
+import 'package:graduation/common/helper/controller/lang_provider.dart';
 
 class GraduationApp extends StatelessWidget {
   final AppRouter appRouter;

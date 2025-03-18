@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MedicalHistory extends StatefulWidget {
   const MedicalHistory({super.key, required this.controller});
@@ -36,24 +37,23 @@ class _MedicalHistoryState extends State<MedicalHistory> {
     return Container(
       child: Column(
         children: [
-          const SizedBox(height: 30),
           Expanded(
             child: Stack(
               clipBehavior: Clip.none,
               children: [
-                // Positioned(
-                //   top: 820 - (_offset * 250),
-                //   left: -220 + (_offset * 100),
-                //   child: Transform.translate(
-                //     offset: Offset(1, 1),
-                //     child: Image.asset(
-                //       'assets/images/waves.png',
-                //       height: 60,
-                //     ),
-                //   ),
-                // ),
+                Positioned(
+                  top: 820 - (_offset * 250),
+                  left: -220 + (_offset * 100),
+                  child: Transform.translate(
+                    offset: Offset(1, 1),
+                    child: Image.asset(
+                      'assets/images/waves.png',
+                      height: 60,
+                    ),
+                  ),
+                ),
                 Transform.translate(
-                  offset: Offset(5, 0),
+                  offset: Offset(0, 0),
                   child: SizedBox(
                     height: (_offset * 200),
                     child: Image.asset(
@@ -63,10 +63,10 @@ class _MedicalHistoryState extends State<MedicalHistory> {
                 ),
                 Positioned(
                   top: 760 - (_offset * 250),
-                  left: -175 + (_offset * 100),
+                  right: -185 + (_offset * 100),
                   child: Image.asset(
                     'assets/images/historyrecord.png',
-                    height: 100,
+                    height: 100.h,
                   ),
                 ),
               ],

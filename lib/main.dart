@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation/common/helper/lang_provider.dart';
+import 'package:graduation/common/helper/controller/lang_provider.dart';
 import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/data/auth/bloc/auth_bloc.dart';
-import 'package:graduation/common/helper/init_dependencies.dart';
+import 'package:graduation/common/helper/DI/init_dependencies.dart';
 import 'package:graduation/features/recording/logic/speech_to_text.dart';
 import 'package:graduation/graduation_app.dart';
 import 'package:provider/provider.dart';

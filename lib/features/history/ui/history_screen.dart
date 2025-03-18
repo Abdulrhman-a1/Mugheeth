@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/features/history/ui/widgets/empty_history.dart';
 import 'package:graduation/features/history/ui/widgets/history_card.dart';
-import 'package:graduation/common/helper/text.dart';
+import 'package:graduation/common/theme/text.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HistoryScreen extends StatefulWidget {

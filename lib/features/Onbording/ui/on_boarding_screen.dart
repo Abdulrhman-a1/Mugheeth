@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:graduation/common/helper/extensions.dart';
-import 'package:graduation/common/helper/lang_provider.dart';
+import 'package:graduation/common/routing/extensions.dart';
+import 'package:graduation/common/helper/controller/lang_provider.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:graduation/common/widget/layout/screen.dart';
@@ -133,7 +133,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   containerBg: Colors.white,
                   textColor: AppColors.mainAppColor,
                   footerBgColor: Colors.white,
-                  topHeightForFooter: 400,
+                  topHeightForFooter: 380.h,
                   footerRadius: 30,
                   nextText: '',
                   skipText: '',
