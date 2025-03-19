@@ -67,6 +67,28 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     });
 
+    // Handling reset password event
+    on<AuthConfirmResetPassword>((event, emit) async {
+  emit(AuthLoading());
+  try {
+    await authService.updateUserPassword(event.oobCode, event.newPassword);
+    emit(AuthSuccess());
+  } catch (e) {
+    emit(AuthFailure(message: "فشل في إعادة تعيين كلمة المرور"));
+  }
+});
+
+    // Handling reset password event
+    on<AuthResetPassword>((event, emit) async {
+      emit(AuthLoading());
+      try {
+        await authService.resetPassword(event.email);
+        emit(AuthResendSuccess());
+      } catch (e) {
+        emit(AuthFailure(message: "Failed to send reset email."));
+      }
+    });
+
     // Handling get current user event
     on<GetCurrentUser>((event, emit) async {
       emit(AuthLoading());

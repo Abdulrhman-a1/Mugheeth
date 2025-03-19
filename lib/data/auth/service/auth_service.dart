@@ -48,6 +48,19 @@ class AuthService {
     }
   }
 
+// Confirm password reset
+  Future<void> updateUserPassword(String oobCode, String newPassword) async {
+    try {
+      await _supabase.auth.updateUser(
+        UserAttributes(password: newPassword),
+      );
+      print('تم تحديث كلمة المرور بنجاح');
+    } catch (e) {
+      print('خطأ أثناء إعادة تعيين كلمة المرور: $e');
+      throw Exception('فشل في إعادة تعيين كلمة المرور');
+    }
+  }
+
   // get user id
   String? getCurrentUserId() {
     final session = Supabase.instance.client.auth.currentSession;

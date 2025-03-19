@@ -8,14 +8,11 @@ class LocaleProvider extends ChangeNotifier {
   void setLocale(Locale locale) {
     if (_locale == locale) return;
     _locale = locale;
-    notifyListeners();
+    notifyListeners(); // ✅ هذا ضروري لضمان إعادة بناء التطبيق
   }
 
   void toggleLocale() {
-    if (_locale.languageCode == 'ar') {
-      setLocale(const Locale('en'));
-    } else {
-      setLocale(const Locale('ar'));
-    }
+    setLocale(
+        _locale.languageCode == 'ar' ? const Locale('en') : const Locale('ar'));
   }
 }
