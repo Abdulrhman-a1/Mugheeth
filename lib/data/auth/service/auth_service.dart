@@ -37,17 +37,6 @@ class AuthService {
     }
   }
 
-  // Reset password
-  Future<void> resetPassword(String email) async {
-    try {
-      await _supabase.auth.resetPasswordForEmail(email);
-      print('Password reset email sent successfully to $email.');
-    } catch (e) {
-      print('Failed to send password reset email: $e');
-      throw Exception('Failed to send password reset email.');
-    }
-  }
-
 // Confirm password reset
   Future<void> updateUserPassword(String oobCode, String newPassword) async {
     try {

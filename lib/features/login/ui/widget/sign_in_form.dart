@@ -7,7 +7,6 @@ import 'package:graduation/common/widget/fields/app_textfield.dart';
 import 'package:graduation/common/widget/loader/progress.dart';
 import 'package:graduation/data/auth/bloc/auth_event.dart';
 import 'package:graduation/data/auth/bloc/auth_state.dart';
-import 'package:graduation/features/login/ui/widget/forgot_pass.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../common/widget/pop_up/error_popup.dart';
@@ -94,7 +93,6 @@ class SignInFormState extends State<SignInForm> {
                   return null;
                 },
               ),
-              const ForgotPassButton(),
               SizedBox(height: 10.h),
               AppButton(
                 press: () {

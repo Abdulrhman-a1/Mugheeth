@@ -49,10 +49,3 @@ class AuthResetPassword extends AuthEvent {
   @override
   List<Object?> get props => [email];
 }
-
-class AuthConfirmResetPassword extends AuthEvent {
-  final String oobCode;
-  final String newPassword;
-
-  AuthConfirmResetPassword({required this.oobCode, required this.newPassword});
-}

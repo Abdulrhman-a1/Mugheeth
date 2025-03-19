@@ -16,7 +16,7 @@ class AuthSuccess extends AuthState {}
 
 //نجاح اعادة الارسال
 
-class AuthResendSuccess extends AuthState {}
+
 // عند فشل العملية مع رسالة الخطأ
 class AuthFailure extends AuthState {
   final String message;
