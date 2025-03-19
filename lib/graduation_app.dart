@@ -27,7 +27,6 @@ class GraduationApp extends StatelessWidget {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       child: MaterialApp(
-        navigatorKey: navigatorKey, // استخدم المفتاح هنا
         key: ValueKey(localeProvider.locale.languageCode),
         scaffoldMessengerKey: scaffoldMessengerKey,
         title: 'Mugheeth App',
