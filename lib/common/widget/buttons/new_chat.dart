@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation/common/helper/extensions.dart';
+import 'package:graduation/common/routing/extensions.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:iconsax/iconsax.dart';

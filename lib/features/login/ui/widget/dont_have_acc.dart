@@ -36,7 +36,9 @@ void showSignUpBottomSheet(BuildContext context) {
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (context) {
-      return const AnimatedBottomSheet(child: SignUpScreen());
+      return const AnimatedBottomSheet(
+        child: SignUpScreen(),
+      );
     },
   );
 }

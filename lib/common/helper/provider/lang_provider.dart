@@ -8,7 +8,7 @@ class LocaleProvider extends ChangeNotifier {
   void setLocale(Locale locale) {
     if (_locale == locale) return;
     _locale = locale;
-    notifyListeners(); // ✅ هذا ضروري لضمان إعادة بناء التطبيق
+    notifyListeners();
   }
 
   void toggleLocale() {
