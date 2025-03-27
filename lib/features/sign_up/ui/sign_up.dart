@@ -18,7 +18,7 @@ class SignUpScreen extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.85,
+      height: MediaQuery.of(context).size.height * 0.9,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -46,14 +46,12 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     );
                   } else if (state is AuthFailure) {
-                    // إغلاق اللودر إذا كان مفتوحًا
                     if (Navigator.canPop(context)) {
                       Navigator.of(context).pop();
                     }
                     showToastMessage(
                         context, state.message, "assets/icons/warning.png");
                   } else if (state is AuthSuccess) {
-                    // إغلاق جميع النوافذ المنبثقة والانتقال إلى الشاشة الرئيسية
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         '/chat', (Route<dynamic> route) => false);
                   }

@@ -25,17 +25,6 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          AnimatedItem(
-            index: 0,
-            child: SuggestionContainer(
-              title: loc.chest_pain_title,
-              description: loc.chest_pain_description,
-              img: 'assets/icons/chest-pain.png',
-              onTap: () {
-                widget.onSuggestionSelected(loc.chest_pain_description);
-              },
-            ),
-          ),
           const SizedBox(width: 10),
           AnimatedItem(
             index: 1,
@@ -60,15 +49,14 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               },
             ),
           ),
-          const SizedBox(width: 10),
           AnimatedItem(
-            index: 3,
+            index: 0,
             child: SuggestionContainer(
-              title: loc.eye_redness_title,
-              description: loc.eye_redness_description,
-              img: 'assets/icons/eye.png',
+              title: loc.chest_pain_title,
+              description: loc.chest_pain_description,
+              img: 'assets/icons/chest-pain1.png',
               onTap: () {
-                widget.onSuggestionSelected(loc.eye_redness_description);
+                widget.onSuggestionSelected(loc.chest_pain_description);
               },
             ),
           ),
@@ -81,6 +69,17 @@ class _ChatSuggestionsState extends State<ChatSuggestions> {
               img: 'assets/icons/cough.png',
               onTap: () {
                 widget.onSuggestionSelected(loc.persistent_cough_description);
+              },
+            ),
+          ),
+          AnimatedItem(
+            index: 3,
+            child: SuggestionContainer(
+              title: loc.eye_redness_title,
+              description: loc.eye_redness_description,
+              img: 'assets/icons/eye.png',
+              onTap: () {
+                widget.onSuggestionSelected(loc.eye_redness_description);
               },
             ),
           ),

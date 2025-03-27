@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasswordValidations extends StatelessWidget {
   final bool hasLowerCase;
@@ -19,17 +20,18 @@ class PasswordValidations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Column(
       children: [
-        buildValidationRow('على الاقل حرف واحد صغير', hasLowerCase),
+        buildValidationRow(loc.at_least_small, hasLowerCase),
         SizedBox(width: 2.w),
-        buildValidationRow('على الاقل حرف واحد كبير', hasUpperCase),
+        buildValidationRow(loc.at_least_big, hasUpperCase),
         SizedBox(width: 2.w),
-        buildValidationRow('على الاقل رمز واحد', hasSpecialCharacters),
+        buildValidationRow(loc.at_least_char, hasSpecialCharacters),
         SizedBox(width: 2.w),
-        buildValidationRow('على الاقل رقم واحد', hasNumber),
+        buildValidationRow(loc.at_least_num, hasNumber),
         SizedBox(width: 2.w),
-        buildValidationRow('يجب ان يكون اطول من ٨ ارقام', hasMinLength),
+        buildValidationRow(loc.at_least_eight, hasMinLength),
       ],
     );
   }

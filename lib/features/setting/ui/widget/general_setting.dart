@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation/common/helper/lang_provider.dart';
+import 'package:graduation/common/helper/provider/lang_provider.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

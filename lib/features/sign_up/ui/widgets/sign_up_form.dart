@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation/common/helper/regix.dart';
+import 'package:graduation/features/sign_up/ui/widgets/regix.dart';
 import 'package:graduation/common/widget/buttons/app_button.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/fields/app_textfield.dart';
@@ -269,6 +269,7 @@ class SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
+          SizedBox(height: 30.h),
         ],
       ),
     );
