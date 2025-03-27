@@ -1,7 +1,7 @@
 name: graduation
 description: "A new Flutter project."
 publish_to: "none"
-version: 0.1.0
+version: 0.2.0
 
 environment:
   sdk: ^3.5.4
@@ -35,6 +35,8 @@ dependencies:
   #upper dialog.
   fluttertoast: ^8.2.12
 
+  shorebird_code_push: ^2.0.3
+
 
   
 
@@ -43,6 +45,7 @@ dependencies:
   provider: ^6.1.2
   supabase_flutter: ^2.8.3
   fpdart: ^1.1.1
+  app_links: ^3.1.0
   flutter_bloc: ^9.0.0
   get_it: ^8.0.3
   intl: ^0.19.0
@@ -50,7 +53,6 @@ dependencies:
   build_runner: ^2.4.15
   flutter_spinkit: ^5.2.1
   equatable: ^2.0.7
-  uni_links: ^0.5.1
 
 
 dev_dependencies:
@@ -72,6 +74,7 @@ flutter:
     - assets/svg/
     - assets/icons/
     - assets/lottie/
+    - shorebird.yaml
 
   fonts:
     #Arabic font when needed.
