@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/routing/routes.dart';
 import 'package:graduation/common/widget/drawer/app_siderbar.dart';
-import 'package:graduation/common/helper/extensions.dart';
+import 'package:graduation/common/routing/extensions.dart';
 import 'package:graduation/common/widget/buttons/new_chat.dart';
 import 'package:graduation/common/widget/custom_shape/faq_list.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';

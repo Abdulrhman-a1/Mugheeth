@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:iconsax/iconsax.dart';
 
 class DatePickerField extends StatefulWidget {
@@ -23,14 +24,16 @@ class DatePickerField extends StatefulWidget {
 
 class DatePickerFieldState extends State<DatePickerField> {
   Future<void> _selectDate() async {
+    final loc = AppLocalizations.of(context)!;
+
     DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: DateTime(2000),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
-      helpText: "اختر التاريخ",
-      cancelText: "إلغاء",
-      confirmText: "تأكيد",
+      helpText: loc.birth_date,
+      cancelText: loc.cancel,
+      confirmText: loc.sure,
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(

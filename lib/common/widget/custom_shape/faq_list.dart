@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation/common/helper/text.dart';
+import 'package:graduation/common/theme/text.dart';
 import 'package:graduation/common/widget/animation/slider_animation.dart';
 import 'package:graduation/common/widget/custom_shape/faq_conatiner.dart';
 

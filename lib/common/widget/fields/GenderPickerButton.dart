@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/theme/colors.dart';
 import 'package:graduation/common/theme/text_style.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GenderPickerField extends StatefulWidget {
   final TextEditingController controller;
@@ -23,24 +24,26 @@ class GenderPickerField extends StatefulWidget {
 
 class GenderPickerFieldState extends State<GenderPickerField> {
   void _showGenderPicker() {
+    final loc = AppLocalizations.of(context)!;
+
     if (Theme.of(context).platform == TargetPlatform.iOS) {
       showCupertinoModalPopup(
         context: context,
         builder: (BuildContext context) => CupertinoActionSheet(
-          title: const Text("اختر الجنس"),
+          title: Text(loc.gender),
           actions: [
             CupertinoActionSheetAction(
-              onPressed: () => _selectGender("ذكر"),
-              child: const Text("ذكر"),
+              onPressed: () => _selectGender(loc.boy),
+              child: Text(loc.boy),
             ),
             CupertinoActionSheetAction(
-              onPressed: () => _selectGender("أنثى"),
-              child: const Text("أنثى"),
+              onPressed: () => _selectGender(loc.girl),
+              child: Text(loc.girl),
             ),
           ],
           cancelButton: CupertinoActionSheetAction(
             onPressed: () => Navigator.pop(context),
-            child: const Text("إلغاء", style: TextStyle(color: Colors.red)),
+            child: Text(loc.cancel, style: TextStyle(color: Colors.red)),
           ),
         ),
       );
@@ -58,7 +61,7 @@ class GenderPickerFieldState extends State<GenderPickerField> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "اختر الجنس",
+                  loc.gender,
                   style: TextStyles.hintTextLogin.copyWith(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
@@ -66,14 +69,14 @@ class GenderPickerFieldState extends State<GenderPickerField> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                _buildGenderOption("ذكر"),
+                _buildGenderOption(loc.boy),
                 const SizedBox(height: 10),
-                _buildGenderOption("أنثى"),
+                _buildGenderOption(loc.girl),
                 const SizedBox(height: 10),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Text(
-                    "إلغاء",
+                    loc.cancel,
                     style: TextStyles.hintTextLogin.copyWith(
                       fontSize: 16.sp,
                       color: Colors.red,

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:graduation/common/routing/app_router.dart';
 import 'package:graduation/common/routing/routes.dart';
+import 'package:provider/provider.dart';
+import 'package:graduation/common/helper/provider/lang_provider.dart';
 
 class GraduationApp extends StatefulWidget {
   final AppRouter appRouter;
@@ -19,37 +22,46 @@ class GraduationApp extends StatefulWidget {
 }
 
 class _GraduationAppState extends State<GraduationApp> {
-  void intiState() {
+  @override
+  void initState() {
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(390, 844),
-      minTextAdapt: true,
-      child: MaterialApp(
-        scaffoldMessengerKey: widget.scaffoldMessengerKey,
-        title: 'Mugheeth App',
-        theme: ThemeData(
-          primaryColor: Colors.white,
-          scaffoldBackgroundColor: Colors.white,
-          fontFamily: 'IBMPlexSansArabic',
-        ),
-        locale: const Locale('ar'),
-        supportedLocales: const [
-          Locale('ar', ''),
-          Locale('en', ''),
-        ],
-        localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        onGenerateRoute: widget.appRouter.generateRoute,
-        initialRoute: Routes.onBoarding,
-        debugShowCheckedModeBanner: false,
-      ),
+    return Consumer<LocaleProvider>(
+      builder: (context, localeProvider, child) {
+        return ScreenUtilInit(
+          designSize: const Size(390, 844),
+          minTextAdapt: true,
+          child: MaterialApp(
+            key: ValueKey(localeProvider.locale.languageCode),
+            scaffoldMessengerKey: widget.scaffoldMessengerKey,
+            title: 'Mugheeth App',
+            theme: ThemeData(
+              primaryColor: Colors.white,
+              scaffoldBackgroundColor: Colors.white,
+              fontFamily: localeProvider.locale.languageCode == 'ar'
+                  ? 'IBMPlexSansArabic'
+                  : 'Share',
+            ),
+            locale: localeProvider.locale,
+            supportedLocales: const [
+              Locale('ar', ''),
+              Locale('en', ''),
+            ],
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            onGenerateRoute: widget.appRouter.generateRoute,
+            initialRoute: Routes.onBoarding,
+            debugShowCheckedModeBanner: false,
+          ),
+        );
+      },
     );
   }
 }
