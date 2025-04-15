@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/routing/routes.dart';
 import 'package:graduation/common/widget/drawer/app_siderbar.dart';
 import 'package:graduation/common/routing/extensions.dart';
-import 'package:graduation/common/widget/buttons/new_chat.dart';
+// import 'package:graduation/common/widget/buttons/new_chat.dart';
 import 'package:graduation/common/widget/custom_shape/faq_list.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
@@ -154,11 +154,11 @@ class SideBar extends StatelessWidget {
             ),
             Column(
               children: [
-                NewChatButton(
-                  onNewChat: () {
-                    onClearMessages();
-                  },
-                ),
+                // NewChatButton(
+                //   onNewChat: () {
+                //     onClearMessages();
+                //   },
+                // ),
                 SizedBox(height: 16.h),
                 const Divider(color: Colors.grey, thickness: 0.2),
                 SizedBox(height: 16.h),

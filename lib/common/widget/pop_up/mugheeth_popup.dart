@@ -62,16 +62,13 @@ class MugheethPopup extends StatelessWidget {
                           : Alignment.topRight,
                       child: const FloatingPointWidget(),
                     ),
-                    Hero(
-                      tag: 'WhoMugheeth',
-                      child: Align(
-                        alignment: loc.localeName == 'ar'
-                            ? Alignment.topRight
-                            : Alignment.topLeft,
-                        child: Text(
-                          loc.mugheethfeatures,
-                          style: TextStyles.mugheethServices,
-                        ),
+                    Align(
+                      alignment: loc.localeName == 'ar'
+                          ? Alignment.topRight
+                          : Alignment.topLeft,
+                      child: Text(
+                        loc.mugheethfeatures,
+                        style: TextStyles.mugheethServices,
                       ),
                     ),
                     SizedBox(height: 20.0.h),

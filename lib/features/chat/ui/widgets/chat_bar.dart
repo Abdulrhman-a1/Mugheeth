@@ -107,7 +107,8 @@ class _ChatBarState extends State<ChatBar> {
               },
             ),
           ],
-          backgroundColor: Colors.transparent,
+          backgroundColor: AppColors.chatScreenGrey,
+          scrolledUnderElevation: 0,
           elevation: 0,
         ),
         Padding(

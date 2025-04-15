@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:graduation/common/theme/colors.dart';
 
 List<Map<String, String>> getLocalizedFaqItems(BuildContext context) {
   final loc = AppLocalizations.of(context)!;
@@ -69,59 +70,28 @@ List<Map<String, String>> getLocalizedFaqItems(BuildContext context) {
   return faqItems;
 }
 
-final List<Map<String, String>> medicalHistoryData = [
-  {
-    'date': '١٢ أكتوبر ٢٠٢٥',
-    'category': 'Level1',
-    'status':
-        'أعاني من ألم حاد في الصدر مع ضيق شديد في التنفس وسعال مستمر مصحوب بالبلغم.',
-    'diagnosis': 'التهاب رئوي حاد',
-    'recommendation': 'دخول المستشفى والعلاج بالمضادات الحيوية عبر الوريد',
-    'details':
-        'المريض يعاني من ضيق حاد في التنفس وألم في الصدر يزداد مع التنفس العميق، مصحوب بسعال مستمر مع بلغم أصفر مخضر. التشخيص يشير إلى التهاب رئوي حاد، مع احتمالية وجود عدوى بكتيرية تستدعي العلاج الفوري بالمضادات الحيوية عبر الوريد داخل المستشفى.'
-  },
-  {
-    'date': '٢٧ أكتوبر ٢٠٢٥',
-    'category': 'Level2',
-    'status': 'أشعر بألم في الصدر عند التنفس العميق وسعال جاف متكرر منذ يومين.',
-    'diagnosis': 'التهاب رئوي متوسط',
-    'recommendation': 'الراحة في المنزل مع تناول مضادات حيوية وشرب السوائل',
-    'details':
-        'المريض يعاني من أعراض التهاب رئوي متوسطة، تشمل ألمًا في الصدر عند التنفس العميق، وسعالًا جافًا متكررًا، وارتفاعًا طفيفًا في درجة الحرارة. الفحص السريري والأشعة يشيران إلى التهال رئوي غير معقد، يمكن علاجه بالمضادات الحيوية عن طريق الفم مع الراحة في المنزل وشرب السوائل بكثرة.'
-  },
-];
+Color getLevelColor(String levelText) {
+  final RegExp digitExtractor = RegExp(r'\d');
+  final match = digitExtractor.firstMatch(levelText);
+  final levelNumber = match != null ? int.tryParse(match.group(0)!) ?? 0 : 0;
 
-getCategoryStyle(String category) {
-  switch (category) {
-    case 'Level1':
-      return {
-        'color': Colors.red[400]!,
-        'text': 'التصنيف: حالة حرجة جدًا',
-      };
-    case 'Level2':
-      return {
-        'color': Colors.red[400]!,
-        'text': 'التصنيف:  طارئة',
-      };
-    case 'Level3':
-      return {
-        'color': Colors.red[400]!,
-        'text': 'التصنيف:  حالة عاجلة',
-      };
-    case 'Level4':
-      return {
-        'color': Colors.green[400]!,
-        'text': 'التصنيف: مستوى غير عاجل',
-      };
-    case 'Level5':
-      return {
-        'color': Colors.green[300]!,
-        'text': 'التصنيف:  غير خطيرة',
-      };
+  switch (levelNumber) {
+    case 1:
+      return Colors.red.shade400;
+    case 2:
+      return Colors.red.shade300;
+    case 3:
+      return Colors.red.shade300;
+    case 4:
+      return Colors.blue;
+    case 5:
+      return Colors.green;
     default:
-      return {
-        'color': Colors.grey[400]!,
-        'text': 'التصنيف: غير محدد',
-      };
+      return AppColors.mainAppColor;
   }
+}
+
+bool isArabicText(String text) {
+  final arabicRegex = RegExp(r'[\u0600-\u06FF]');
+  return arabicRegex.hasMatch(text);
 }

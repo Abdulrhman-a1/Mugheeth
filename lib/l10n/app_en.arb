@@ -1,10 +1,13 @@
 {
   "@@locale": "en",
   "welcome_title": "Welcome to Mugheeth!",
+  "signIntohaveAchat": "Triage complete. Please sign in.",
+  "pleaselogin": "Get well soon! login to continue",
   "welcome_description": "Mugheeth guides you to the right medical care at the moment you need it.",
   "chat_section_title": "Don't wait.. Know your condition",
   "chat_section_description": "Your healthcare starts with a conversation, Mugheeth helps you understand your health status.",
   "medical_history_title": "Get your medical history",
+  "loginUserCanHaveMore": "Start a new chat",
   "medical_history_description": "Mugheeth helps you understand your health status before visiting the hospital.",
   "next": "Next",
   "skip": "Skip",

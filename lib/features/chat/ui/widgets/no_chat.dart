@@ -45,8 +45,7 @@ class NoChatState extends State<NoChat> {
           ),
         ),
         ChatSuggestions(
-          onSuggestionSelected:
-              widget.onSuggestionSelected, // Pass the callback
+          onSuggestionSelected: widget.onSuggestionSelected,
         ),
       ],
     );

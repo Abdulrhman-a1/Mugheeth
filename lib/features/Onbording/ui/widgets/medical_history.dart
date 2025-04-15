@@ -40,16 +40,13 @@ class _MedicalHistoryState extends State<MedicalHistory> {
           Expanded(
             child: Stack(
               clipBehavior: Clip.none,
+              alignment: Alignment.topCenter,
               children: [
                 Positioned(
                   top: 820 - (_offset * 250),
-                  left: -220 + (_offset * 100),
-                  child: Transform.translate(
-                    offset: Offset(1, 1),
-                    child: Image.asset(
-                      'assets/images/waves.png',
-                      height: 60,
-                    ),
+                  child: Image.asset(
+                    'assets/images/waves.png',
+                    height: 60,
                   ),
                 ),
                 Transform.translate(
@@ -63,6 +60,8 @@ class _MedicalHistoryState extends State<MedicalHistory> {
                 ),
                 Positioned(
                   top: 760 - (_offset * 250),
+                  left: 0,
+                  right: 0,
                   child: Center(
                     child: Image.asset(
                       'assets/images/historyrecord.png',

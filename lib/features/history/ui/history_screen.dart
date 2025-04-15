@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/features/history/ui/widgets/empty_history.dart';
-import 'package:graduation/features/history/ui/widgets/history_card.dart';
-import 'package:graduation/common/theme/text.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -18,7 +17,7 @@ class HistoryScreenState extends State<HistoryScreen>
   bool isEmpty = true; // This will be removed when you have users with data.
 
   late AnimationController _fadeController;
-  late Animation<double> _fadeAnimation;
+  // late Animation<double> _fadeAnimation;
 
   @override
   void initState() {
@@ -29,10 +28,10 @@ class HistoryScreenState extends State<HistoryScreen>
       vsync: this,
     );
 
-    _fadeAnimation = CurvedAnimation(
-      parent: _fadeController,
-      curve: Curves.easeInOut,
-    );
+    // _fadeAnimation = CurvedAnimation(
+    //   parent: _fadeController,
+    //   curve: Curves.easeInOut,
+    // );
 
     _fadeController.forward();
   }
@@ -56,17 +55,7 @@ class HistoryScreenState extends State<HistoryScreen>
           onPressed: () {},
         ),
         SizedBox(height: 20.h),
-        isEmpty
-            ? const EmptyHistory()
-            : FadeTransition(
-                opacity: _fadeAnimation,
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  child: MedicalHistoryCards(
-                    medicalHistoryData: medicalHistoryData,
-                  ),
-                ),
-              ),
+        isEmpty ? const EmptyHistory() : EmptyHistory(),
         SizedBox(height: 20.h),
       ],
     );

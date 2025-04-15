@@ -6,8 +6,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChatInputField extends StatefulWidget {
   final Function(String) onSend;
+  final bool enabled;
+  final String? hintText;
 
-  const ChatInputField({super.key, required this.onSend});
+  const ChatInputField({
+    super.key,
+    required this.onSend,
+    this.enabled = true,
+    this.hintText,
+  });
 
   @override
   State<ChatInputField> createState() => _ChatInputFieldState();
@@ -17,9 +24,28 @@ class _ChatInputFieldState extends State<ChatInputField> {
   final TextEditingController _controller = TextEditingController();
 
   void sendUserMessage() {
-    if (_controller.text.isNotEmpty) {
+    if (_controller.text.isNotEmpty && widget.enabled) {
       widget.onSend(_controller.text);
       _controller.clear();
+    }
+  }
+
+  Future<void> handleVoiceRecording() async {
+    if (widget.enabled) {
+      final recognizedText = await showRecordingScreen(context);
+      if (recognizedText != null && recognizedText.isNotEmpty) {
+        setState(() {
+          if (_controller.text.isNotEmpty) {
+            _controller.text += ' $recognizedText';
+          } else {
+            _controller.text = recognizedText;
+          }
+
+          _controller.selection = TextSelection.fromPosition(
+            TextPosition(offset: _controller.text.length),
+          );
+        });
+      }
     }
   }
 
@@ -31,7 +57,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
       margin: EdgeInsets.fromLTRB(10, 10, 10, 40),
       padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 10.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: widget.enabled ? Colors.white : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
@@ -47,45 +73,53 @@ class _ChatInputFieldState extends State<ChatInputField> {
             child: TextField(
               controller: _controller,
               maxLines: null,
+              enabled: widget.enabled,
               decoration: InputDecoration(
-                hintText: loc.hint,
+                hintText: widget.hintText ?? loc.hint,
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(horizontal: 12),
               ),
               textInputAction: TextInputAction.send,
               onSubmitted: (text) {
-                sendUserMessage();
+                if (widget.enabled) {
+                  sendUserMessage();
+                }
               },
             ),
           ),
           const SizedBox(width: 8),
-          IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: Hero(
-              tag: 'microphoneHero',
-              child: Image.asset(
-                'assets/icons/microphone.png',
-                width: 24.sp,
-                height: 24.sp,
+          Opacity(
+            opacity: widget.enabled ? 1.0 : 0.5,
+            child: IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              icon: Hero(
+                tag: 'microphoneHero',
+                child: Image.asset(
+                  'assets/icons/microphone.png',
+                  width: 24.sp,
+                  height: 24.sp,
+                ),
               ),
+              onPressed: widget.enabled ? handleVoiceRecording : null,
             ),
-            onPressed: () {
-              showRecordingScreen(context);
-            },
           ),
-          IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: Transform.rotate(
-              angle: loc.localeName == 'ar' ? 0 : 180 * 3.14 / 180,
-              child: SvgPicture.asset(
-                'assets/icons/send.svg',
-                width: 24.sp,
-                height: 24.sp,
+          Opacity(
+            opacity: widget.enabled ? 1.0 : 0.5,
+            child: IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              icon: Transform.rotate(
+                angle: loc.localeName == 'ar' ? 0 : 180 * 3.14 / 180,
+                child: SvgPicture.asset(
+                  'assets/icons/send.svg',
+                  width: 24.sp,
+                  height: 24.sp,
+                  color: widget.enabled ? null : Colors.grey.shade400,
+                ),
               ),
+              onPressed: widget.enabled ? sendUserMessage : null,
             ),
-            onPressed: sendUserMessage,
           ),
         ],
       ),
