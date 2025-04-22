@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 import 'package:graduation/common/theme/triage_regex.dart';
 import 'package:graduation/data/chat/service/chat_service.dart';
 
@@ -31,8 +32,18 @@ class Chatmessages {
     _connect.resetConversation();
   }
 
+  void clearAllMessages() {
+    messages.clear();
+    _connect.resetConversation();
+  }
+
   Future<MessageResponse> sendMessage(String message) async {
     final response = await _connect.trigger(text: message);
+
+    final assistantMessagesCount =
+        _messages.where((m) => m['role'] == 'assistant').length;
+    final delay = assistantMessagesCount == 0 ? 15 : 8;
+    await Future.delayed(Duration(seconds: delay));
 
     if (_isJson(response)) {
       return _handleJsonResponse(response);

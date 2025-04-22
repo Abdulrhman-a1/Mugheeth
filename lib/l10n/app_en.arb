@@ -19,6 +19,7 @@
   "history" : "medical history",
   "feedback" : "feedback",
   "faq" : "FAQ",
+  "loading_thinking" : "Searching in ChromaDB",
   "enter_new_password": "Enter your new password",
 "reset_password": "Reset Password",
     "sending_reset_email": "Sending password reset email...",

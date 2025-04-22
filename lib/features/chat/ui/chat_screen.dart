@@ -107,7 +107,10 @@ class ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Screen(
       backgroundColor: AppColors.chatScreenGrey,
-      onClearMessages: chatService.clearMessages,
+      onClearMessages: () {
+        chatService.clearMessages();
+        setState(() {});
+      },
       child: ChatBody(
         chatService: chatService,
         authService: authService,
