@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/common/routing/routes.dart';
+import 'package:graduation/common/widget/buttons/new_chat.dart';
 import 'package:graduation/common/widget/drawer/app_siderbar.dart';
 import 'package:graduation/common/routing/extensions.dart';
-import 'package:graduation/common/widget/buttons/new_chat.dart';
 import 'package:graduation/common/widget/custom_shape/faq_list.dart';
 import 'package:graduation/common/widget/custom_shape/text_and_icon.dart';
 import 'package:graduation/common/widget/pop_up/drawer_item_bottom_sheet.dart';
@@ -59,7 +59,6 @@ class SideBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
-
     return Drawer(
       backgroundColor: Colors.white,
       child: Padding(
@@ -157,6 +156,7 @@ class SideBar extends StatelessWidget {
                 NewChatButton(
                   onNewChat: () {
                     onClearMessages();
+                    context.pop();
                   },
                 ),
                 SizedBox(height: 16.h),

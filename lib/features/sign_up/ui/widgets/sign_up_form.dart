@@ -9,6 +9,7 @@ import 'package:graduation/data/auth/bloc/auth_event.dart';
 import 'package:graduation/features/sign_up/ui/widgets/pass_validator.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import '../../../../common/widget/fields/DatePickerField.dart';
 import '../../../../common/widget/fields/GenderPickerButton.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -53,13 +54,11 @@ class SignUpFormState extends State<SignUpForm> {
     super.initState();
     passwordController.addListener(_validatePassword);
     confirmPasswordController.addListener(_validatePassword);
-
     passwordFocusNode.addListener(() {
       setState(() {
         isPasswordFocused = passwordFocusNode.hasFocus;
       });
     });
-
     confirmPasswordFocusNode.addListener(() {
       setState(() {
         isConfirmPasswordFocused = confirmPasswordFocusNode.hasFocus;
@@ -76,6 +75,24 @@ class SignUpFormState extends State<SignUpForm> {
           AppRegex.hasSpecialCharacter(passwordController.text);
       hasMinLength = AppRegex.hasMinLength(passwordController.text);
     });
+  }
+
+  String normalizeGender(String value) {
+    final normalized =
+        value.toLowerCase().replaceAll(RegExp(r'\s+'), '').trim();
+    if (normalized.contains('male') || normalized.contains('ذكر')) return 'ذكر';
+    if (normalized.contains('female') || normalized.contains('أنثى'))
+      return 'أنثى';
+    return '';
+  }
+
+  String formatDate(String inputDate) {
+    try {
+      final parsed = DateFormat.yMd().parse(inputDate);
+      return DateFormat('yyyy-MM-dd').format(parsed);
+    } catch (_) {
+      return inputDate;
+    }
   }
 
   @override
@@ -238,16 +255,27 @@ class SignUpFormState extends State<SignUpForm> {
               setState(() {
                 fieldErrors.clear();
               });
-
               if (_formKey.currentState!.validate()) {
+                final email = emailController.text.trim();
+                final password = passwordController.text.trim();
+                final firstName = firstNameController.text.trim();
+                final lastName = lastNameController.text.trim();
+                final birthDate = birthDateController.text.trim();
+                final gender = normalizeGender(genderController.text.trim());
+                final name = '$firstName $lastName';
+                print("📤 Sending sign-up:");
+                print("email: $email");
+                print("password: $password");
+                print("name: $name");
+                print("birthDate: $birthDate");
+                print("gender: $gender");
                 context.read<AuthBloc>().add(
                       AuthSignUp(
-                        email: emailController.text,
-                        password: passwordController.text,
-                        name:
-                            '${firstNameController.text} ${lastNameController.text}',
-                        Bdata: birthDateController.text,
-                        gender: genderController.text,
+                        email: email,
+                        password: password,
+                        name: name,
+                        Bdata: formatDate(birthDate),
+                        gender: gender,
                       ),
                     );
               }
@@ -264,8 +292,6 @@ class SignUpFormState extends State<SignUpForm> {
               const url = 'https://waelalessa21.github.io/GP_website/';
               if (await canLaunch(url)) {
                 await launch(url);
-              } else {
-                throw 'Could not launch $url';
               }
             },
           ),

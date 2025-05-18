@@ -7,12 +7,15 @@ import 'package:graduation/data/auth/bloc/auth_bloc.dart';
 import 'package:graduation/features/recording/logic/speech_to_text.dart';
 import 'package:graduation/graduation_app.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
 final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
     GlobalKey<ScaffoldMessengerState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   await initDependencies();
 
   runApp(

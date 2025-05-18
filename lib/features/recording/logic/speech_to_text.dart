@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
-///This class is responsible for speech to text conversion.
 class SpeechController extends ChangeNotifier {
   final SpeechToText _speech = SpeechToText();
   String _recognizedText = '';
   bool _isListening = false;
+  BuildContext? context;
 
   String get recognizedText => _recognizedText;
   bool get isListening => _isListening;
+
+  void setContext(BuildContext context) {
+    context = context;
+  }
 
   Future<void> initializeSpeech() async {
     await _speech.initialize(
@@ -20,8 +24,9 @@ class SpeechController extends ChangeNotifier {
   }
 
   void startListening() {
+    _recognizedText = '';
     _speech.listen(
-      localeId: 'ar-SA',
+      localeId: 'en-US',
       listenMode: ListenMode.dictation,
       onResult: _onSpeechResult,
     );
@@ -41,6 +46,17 @@ class SpeechController extends ChangeNotifier {
     } else {
       startListening();
     }
+  }
+
+  void clearRecognizedText() {
+    _recognizedText = '';
+    notifyListeners();
+  }
+
+  String getAndClearText() {
+    String text = _recognizedText.trim();
+    clearRecognizedText();
+    return text;
   }
 
   void _onSpeechResult(SpeechRecognitionResult result) {
