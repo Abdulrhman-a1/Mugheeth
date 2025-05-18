@@ -40,11 +40,6 @@ class Chatmessages {
   Future<MessageResponse> sendMessage(String message) async {
     final response = await _connect.trigger(text: message);
 
-    final assistantMessagesCount =
-        _messages.where((m) => m['role'] == 'assistant').length;
-    final delay = assistantMessagesCount == 0 ? 15 : 8;
-    await Future.delayed(Duration(seconds: delay));
-
     if (_isJson(response)) {
       return _handleJsonResponse(response);
     } else {
